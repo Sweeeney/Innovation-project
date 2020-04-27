@@ -1,8 +1,9 @@
-module.exports = {
+export default {
   "transpileDependencies": [
     "vuetify"
   ]
 
   //BRAVO ! Tu as trouvé ! 
   //GENIAL, c'est super ! 
+  //ICI !!!
 }
