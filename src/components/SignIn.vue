@@ -68,61 +68,9 @@ export default {
           this.$router.replace({ name: "master" });
         })
         .catch(err => {
-          this.success = "";
           this.error = err.message;
         });
-    }
-  },
-  computed: {
-    form_is_completed() {
-      return this.user.email !== "" && this.user.password !== "";
     }
   }
 };
 </script>
-
-<style scoped>
-form {
-  display: inline-flex; 
-  flex-direction: column;
-  align-items: center;
-  height: 15em;
-  width: 40%;
-  align-content: center;
-}
-
-button {
-  margin-top: 2em;
-  padding: 0.6em;
-  border-radius: 5px;
-  background: #41b883;
-  color: white;
-  border: none;
-  width: 60%;
-}
-button:disabled {
-  opacity: 0.7;
-}
-
-a {
-  margin-top: 2em;
-  color: white;
-  font-size: 0.8em;
-}
-a:hover {
-  color: #41b883;
-}
-
-span {
-  text-decoration: underline;
-  font-size: 1.3em;
-}
-
-.error {
-  color: tomato;
-}
-
-.success {
-  color: yellowgreen;
-}
-</style>
