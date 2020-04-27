@@ -3,5 +3,6 @@ module.exports = {
     "vuetify"
   ]
 
-  //BRAVO ! Tu as trouvé ! 
+  //BRAVO ! Tu as trouvé ! Ca y est !!!! :)
+  //ICI !!!
 }
