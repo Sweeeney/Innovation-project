@@ -124,7 +124,7 @@ export default {
       ],
       passwordRules: [
         v => !!v || 'Un mot de passe est requis',
-        v => (v && v.length >= 5) || 'Ton mot de passe doit faire plus de 5 caractères',
+        v => (v && v.length >= 8) || 'Ton mot de passe doit faire plus de 8 caractères',
         v => (v && v.length <= 25) || 'Ton mot de passe ne doit pas dépasser 25 caractères',
       ],
       passwordOKRules: [
