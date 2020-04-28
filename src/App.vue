@@ -61,6 +61,7 @@ export default {
         items: [
           { title: 'Accueil', icon: 'mdi-home', link: '/home' },
           { title: 'Historique', icon: 'mdi-calendar-multiple', link: '/historical' },
+          { title: 'Details', icon: 'mdi-calendar-multiple', link: '/details' },
           { title: 'Paramètres', icon: 'mdi-cogs', link: '/parameters' },
         ],
         right: null,

@@ -45,7 +45,7 @@
                     </v-tab-item>
             </v-tabs>
             <div class="my-3 text-center">
-                <v-btn class="ma-2" v-on:click="access" v-if="type=='date'">
+                <v-btn class="ma-2" v-on:click="access">
                     Accéder <v-icon right>mdi-chevron-right</v-icon> 
                 </v-btn>
                 <v-btn class="ma-2">
