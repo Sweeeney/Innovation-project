@@ -8,7 +8,7 @@ import Details from "../components/Details";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Parameters from "../components/Parameters";
-//import * as firebase from "firebase";
+import * as firebase from "firebase";
 
 Vue.use(Router);
 
@@ -65,17 +65,16 @@ const router = new Router({
     ]
 });
 
-// router.beforeEach((to, from, next) => {
-//     const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
-//     const currentUser = firebase.auth().currentUser
-
-//     if (requiresAuth && !currentUser) {
-//         next('/signin')
-//     } else if (requiresAuth && currentUser) {
-//         next()
-//     } else {
-//         next()
-//     }
-// })
+ router.beforeEach((to, from, next) => {
+     const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+     const currentUser = firebase.auth().currentUser
+     if (requiresAuth && !currentUser) {
+         next('/signin')
+     } else if (requiresAuth && currentUser) {
+         next()
+     } else {
+         next()
+     }
+ })
 
 export default router;
