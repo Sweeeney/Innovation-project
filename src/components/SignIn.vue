@@ -41,7 +41,12 @@
 </template>
 
 <script>
-import * as firebase from "firebase";
+//import * as firebase from "firebase";
+
+//autre façon d'importer firebase
+import firebase from 'firebase/app';
+import 'firebase/database';
+//import 'firebase/storage';
 
 export default {
   name: "Signin",

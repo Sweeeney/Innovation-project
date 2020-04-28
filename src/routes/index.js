@@ -9,6 +9,10 @@ import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Parameters from "../components/Parameters";
 //import * as firebase from "firebase";
+//autre technique d'importation 
+// import firebase from 'firebase/app';
+// import 'firebase/database';
+//import 'firebase/storage';
 
 Vue.use(Router);
 
