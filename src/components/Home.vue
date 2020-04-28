@@ -1,14 +1,24 @@
 <template>
   <v-content>
       <header>
-        <v-row align="right">
-            <v-col class="text-right">
-            <div> 
-                <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
-                <v-btn tile large class="ma-2" color="teal lighten-4" to="/signup">Inscription</v-btn>
-            </div>
+        <div v-if="user.loggedIn"> 
+          <v-row>
+            <v-col class="text-left">
+              <h2 class="ps-4 ma-2 font-weight-thin headline"> Bienvenue {{user.data.displayName}}</h2>
             </v-col>
-        </v-row>
+            <v-col class="text-right">
+              <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
+            </v-col>
+          </v-row>
+        </div>
+        <div v-else>
+          <v-row align="right">
+            <v-col class="text-right">
+              <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
+              <v-btn tile large class="ma-2" color="teal lighten-4" to="/signup">Inscription</v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </header>
 
     <v-card flat>
@@ -67,7 +77,7 @@
     <v-divider></v-divider>
     <br>
 
-    <div>
+    <div v-if="user.loggedIn">
       <h2 class="display-1 font-weight-thin pl-4 ma-2"> AUJOURD'HUI... </h2>
       <h3 class="subtitle-1 font-weight-thin pl-4 mx-2"> Comment te sens-tu ? ? </h3>
 
@@ -141,6 +151,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import firebase from "firebase";
+
   export default {
     name: 'Home',
     data () {
@@ -182,6 +195,22 @@
       validate () {
         this.$refs.form.validate()
       },
-    }
+      signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace({
+            name: "home"
+          });
+        });
+      }
+    },
+    computed: {
+    // map `this.user` to `this.$store.getters.user`
+    ...mapGetters({
+      user: "user"
+    })
+  }
   }
 </script>

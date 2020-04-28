@@ -1,72 +1,104 @@
 <template>
-  <v-row class="align-center">
-    <v-form
-      ref="form"
-      v-model="valid"
-      :lazy-validation="lazy"
-    >
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
+  <v-content>
+    <div v-if="error" class="alert alert-danger">
+      {{error}}
+    </div>
+    <div>
+      <br>
+      <h2 class="display-1 font-weight-thin pl-4 ma-2"> MA CONNEXION </h2>
 
-      <v-text-field
-        v-model="password"
-        :counter="20"
-        :rules="passwordRules"
-        label="Mot de passe"
-        required
-      ></v-text-field>
-
-      <v-btn
-        :disabled="!valid"
-        color="success"
-        class="mr-4"
-        @click="validate"
+      <v-card 
+        flat
+        width="70%"
+        class="mx-auto"
       >
-        Valider
-      </v-btn>
 
-      <v-btn
-        color="cancel"
-        class="mr-4"
-        @click="reset"
-      >
-        Retour
-      </v-btn>
-    </v-form>
-  </v-row>
+        <v-container fluid align="center" >
+        <v-row dense >
+          <v-card 
+            flat
+            d-flex
+            width="70%"
+          >
+            <v-form
+              ref="form"
+              v-model="valid"
+              @submit.prevent="submit"
+              action="#"
+            >
+              <br><br>
+              <v-text-field
+                v-model="form.email"
+                type="email"
+                label="E-mail"
+                required
+                value
+              ></v-text-field>
+
+              <v-text-field
+                v-model="form.password"
+                type="password"
+                label="Mot de passe"
+                required
+                value
+              ></v-text-field>
+
+              <v-row align="center">
+                <v-col class="text-center">
+                  <v-btn class="mr-4" :disabled="!valid" color="success" type="submit">Valider</v-btn>
+                  <v-btn class="mr-4" to="/home">Retour</v-btn>
+                </v-col>
+              </v-row>
+
+            </v-form>
+
+            <br>
+            <div align="center">
+              <h3> Tu n'as pas encore de compte chez nous ? </h3>
+              <span> Alors <router-link to="/signup" class="font-weight-black teal--text">inscris-toi</router-link> dés maintenant ! </span>
+            </div>
+          </v-card>
+
+          <v-card 
+            d-flex
+            flat
+            width="30%"
+            class="mx-auto">
+
+            <v-img 
+              src='https://i.pinimg.com/564x/20/e4/ac/20e4ac8189c3bf292883caaac9dee4bc.jpg'
+              alt='signin'
+              width='80%'
+            > 
+            </v-img>
+          </v-card>
+        </v-row>
+        </v-container>
+
+      </v-card>
+    </div>
+  </v-content>
 </template>
 
 <script>
-import * as firebase from "firebase";
+import firebase from "firebase";
 
 export default {
-  name: "Signin",
   data() {
     return {
-      user: {
+      form: {
         email: "",
         password: ""
       },
-      error: "",
-      success: ""
+      error: null
     };
   },
   methods: {
-    signin() {
-      this.error = "";
-      this.success = "";
-
+    submit() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then(data => {
-          console.log(data);
-          this.$router.replace({ name: "master" });
-        })
+        .signInWithEmailAndPassword(this.form.email, this.form.password)
+        .then(this.$router.replace({ name: "home" }))
         .catch(err => {
           this.error = err.message;
         });

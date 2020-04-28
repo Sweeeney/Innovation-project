@@ -1,18 +1,18 @@
-//C'EST DANS CE FICHIER QUE FIREBASE MERDE !!!
-
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from "../components/Home";
-import Master from "../components/Master";
-import Details from "../components/Details";
-import SignIn from "../components/SignIn";
-import SignUp from "../components/SignUp";
-import Parameters from "../components/Parameters";
-//import * as firebase from "firebase";
+import Vue from 'vue';
+import Router from 'vue-router';
+import SignIn from '../components/SignIn';
+import SignUp from '../components/SignUp';
+import Home from '../components/Home';
+import Master from '../components/Master';
+import Details from '../components/Details';
+import Parameters from '../components/Parameters';
+//import * as firebase from 'firebase';
 
 Vue.use(Router);
 
 const router = new Router({
+    mode: 'history',
+    base: process.env.BASE_URL,
     routes: [
 /*         {
             path: '*',
@@ -32,9 +32,6 @@ const router = new Router({
             path: '/home',
             name: 'home',
             component: Home,
-            meta: {
-                requiresAuth: true
-            }
         },
         {
             path: '/historical',
@@ -45,7 +42,7 @@ const router = new Router({
             }
         },
         {
-            path: '/historical/:day',
+            path: '/historical/:date',
             name: 'details',
             component: Details,
             props: true,
@@ -65,17 +62,17 @@ const router = new Router({
     ]
 });
 
-// router.beforeEach((to, from, next) => {
-//     const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
-//     const currentUser = firebase.auth().currentUser
+/* router.beforeEach((to, from, next) => {
+    const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+    const currentUser = firebase.auth().currentUser
 
-//     if (requiresAuth && !currentUser) {
-//         next('/signin')
-//     } else if (requiresAuth && currentUser) {
-//         next()
-//     } else {
-//         next()
-//     }
-// })
+    if (requiresAuth && !currentUser) {
+        next('/signin')
+    } else if (requiresAuth && currentUser) {
+        next()
+    } else {
+        next()
+    }
+}) */
 
 export default router;
