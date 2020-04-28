@@ -21,7 +21,7 @@
         </div>
       </header>
 
-    <v-card flat>
+    <v-card flat d-flex>
       <h2 class="display-1 font-weight-thin pl-4 ma-2"> ACTUALITÉS </h2>
 
       <v-container fluid align="center" >
