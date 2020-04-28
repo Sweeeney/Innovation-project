@@ -4,7 +4,8 @@ import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
 import Master from '../components/Master';
-import Details from '../components/Details';
+import DetailsMois from '../components/DetailsMois';
+import DetailsJour from '../components/DetailsJour';
 import Parameters from '../components/Parameters';
 //import * as firebase from 'firebase';
 
@@ -42,9 +43,18 @@ const router = new Router({
             }
         },
         {
-            path: '/historical/:date',
-            name: 'details',
-            component: Details,
+            path: '/detailsMois',
+            name: 'detailsMois',
+            component: DetailsMois,
+            props: true,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/detailsJour',
+            name: 'detailsJour',
+            component: DetailsJour,
             props: true,
             meta: {
                 requiresAuth: true

@@ -85,7 +85,7 @@
             class="mx-auto">
 
             <v-img 
-              src='https://i.pinimg.com/564x/73/0f/2c/730f2c2aaa92463b6bc31e5f5edb190d.jpg'
+              src='https://i.pinimg.com/564x/ee/d6/47/eed64707f7b589a390f0294135a6212b.jpg'
               alt='signin'
               width='80%'
             > 
@@ -116,7 +116,8 @@ export default {
       valid: true,
       nameRules: [
         v => !!v || 'Un nom est obligatoire',
-        v => (v && v.length <= 10) || 'Ton nom ne doit pas dépasser 20 caractères',
+        //v => (v && v.length >= 5) || 'Ton nom doit faire plus de 5 caractères',
+        v => (v && v.length <= 20) || 'Ton nom ne doit pas dépasser 20 caractères',
       ], 
       emailRules: [
         v => !!v || 'Une adresse e-mail est obligatoire',
@@ -124,7 +125,7 @@ export default {
       ],
       passwordRules: [
         v => !!v || 'Un mot de passe est requis',
-        v => (v && v.length >= 5) || 'Ton mot de passe doit faire plus de 5 caractères',
+        v => (v && v.length >= 8) || 'Ton mot de passe doit faire plus de 8 caractères',
         v => (v && v.length <= 25) || 'Ton mot de passe ne doit pas dépasser 25 caractères',
       ],
       passwordOKRules: [
