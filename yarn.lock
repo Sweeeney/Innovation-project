@@ -843,11 +843,7 @@
     tslib "1.11.1"
     xmlhttprequest "1.8.0"
 
-<<<<<<< HEAD
 "@firebase/app@0.6.2", "@firebase/app@^0.6.2":
-=======
-"@firebase/app@0.6.2":
->>>>>>> 737030765ee90f41fb0648e4689a13434c59b6fb
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.6.2.tgz#ecdd0ab743151bdbfedf2461b96e3a3b58e51a0a"
   integrity sha512-rAxc90+82GAPpUxS02EO0dys4+TeQ6XjFjCwQz/OVptGeLgxN9ZoXYAf/bxyeYOdLxJW0kbEKE/0xXaJDt5gsg==
@@ -952,11 +948,7 @@
     "@grpc/proto-loader" "^0.5.0"
     tslib "1.11.1"
 
-<<<<<<< HEAD
 "@firebase/firestore@1.14.2", "@firebase/firestore@^1.14.2":
-=======
-"@firebase/firestore@1.14.2":
->>>>>>> 737030765ee90f41fb0648e4689a13434c59b6fb
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.14.2.tgz#c31123079cbc9a03228ea193081b2f1c217c2993"
   integrity sha512-gUTQHiR1LN/g+iHfPZS+GJgDHK866xtAXcodSAOU4dt7k4B0oXllwuQmhjwQP0Gh7Lc/m+cK7dw/bmoHI6oWqQ==
