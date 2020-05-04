@@ -66,6 +66,7 @@
 <script>
 import { mapGetters } from "vuex";
 import firebase from "firebase";
+import {firestore} from '../main';
 
 export default {
     name:'Master',
@@ -80,19 +81,25 @@ export default {
         type:'month',
         types: ['month', 'date'],
         pickerDate: null,
+        collection: []
+      }
+    },
+    firestore() {
+      return {
+        collection: firestore.collection('test'),
       }
     },
     methods: {
       signOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace({
-            name: "home"
+        firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            this.$router.replace({
+              name: "home"
+            });
           });
-        });
-      }
+      },
     },
     computed: {
     // map `this.user` to `this.$store.getters.user`
