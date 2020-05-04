@@ -29,6 +29,7 @@
             background-color="teal lighten-5"
             grow
             light
+            
         >
             <v-tab
                 v-for="item in items"
@@ -37,6 +38,7 @@
             >
                 {{ item.tab }}
             </v-tab>
+            <v-tabs-slider color="teal darken-2"></v-tabs-slider>
             <v-tab-item
                 v-for="item in items"
                 :key="item.content"
@@ -297,7 +299,7 @@
 
                         <v-col class="text-left">
                             <h2 class="display-0 font-weight-thin"> MA NOURRITURE </h2>
-                            <h3 class="display-0 font-weight-thin"> Apports nutritionnels conseillés : </h3>
+                            <h3 class="display-0 font-weight-thin"> Ma consommation par rapport aux apports nutritionnels conseillés : </h3>
                         </v-col>
                         <v-row d-flex>
                             <v-col d-flex>
@@ -475,7 +477,7 @@
                                         </v-list-item-avatar>
                                         <v-list-item-content>
                                             <h3 class="display-0 font-weight-thin">Nombre de pas :</h3>
-                                            <h3 class="display-0 font-weight-thin">8000 pas</h3>
+                                            <h3 class="display-0 font-weight-thin">150 000 pas</h3>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-card>
