@@ -9,6 +9,10 @@ import store from './store';
 
 require ('firebase/firestore');
 Vue.use(VueFirestore);
+/*//autre façon d'importer firebase apparemment plus propre
+import firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/storage';*/
 
 Vue.config.productionTip = false;
 
@@ -39,4 +43,4 @@ new Vue({
   store,
   vuetify,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
