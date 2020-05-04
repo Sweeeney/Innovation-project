@@ -29,6 +29,7 @@
             background-color="teal lighten-5"
             grow
             light
+            
         >
             <v-tab
                 v-for="item in items"
@@ -37,6 +38,7 @@
             >
                 {{ item.tab }}
             </v-tab>
+            <v-tabs-slider color="teal darken-2"></v-tabs-slider>
             <v-tab-item
                 v-for="item in items"
                 :key="item.content"
