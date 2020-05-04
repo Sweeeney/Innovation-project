@@ -54,7 +54,7 @@
                 background-color="teal lighten-5"
             >
                 <v-tab>Objectifs quotidiens</v-tab>
-                    
+                    <v-tabs-slider color="teal darken-2"></v-tabs-slider>
                     <v-tab-item>
                         <v-row justify="center">
                             <h2 class="ps-4 ma-2 font-weight-thin headline"> Mon tableau de bord </h2>
