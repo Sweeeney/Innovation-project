@@ -28,25 +28,32 @@
                         :key="item.content"
                         :value="'' + item.content"
                     >
-                        <v-content>
-                                <v-row justify="space-around">
-                                    <v-date-picker
-                                        v-model="date"
-                                        full-width
-                                        :landscape="$vuetify.breakpoint.smAndUp"
-                                        :type="type"
-                                        class="mt-4"
-                                        locale="france"
-                                        header-color="teal lighten-2"
-                                        color="teal darken-1"
-                                    ></v-date-picker>
-                                </v-row>
-                        </v-content>
+                      <v-content>
+                        <v-row justify="space-around">
+                          <v-date-picker
+                            v-model="date"
+                            full-width
+                            :landscape="$vuetify.breakpoint.smAndUp"
+                            :type="type"
+                            class="mt-4"
+                            locale="france"
+                            header-color="teal lighten-2"
+                            color="teal darken-1"
+                          ></v-date-picker>
+                        </v-row>
+                      </v-content>
                     </v-tab-item>
             </v-tabs>
             <div class="my-3 text-center">
-                <v-btn class="ma-2" v-on:click="access">
-                    Accéder <v-icon right>mdi-chevron-right</v-icon> 
+                <v-btn class="ma-2" v-on:click="access" v-if="type=='date'">
+                    <router-link :to="{name:'detailsJour', params:{date:date}}"> 
+                      Accéder <v-icon right>mdi-chevron-right</v-icon> 
+                    </router-link>
+                </v-btn>
+                <v-btn class="ma-2" v-on:click="access" v-if="type=='month'">
+                    <router-link :to="{name:'detailsMois', params:{date:date}}"> 
+                      Accéder <v-icon right>mdi-chevron-right</v-icon> 
+                    </router-link>
                 </v-btn>
                 <v-btn class="ma-2">
                     <router-link class="back" to="/home">Retour</router-link>

@@ -5,7 +5,10 @@ import router from './routes/index';
 import * as firebase from 'firebase';
 import store from './store';
 
-//import VueFirestore from 'vue-firestore';
+/*//autre façon d'importer firebase apparemment plus propre
+import firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/storage';*/
 
 Vue.config.productionTip = false;
 
@@ -34,4 +37,4 @@ new Vue({
   store,
   vuetify,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

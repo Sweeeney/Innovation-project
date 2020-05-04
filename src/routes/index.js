@@ -7,7 +7,6 @@ import Master from '../components/Master';
 import DetailsMois from '../components/DetailsMois';
 import DetailsJour from '../components/DetailsJour';
 import Parameters from '../components/Parameters';
-//import * as firebase from 'firebase';
 
 Vue.use(Router);
 
@@ -15,10 +14,14 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
-/*         {
-            path: '*',
-            redirect: '/signin'
-        }, */
+        {
+            path: '/',
+            redirect: '/home',
+            name: 'Home',
+            component: {
+                template: '<router-view/>',
+            }
+        },
         {
             path: '/signin',
             name: 'signin',
@@ -43,7 +46,7 @@ const router = new Router({
             }
         },
         {
-            path: '/detailsMois',
+            path: '/detailsMois/:date',
             name: 'detailsMois',
             component: DetailsMois,
             props: true,
@@ -52,7 +55,7 @@ const router = new Router({
             }
         },
         {
-            path: '/detailsJour',
+            path: '/detailsJour/:date',
             name: 'detailsJour',
             component: DetailsJour,
             props: true,
