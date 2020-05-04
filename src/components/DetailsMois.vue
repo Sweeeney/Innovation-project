@@ -225,8 +225,7 @@
 
                     <div v-if="item.content=='sommeil'" class="text-center">
                         <v-row d-flex>
-                            <v-card elevation=0 color=transparent width=15></v-card>
-                            <v-card d-flex width=350 elevation=1>
+                            <v-card d-flex width=350 elevation=1 class="ma-2">
                                     <v-sparkline
                                         :value="value"
                                         :gradient="gradient"
@@ -243,8 +242,7 @@
                                     <v-card-title>Heures de sommeil
                                     </v-card-title>
                             </v-card>
-                            <v-card elevation=0 color=transparent width=15></v-card>
-                            <v-card d-flex width=350 elevation=1>
+                            <v-card d-flex width=350 elevation=1 class="ma-2">
                                 
                                         <v-sparkline
                                             :value="value2"
