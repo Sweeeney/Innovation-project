@@ -4,7 +4,7 @@
             <div v-if="user.loggedIn"> 
                 <v-row>
                     <v-col class="text-left">
-                    <h2 class="ps-4 ma-2 font-weight-thin headline" style="text-center"> {{date}} (AUJOURD'HUI)</h2>
+                    <h2 class="ps-4 ma-2 font-weight-thin headline" style="text-center"> {{date_du_jour}} </h2>
                     <br>
 
                     </v-col>
@@ -50,9 +50,12 @@
 
         <div v-if="user.loggedIn">
             <v-tabs
-                fixed-tabs
+                grow
                 background-color="teal lighten-5"
+                color="blue-grey darken-4"
             >
+                <v-tabs-slider color="teal darken-2"></v-tabs-slider>
+                
                 <v-tab>Objectifs quotidiens</v-tab>
                     
                     <v-tab-item>
@@ -552,10 +555,10 @@
                                 </v-card>
                             </div>
 
-
-
                     </v-tab-item>
+
                 <v-tab>Sommeil</v-tab>
+
                     <v-tab-item>
                         <v-card
                         class="mt-4 mx-auto"
@@ -591,7 +594,10 @@
                         </v-card-text>
                         </v-card>
                     </v-tab-item>
+
+                <!-- HUMEUR -->
                 <v-tab>Humeur</v-tab>
+
                     <v-tab-item>
                         <v-row justify="center">
                             <h2 class="ps-4 ma-2 font-weight-thin headline"> Juste pour rire le temps d'un film. </h2>
@@ -658,7 +664,9 @@
                                 </v-card>
                             </v-col>
                         </v-row>
+
                         <br>
+                        
                         <v-row justify="center">
                             <h2 class="ps-4 ma-2 font-weight-thin headline"> Pour se détendre quelques minutes. </h2>
                         </v-row>
@@ -776,16 +784,19 @@
 import { mapGetters } from "vuex";
 import firebase from "firebase";
 //import Chart from "chart.js";
+import moment from 'moment';
+
+moment.locale('fr');
 
 //Pour afficher la date du jour, avec le jour de la semaine//
-var jours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+/* var jours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
 var mois = new Array ("janvier", "févrirer", "mars", "avril", "mai", "juin", "juillet", "aout", 
 "septembre", "octobre", "novembre", "décembre");
 var date = new Date();
 var date_today = jours[date.getDay()] + " "; //Nom du jour de la semaine 
 date_today += date.getDate() + " "; //Numéro du jour 
 date_today += mois[date.getMonth()] + " "; //Mois
-date_today += date.getFullYear(); //Année
+date_today += date.getFullYear(); //Année */
 
 const exhale = ms =>
 new Promise(resolve => setTimeout(resolve, ms));
@@ -803,6 +814,9 @@ var nbVerres = 0; */
 
 export default {
     name:'DetailsJour',
+    props: {
+        date: Date
+    },
 
     methods: {
         signOut() {
@@ -853,7 +867,7 @@ export default {
                 nbPasRestant: objectifPas - nbPasCourant,
                 value: (nbPasCourant*100)/objectifPas, // pas réalisés par rapport à l'objectif fixé par la personne
                 //valeur fixe pour le moment
-                date: date_today, 
+                date_du_jour : (moment(this.date).format('dddd DD MMMM YYYY')).toUpperCase(),
                 checking:false,
                 bpm: [],
                 eau: 70, //eau consommé selon l'objectif de la personne, valeur fixe

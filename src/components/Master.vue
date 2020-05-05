@@ -39,6 +39,7 @@
                             locale="france"
                             header-color="teal lighten-2"
                             color="teal darken-1"
+                            :max="dateMax"
                           ></v-date-picker>
                         </v-row>
                       </v-content>
@@ -81,7 +82,8 @@ export default {
         type:'month',
         types: ['month', 'date'],
         pickerDate: null,
-        collection: []
+        collection: [],
+        dateMax : new Date().toISOString().substr(0, 10),
       }
     },
     firestore() {

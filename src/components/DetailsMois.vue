@@ -4,7 +4,7 @@
         <div v-if="user.loggedIn"> 
           <v-row>
             <v-col class="text-left">
-                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
             </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
@@ -24,12 +24,15 @@
         </div>
       </header>
 
-      <v-toolbar d-flex>
+      <!-- <v-toolbar d-flex> -->
         <v-tabs
             background-color="teal lighten-5"
             grow
             light
+            color="blue-grey darken-4"
         >
+            <v-tabs-slider color="teal darken-2"></v-tabs-slider>
+
             <v-tab
                 v-for="item in items"
                 :key="item.tab"
@@ -47,7 +50,7 @@
                         <v-col class="text-left">
                             <h2 class="display-0 font-weight-thin"> MON HUMEUR </h2>
                         </v-col>
-                        <v-container fluid align="center" d-flex>
+                        <v-container fluid align="center" d-flex> 
                             <v-row>
                             <v-card elevation=0>
                                 <v-col d-flex width="16%">
@@ -146,7 +149,7 @@
                                 </v-img>
                             </v-card>
                             <v-card elevation=0 color=transparent width=5></v-card>
-                            <v-card width=200>
+                            <v-card width=225>
                                 <v-img
                                 src="https://static.fnac-static.com/multimedia/Images/FR/NR/10/29/2d/2959632/1540-1/tsp20180813160226/Reflechiez-et-devenez-riche.jpg"
                                     >
@@ -171,7 +174,7 @@
                                 </v-card-actions>
                             </v-card>
                             <v-card elevation=0 color=transparent width=5></v-card>
-                            <v-card d-flex width=200>
+                            <v-card d-flex width=225>
                                 <v-img
                                 src="https://static.fnac-static.com/multimedia/Images/FR/NR/b7/56/2b/2840247/1540-0/tsp20191018073110/Le-pouvoir-du-moment-present.jpg"
                                     >
@@ -196,7 +199,7 @@
                                 </v-card-actions>
                             </v-card>
                             <v-card elevation=0 color=transparent width=5></v-card>
-                            <v-card d-flex width=200>
+                            <v-card d-flex width=225>
                                 <v-img
                                 src="https://static.fnac-static.com/multimedia/Images/FR/NR/46/5b/b1/11623238/1540-1/tsp20200222071856/Les-Antiseches-du-Bonheur.jpg"
                                     >
@@ -561,8 +564,9 @@
                 </v-content>
             </v-tab-item>
         </v-tabs>
-      </v-toolbar>
-      <v-container style="height: 2100px;"></v-container>
+      <!-- </v-toolbar> -->
+      <!-- <v-container style="height: 2100px;"></v-container> -->
+      <br>
   </v-content>
 </template>
 
@@ -570,6 +574,9 @@
 <script>
 import { mapGetters } from "vuex";
 import firebase from "firebase";
+import moment from 'moment';
+
+moment.locale('fr');
 
 const gradients = [
     ['#222'],
@@ -582,6 +589,9 @@ const gradients = [
 
 export default {
     name:'DetailsMois',
+    props: {
+        date: Date
+    },
     methods: {
       signOut() {
       firebase
@@ -592,7 +602,7 @@ export default {
             name: "home"
           });
         });
-      }
+      },
     },
     computed: {
     // map `this.user` to `this.$store.getters.user`
@@ -604,11 +614,13 @@ export default {
         return{
             tab: null,
             items: [
-          { tab: 'Général', content: 'general' },
-          { tab: 'Sommeil', content: 'sommeil' },
-          { tab: 'Alimentation', content: 'alimentation' },
-          { tab: 'Sport', content: 'sport' },
+                { tab: 'Général', content: 'general' },
+                { tab: 'Sommeil', content: 'sommeil' },
+                { tab: 'Alimentation', content: 'alimentation' },
+                { tab: 'Sport', content: 'sport' },
             ],
+
+            date_du_mois : (moment(this.date).format('MMMM YYYY')).toUpperCase(),
 
             width: 'auto',
             radius: 8,

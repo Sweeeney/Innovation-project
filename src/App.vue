@@ -60,9 +60,8 @@ export default {
       return {
         items: [
           { title: 'Accueil', icon: 'mdi-home', link: '/home' },
+          { title: 'Tableau de bord', icon: 'mdi-calendar-multiple', link: '/dashboard' },
           { title: 'Historique', icon: 'mdi-calendar-multiple', link: '/historical' },
-          { title: 'Details du mois', icon: 'mdi-calendar-multiple', link: '/detailsMois' },
-          { title: 'Details du jour', icon: 'mdi-calendar-multiple', link: '/detailsJour' },
           { title: 'Paramètres', icon: 'mdi-cogs', link: '/parameters' },
         ],
         right: null,
