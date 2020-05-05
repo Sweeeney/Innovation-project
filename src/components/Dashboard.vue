@@ -398,10 +398,224 @@
                             </v-flex>
                         </v-layout>
 
+                        <br>
+                        <v-divider inset width="80%" class="mx-auto"></v-divider>
+                        <br>
+
                         <h2 class="headline font-weight-light pl-4 ma-2"> Quel sport as-tu pratiqué ? </h2>
 
-                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- AJOUTER LES SPORTS PRATIQUES EN JOURNEE -->
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="football"
+                                        src="https://cdn-europe1.lanmedia.fr/var/europe1/storage/images/europe1/sport/football-y-a-t-il-deja-un-favori-pour-leuro-3925604/53616090-1-fre-FR/Football-y-a-t-il-deja-un-favori-pour-l-Euro.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="football" label="Football" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="basketball"
+                                        src="https://media.istockphoto.com/photos/basketball-picture-id959080376?k=6&m=959080376&s=612x612&w=0&h=BgZIZABPts_kaCbe7jrZA5T9OrXXgNd9MgyN9bRir6U="
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="basketball" label="Basketball" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="equitation"
+                                        src="https://media.ucpa.com/t_UCPA/UCPA-SPORT-NATURE/France/00029155.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="equitation" label="Equitation" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="tennis"
+                                        src="https://www.tendanceouest.com/photos/maxi/354565.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="tennis" label="Tennis" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="volleyball"
+                                        src="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/sites/regions_france3/files/styles/top_big/public/assets/images/2019/08/01/epalivefour079703-4365648.jpg?itok=nt7zPpf1"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="volleyball" label="Volley-ball" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                        </v-layout>
+
+                        <br class="d-none d-sm-flex">
+
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="tennisTable"
+                                        src="https://www.ville.repentigny.qc.ca/getmedia/6e27b679-01b1-407a-9332-5a0a87e3b9d4/Tennis-de-table.jpg.aspx?width=1400&height=933&ext=.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="tennisTable" label="Tennis de table" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="baseball"
+                                        src="https://baseballvimontauteuil.com/wp-content/uploads/2018/02/0259287174e4f9b047a90d9098be5890_p_vi_66400_1519411993.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="baseball" label="Baseball" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="marche"
+                                        src="https://viehealthy.com/wp-content/uploads/2017/08/marche-a-pied.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="marche" label="Marche à pied" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="handball"
+                                        src="https://cdn.lajoliemaison.fr/wp-content/uploads/2017/12/1-34-1024x681.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="handball" label="Handball" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="golf"
+                                        src="https://argr-sandou.e-monsite.com/medias/images/golf.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="golf" label="Golf" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                        </v-layout>
+
+                        <br class="d-none d-sm-flex">
+
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="danse"
+                                        src="https://www.dax.fr/wp-content/uploads/2019/03/le-conservatoire-de-musique-et-de-danse.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="danse" label="Danse" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="velo"
+                                        src="https://cdn.tomas-travel.com/fit/repository/FIT00020070121840693/TBX00020050000221441/FIT00020070124494904_sized_800_0.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="velo" label="Vélo" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="bowling"
+                                        src="https://cdn-media.rtl.fr/cache/cngvJ79xE5jX3xQKAhKQ6A/2000v1333-0/online/image/2019/1023/7799315864_une-piste-de-bowling-illustration.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="bowling" label="Bowling" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="judo"
+                                        src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="judo" label="Judo" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                            <v-flex xs12 md2>
+                                <v-card class="mx-auto">
+                                    <v-img
+                                        alt="course"
+                                        src="https://www.ergysport.com/wp-content/uploads/2017/12/course-a-pied-regime-alimentaire-sportif-b.jpg"
+                                        height="200"
+                                    />
+                                    <v-card-text>
+                                        <v-checkbox v-model="course" label="Course" hide-details selected-color="red"></v-checkbox>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-spacer></v-spacer>
+                        </v-layout>
+
+
 
                     </v-tab-item>
 
@@ -658,6 +872,22 @@ export default {
                 ajoutEau: false,
                 ajoutNourriture: false, 
                 ajoutTemps: false,
+
+                football:false,
+                basketball:false,
+                equitation:false,
+                tennis:false,
+                volleyball:false,
+                tennisTable:false,
+                baseball:false,
+                marche:false,
+                handball:false,
+                golf:false,
+                danse:false,
+                velo:false,
+                bowling:false,
+                judo:false,
+                course:false,
 
                 //Modification des quantités d'eau
                 itemsEau: [
