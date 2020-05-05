@@ -2,9 +2,14 @@
     <v-content>
       <header>
         <div v-if="user.loggedIn"> 
-          <v-row>
+          <v-row> 
             <v-col class="text-left">
+                <v-row>
+                    <v-btn to="/historical" text=true> 
+                      <v-icon right>mdi-chevron-left</v-icon>
+                    </v-btn>
                     <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                </v-row>
             </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
@@ -13,8 +18,14 @@
         </div>
         <div v-else>
           <v-row>
+            <v-icon right>mdi-chevron-right</v-icon> 
             <v-col class="text-left">
-                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                    <v-row>
+                        <v-btn to="/historical" text=true> 
+                        <v-icon right>mdi-chevron-left</v-icon>
+                        </v-btn>
+                        <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                    </v-row>
             </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
