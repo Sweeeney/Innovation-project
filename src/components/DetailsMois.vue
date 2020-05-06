@@ -5,10 +5,9 @@
           <v-row> 
             <v-col class="text-left">
                 <v-row>
-                    <v-btn to="/historical" text=true> 
-                      <v-icon right>mdi-chevron-left</v-icon>
-                    </v-btn>
-                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
+                    <h2 class="ps-4 ma-2 font-weight-thin display-1"> 
+                    <router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
+                    MOIS DE {{date_du_mois}} </h2>
                 </v-row>
             </v-col>
             <v-col class="text-right">
@@ -21,10 +20,9 @@
             <v-icon right>mdi-chevron-right</v-icon> 
             <v-col class="text-left">
                     <v-row>
-                        <v-btn to="/historical" text=true> 
-                        <v-icon right>mdi-chevron-left</v-icon>
-                        </v-btn>
-                        <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
+                        <h2 class="ps-4 ma-2 font-weight-thin display-1"> 
+                        <router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
+                        MOIS DE {{date_du_mois}} </h2>
                     </v-row>
             </v-col>
             <v-col class="text-right">
@@ -35,7 +33,8 @@
         </div>
       </header>
 
-      <v-toolbar d-flex>
+      <div>
+      
         <v-tabs
             background-color="teal lighten-5"
             grow
@@ -818,6 +817,25 @@
                                                 >
                                                 90%
                                                 </v-progress-circular>
+                                                
+                                            </v-col>
+                                        </v-card>
+                                        <v-card
+                                        class="d-flex flex-wrap pa-2"
+                                        elevation=0
+                                        >
+                                            <h3 class="display-0 font-weight-thin">Bravo ! Tu as atteint les 90% ! </h3>
+                                            <h3 class="display-0 font-weight-thin">Continue comme ça!</h3>
+                                        </v-card>
+                                        <v-card
+                                        class="d-flex flex-wrap pa-2"
+                                        elevation=0
+                                        >
+                                            <v-col>
+                                                <v-img
+                                                src="https://i.pinimg.com/474x/94/5e/1d/945e1d84fc4be29a114ab3bd1dc67e8f.jpg"
+                                                width="30%"
+                                                ></v-img>
                                             </v-col>
                                         </v-card>
                                     </v-row>
@@ -886,7 +904,7 @@
                 </v-content>
             </v-tab-item>
         </v-tabs>
-      </v-toolbar>
+      </div>
       <v-container style="height: 2500px;"></v-container>
   </v-content>
 </template>
