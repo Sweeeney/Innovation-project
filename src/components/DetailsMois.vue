@@ -35,7 +35,7 @@
         </div>
       </header>
 
-      <!-- <v-toolbar d-flex> -->
+      <v-toolbar d-flex>
         <v-tabs
             background-color="teal lighten-5"
             grow
@@ -886,14 +886,8 @@
                 </v-content>
             </v-tab-item>
         </v-tabs>
-<<<<<<< HEAD
-      <!-- </v-toolbar> -->
-      <!-- <v-container style="height: 2100px;"></v-container> -->
-      <br>
-=======
       </v-toolbar>
       <v-container style="height: 2500px;"></v-container>
->>>>>>> 7b703e79bc3168742db74f7686e7957b91911a7b
   </v-content>
 </template>
 
