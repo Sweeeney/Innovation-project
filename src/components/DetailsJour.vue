@@ -5,10 +5,10 @@
         <v-row>
           <v-col class="text-left">
             <h2
-              class="ps-4 ma-2 font-weight-thin headline"
+              class="ps-4 ma-2 font-weight-thin display-1"
               style="text-center"
             ><router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
-            {{date_du_jour}} (AUJOURD'HUI)</h2>
+            {{date_du_jour}}</h2>
             <br />
           </v-col>
           <v-col class="text-right">
@@ -32,7 +32,7 @@
         <v-row justify="center">
           <h2
             class="ps-4 ma-2 font-weight-thin headline"
-          >POUR ACCEDER A CETTE FONCTIONNALITE, REJOINS-NOUS !</h2>
+          >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
         </v-row>
         <v-row align="center" justify="center">
           <v-card flat width="40%" class="mx-auto">
@@ -58,300 +58,158 @@
         <v-tab>Objectifs quotidiens</v-tab>
         <v-tabs-slider color="teal darken-2"></v-tabs-slider>
         <v-tab-item>
-          <v-row justify="center">
-            <h2 class="ps-4 ma-2 font-weight-thin headline">Mon tableau de bord</h2>
-          </v-row>
+          <br />
+          <!--LIGNE 1 -->
+          <v-layout row wrap>
+            <v-flex xs12 md6>
+              <!--Nombre de pas effectués-->
+              <v-card align="center" flat>
+                <v-progress-circular
+                  :rotate="-90"
+                  :size="155"
+                  :width="20"
+                  :value="value"
+                  color="green"
+                >
+                  <v-icon size="55">mdi-walk</v-icon>
+                </v-progress-circular>
+
+                <br />
+                <br />
+
+                <v-card
+                  class="d-flex justify-center align-center mb-6"
+                  color="grey lighten-4"
+                  max-width="600"
+                  max-height="200"
+                >
+                  <div align="center" justify="center">
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >{{nbPasCourant}} pas effectués.</h3>
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >Plus que {{nbPasRestant}} pas avant l'objectif !</h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 10 000 pas / jour)</h4>
+                  </div>
+                </v-card>
+              </v-card>
+            </v-flex>
+
+            <v-spacer></v-spacer>
+
+            <v-flex xs12 md6>
+              <!--Quantité d'eau consommée-->
+              <v-card align="center" flat>
+                <v-progress-circular
+                  :rotate="-90"
+                  :size="155"
+                  :width="20"
+                  :value="eau"
+                  color="blue"
+                >
+                  <v-icon size="55">mdi-water</v-icon>
+                </v-progress-circular>
+
+                <br />
+                <br />
+
+                <v-card
+                  class="d-flex justify-center align-center mb-6"
+                  color="grey lighten-4"
+                  max-width="600"
+                  max-height="200"
+                >
+                  <div align="center" justify="center">
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >7 verres d'eau ({{200}} ml) consommés.</h3>
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >Plus que 3 verres avant l'objectif !</h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 litres / jour)</h4>
+                  </div>
+                </v-card>
+              </v-card>
+            </v-flex>
+          </v-layout>
+
           <br />
 
-          <v-container fluid grid-list-sm>
-            <!--LIGNE 1 -->
-            <v-layout row wrap>
-              <v-flex v-flex xs12 md6>
-                <v-layout column>
-                  <!--Nombre de pas effectués-->
-                  <div align="center" justify="center" style="height: 400px;">
-                    <v-app id="pas">
-                      <v-progress-circular
-                        :rotate="-90"
-                        :size="155"
-                        :width="20"
-                        :value="value"
-                        color="green"
-                      >
-                        <v-icon size="55">mdi-walk</v-icon>
-                      </v-progress-circular>
-                      <br />
-                      <v-card
-                        class="d-flex justify-center align-center mb-6"
-                        color="grey lighten-4"
-                        max-width="600"
-                        max-height="200"
-                      >
-                        <div align="center" justify="center">
-                          <h3
-                            class="ps-4 ma-2 font-weight-thin headline"
-                          >{{nbPasCourant}} pas effectués.</h3>
-                          <h3
-                            class="ps-4 ma-2 font-weight-thin headline"
-                          >Plus que {{nbPasRestant}} pas avant l'objectif !</h3>
+          <!--LIGNE 2-->
+          <v-layout row wrap>
+            <v-flex xs12 md6>
+              <!--Calories consommées-->
+              <v-card align="center" flat>
+                <v-progress-circular
+                  :rotate="-90"
+                  :size="155"
+                  :width="20"
+                  :value="food"
+                  color="pink"
+                >
+                  <v-icon size="55">mdi-food</v-icon>
+                </v-progress-circular>
 
-                          <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 10 000 pas / jour)</h4>
-                        </div>
-                      </v-card>
-                    </v-app>
+                <br />
+                <br />
+
+                <v-card
+                  class="d-flex justify-center align-center mb-6"
+                  color="grey lighten-4"
+                  max-width="600"
+                  max-height="200"
+                >
+                  <div align="center" justify="center">
+                    <h3 class="ps-4 ma-2 font-weight-thin headline">{{1100}} calories consommées.</h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline">1000 calories restantes !</h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2100 calories / jour)</h4>
                   </div>
+                </v-card>
+              </v-card>
+            </v-flex>
 
-                  <!--Quantité d'eau consommée-->
-                  <div align="center" justify="center" style="height: 400px;">
-                    <v-app id="pas">
-                      <v-progress-circular
-                        :rotate="-90"
-                        :size="155"
-                        :width="20"
-                        :value="eau"
-                        color="blue"
-                      >
-                        <v-icon size="55">mdi-water</v-icon>
-                      </v-progress-circular>
+            <v-flex xs12 md6>
+              <!--"Temps pour moi"-->
+              <v-card align="center" flat>
+                <v-progress-circular
+                  :rotate="-90"
+                  :size="155"
+                  :width="20"
+                  :value="time"
+                  color="deep-purple accent-2"
+                >
+                  <v-icon size="55">mdi-emoticon-excited-outline</v-icon>
+                </v-progress-circular>
 
-                      <br />
+                <br />
+                <br />
 
-                      <v-card
-                        class="d-flex justify-center align-center mb-6"
-                        color="grey lighten-4"
-                        max-width="600"
-                        max-height="200"
-                      >
-                        <div align="center" justify="center">
-                          <h3
-                            class="ps-4 ma-2 font-weight-thin headline"
-                          >7 verres d'eau (200 ml) consommés.</h3>
-                          <h3
-                            class="ps-4 ma-2 font-weight-thin headline"
-                          >Plus que 3 verres avant l'objectif !</h3>
-
-                          <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 litres / jour)</h4>
-                        </div>
-                      </v-card>
-                    </v-app>
+                <v-card
+                  class="d-flex justify-center align-center mb-6"
+                  color="grey lighten-4"
+                  max-width="600"
+                  max-height="200"
+                >
+                  <div align="center" justify="center">
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >20 minutes accordées à des activités personnelles.</h3>
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >Prends du temps pour prendre soin de toi.</h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 heures / jour)</h4>
                   </div>
-                </v-layout>
-              </v-flex>
+                </v-card>
+              </v-card>
+            </v-flex>
+          </v-layout>
 
-              <!--LIGNE 2-->
-              <v-flex v-flex xs12 md6>
-                <v-layout column>
-                  <!--Calories consommées-->
-                  <div align="center" justify="center" style="height: 400px;">
-                    <v-app id="pas">
-                      <v-progress-circular
-                        :rotate="-90"
-                        :size="155"
-                        :width="20"
-                        :value="food"
-                        color="pink"
-                      >
-                        <v-icon size="55">mdi-food</v-icon>
-                      </v-progress-circular>
-                      <br />
-                      <v-card
-                        class="d-flex justify-center align-center mb-6"
-                        color="grey lighten-4"
-                        max-width="600"
-                        max-height="200"
-                      >
-                        <div align="center" justify="center">
-                          <h3 class="ps-4 ma-2 font-weight-thin headline">1 100 calories consommées.</h3>
-                          <h3 class="ps-4 ma-2 font-weight-thin headline">1 000 calories restantes !</h3>
-
-                          <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 100 calories / jour)</h4>
-                        </div>
-                      </v-card>
-                    </v-app>
-                  </div>
-
-                  <!--"Temps pour moi"-->
-                  <div align="center" justify="center" style="height: 400px;">
-                    <v-app id="pas">
-                      <v-progress-circular
-                        :rotate="-90"
-                        :size="155"
-                        :width="20"
-                        :value="time"
-                        color="deep-purple accent-2"
-                      >
-                        <v-icon size="55">mdi-emoticon-excited-outline</v-icon>
-                      </v-progress-circular>
-
-                      <br />
-
-                      <v-card
-                        class="d-flex justify-center align-center mb-6"
-                        color="grey lighten-4"
-                        max-width="600"
-                        max-height="200"
-                      >
-                        <div align="center" justify="center">
-                          <h3
-                            class="ps-4 ma-2 font-weight-thin headline"
-                          >20 min pour des activités personnelles.</h3>
-                          <h3 class="ps-4 ma-2 font-weight-thin headline">Prends du temps pour toi.</h3>
-
-                          <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 heures / jour)</h4>
-                        </div>
-                      </v-card>
-                    </v-app>
-                  </div>
-                </v-layout>
-              </v-flex>
-            </v-layout>
-          </v-container>
-
-          <!-- <v-row>
-                            <v-col align ="center" justify="center">
-                                <div id="app">
-                                    <v-app id="boutonplus">
-                                        <v-container fluid>
-                                            <v-row >
-                                                <v-col>
-                                                    <v-btn
-                                                    @click="ajoutEau ^= true"
-                                                    fab
-                                                    dark
-                                                    small
-                                                    color="blue"
-                                                    >
-                                                    <v-icon>mdi-water</v-icon>
-                                                    </v-btn>
-                                                    <v-btn
-                                                    @click="ajoutNourriture ^= true"
-                                                    fab
-                                                    dark
-                                                    small
-                                                    color="pink"
-                                                    >
-                                                    <v-icon>mdi-food</v-icon>
-                                                    </v-btn>
-                                                    <v-btn
-                                                    @click="ajoutTemps^=true"
-                                                    fab
-                                                    dark
-                                                    small
-                                                    color="deep-purple accent-2"
-                                                    >
-                                                    <v-icon>mdi-emoticon-excited-outline</v-icon>
-                                                    </v-btn>
-                                                </v-col>
-                                            </v-row>
-                                            
-                                            <v-row align="center"  justify="center" v-show="ajoutEau" display: block>
-                                                    <v-col class="d-flex" cols="12" sm="6">
-                                                    <v-select
-                                                        :items="itemsEau"
-                                                        label="Quelle quantité d'eau as-tu bu ?"
-                                                    ></v-select>
-                                                    </v-col>
-                                            </v-row>
-
-                                            
-                                            <v-row align="center" justify="center" v-show="ajoutNourriture" display: block>
-                                                    <v-col class="d-flex" cols="12" sm="6">
-                                                    <v-select
-                                                        :items="itemsNourriture"
-                                                        label="Combien de calories estimes-tu avoir consommé environ ? "
-                                                    ></v-select>
-                                                    </v-col>
-                                            </v-row>
-
-                                            
-                                            <v-row align="center" justify="center" v-show="ajoutTemps" display: block>
-                                                    <v-col class="d-flex" cols="12" sm="6">
-                                                    <v-select
-                                                        :items="itemsTemps"
-                                                        label="Ce temps là est bon pour toi, bravo !"
-                                                    ></v-select>
-                                                    </v-col>
-                                            </v-row>
-                                           
-                                        </v-container>
-                                    </v-app>
-                                </div>
-                            </v-col>
-          </v-row>-->
+          
         </v-tab-item>
         <v-tab>Activité physique du jour</v-tab>
         <v-tab-item>
-          <!-- <v-row style="height: 250px;">
-                                <v-col>
-                                    <div align="right">
-                                        <v-app id="frequence">
-                                            
-                                            <v-card
-                                                class="d-flex justify-center mb-6"
-                                                color="grey lighten-4"
-                                                max-width="350"
-                                                
-                                            >
-
-                                            <v-card
-                                                class="mb-0"
-                                                outlined
-                                                
-                                            >
-                                                    
-                                            
-                                            <v-card-title>
-                                                <v-icon
-                                                :color="checking ? 'red lighten-2' : 'indigo'"
-                                                class="mr-12"
-                                                size="80"
-                                                @click="takePulse"
-                                                >
-                                                mdi-heart-pulse
-                                                </v-icon>
-                                                <v-row align="start">
-                                                <div>
-                                                    <span
-                                                    class="display-2 font-weight-black"
-                                                    v-text="avg || '—'"
-                                                    ></span>
-                                                    <strong v-if="avg">BPM</strong>
-                                                </div>
-                                                </v-row>
-                                                <v-spacer></v-spacer>
-                                            </v-card-title>
-                                            <v-sheet color="transparent">
-                                                <v-sparkline
-                                                :key="String(avg)"
-                                                :smooth="16"
-                                                :gradient="['#f72047', '#ffd200', '#1feaea']"
-                                                :line-width="7"
-                                                :value="bpm"
-                                                auto-draw
-                                                stroke-linecap="round"
-                                                ></v-sparkline>
-                                            </v-sheet>
-                                            </v-card>
-                                            </v-card>
-                                        </v-app>
-                                    </div>
-                                </v-col>       
-                                <v-col>
-                                    <div class="text-left" justify="left" align="left">
-                                        <br>
-                                        <h3 class="ps-4 ma-2 font-weight-thin headline">
-                                            Fréquence cardiaque actuelle. 
-                                        </h3>
-                                        <h3 class="ps-4 ma-2 font-weight-thin headline">
-                                        Appuyez sur le coeur pour actualiser.  </h3>
-                                            
-                                        <h4 class="ps-3 ma-3 font-weight-thin">
-                                        (Assurez-vous que votre montre soit connectée.) 
-                                        </h4>
-                                    </div>
-                                </v-col>                                
-          </v-row>-->
-
+          <br />
           <!--Détails de l'activité du jour-->
           <!--VELO-->
           <div>
@@ -375,14 +233,6 @@
                       class="ps-4 ma-2 font-weight-thin headline"
                     >Calories brûlées (environ) : {{"435"}}</span>
                     <br />
-                    <br />
-                    <span class="ps-4 ma-2 font-weight">
-                      Ta séance ne s'affiche pas ?
-                      <router-link
-                        to="/detailsJour"
-                        class="font-weight-black teal--text"
-                      >Clique ici.</router-link>
-                    </span>
                   </div>
                 </v-flex>
                 <v-flex v-flex xs12 md6>
@@ -424,10 +274,6 @@
                       class="ps-4 ma-2 font-weight-thin headline"
                     >Calories brûlées (environ) : {{"---"}}</span>
                     <br />
-                    <br />
-                    <!-- <span class="ps-4 ma-2"> Votre trajet ne s'affiche pas ? 
-                                                <router-link to="/detailsJour" class="font-weight-black teal--text">Clique ici</router-link> 
-                    pour mettre à jour. </span>-->
                   </div>
                 </v-flex>
                 <v-flex v-flex xs12 md6>
@@ -466,11 +312,6 @@
                     <span
                       class="ps-4 ma-2 font-weight-thin headline"
                     >Calories brûlées (environ) : {{"---"}}</span>
-                    <br />
-                    <br />
-                    <!-- <span class="ps-4 ma-2"> Votre séance ne s'affiche pas ? 
-                                                <router-link to="/detailsJour" class="font-weight-black teal--text">Clique ici</router-link> 
-                    pour mettre à jour. </span>-->
                   </div>
                 </v-flex>
                 <v-flex v-flex xs12 md6>
@@ -488,7 +329,6 @@
               </v-layout>
             </v-card>
           </v-container>
-          <br />
 
           <div class="text-center" justify="left" align="left">
             <h3
@@ -500,14 +340,17 @@
                   src="https://i.pinimg.com/564x/52/5f/b0/525fb03b64bf62d6c69b2b7191432b7b.jpg"
                   alt="detailsJour"
                   width="80%"
+                  contain
                 ></v-img>
               </v-card>
             </v-card>
           </div>
+          <br />
         </v-tab-item>
+
         <v-tab>Sommeil</v-tab>
         <v-tab-item>
-          <v-card class="mt-4 mx-auto" max-width="600">
+          <v-card class="mt-4 mx-auto" max-width="800">
             <v-sheet
               class="v-sheet--offset mx-auto"
               color="cyan"
@@ -545,90 +388,93 @@
             ></v-img>
           </v-card>
         </v-tab-item>
+
         <v-tab>Humeur</v-tab>
         <v-tab-item>
-          <v-row justify="center">
-            <h2 class="ps-4 ma-2 font-weight-thin headline">Juste pour rire le temps d'un film.</h2>
-          </v-row>
-          <v-row>
-            <v-flex>
-              <v-card d-flex flat width="35%" class="mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/c6/ab/3c/c6ab3cd9cf0d73ebf6c9c855e3e185b9.jpg"
-                  alt="detailsJour"
-                  width="75%"
-                ></v-img>
-              </v-card>
-            </v-flex>
-            <v-flex>
-              <v-card d-flex flat width="35%" class="mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/e1/9f/2b/e19f2be057e5cfc7a65e6ecc4dc3f9e0.jpg"
-                  alt="detailsJour"
-                  width="75%"
-                ></v-img>
-              </v-card>
-            </v-flex>
-            <v-flex>
-              <v-card d-flex flat width="35%" class="mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/41/e8/ad/41e8addb16c011e8f893cf1cc781a63b.jpg"
-                  alt="detailsJour"
-                  width="75%"
-                ></v-img>
-              </v-card>
-            </v-flex>
-            <v-flex>
-              <v-card d-flex flat width="45%" class="mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/3d/20/ca/3d20ca14d9d00b323a445b9d357d68fd.jpg"
-                  alt="detailsJour"
-                  width="75%"
-                ></v-img>
-              </v-card>
-            </v-flex>
-          </v-row>
+          <h2
+            class="ps-4 ma-2 font-weight-thin headline"
+            align="center"
+          >Juste pour rire le temps d'un film.</h2>
           <br />
-          <v-row justify="center">
-            <h2 class="ps-4 ma-2 font-weight-thin headline">Pour se détendre quelques minutes.</h2>
-          </v-row>
-          <v-row>
-            <v-col>
-              <v-card d-flex flat width="55%" class="mt-4 mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/a5/2e/18/a52e1842e28dad903c1bb13813d5a50a.jpg"
-                  alt="detailsJour"
-                  width="100%"
-                ></v-img>
-              </v-card>
-            </v-col>
-            <v-col>
-              <v-card d-flex flat width="55%" class="mt-4 mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/564x/7d/b8/90/7db890c5eab688c603f4c1f07a125326.jpg"
-                  alt="detailsJour"
-                  width="100%"
-                ></v-img>
-              </v-card>
-            </v-col>
-            <v-col>
-              <v-card d-flex flat width="55%" class="mt-4 mx-auto" max-width="300px" max-height="400px">
-                <v-img
-                  src="https://i.pinimg.com/474x/09/b3/87/09b387cf43d21601afccb86996ff125c.jpg"
-                  alt="detailsJour"
-                  width="100%"
-                ></v-img>
-              </v-card>
-            </v-col>
-          </v-row>
+
+          <v-card width="85%" flat class="mx-auto">
+            <v-row>
+              <v-img
+                src="https://i.pinimg.com/474x/c6/ab/3c/c6ab3cd9cf0d73ebf6c9c855e3e185b9.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/e1/9f/2b/e19f2be057e5cfc7a65e6ecc4dc3f9e0.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/41/e8/ad/41e8addb16c011e8f893cf1cc781a63b.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/3d/20/ca/3d20ca14d9d00b323a445b9d357d68fd.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+            </v-row>
+          </v-card>
+
           <br />
-          <v-card class="d-flex mb-6" color="teal lighten-4" max-width="10000">
+          <v-divider width="80%" class="mx-auto"></v-divider>
+          <br />
+
+          <h2
+            class="ps-4 ma-2 font-weight-thin headline"
+            align="center"
+          >Pour se détendre quelques minutes.</h2>
+          <br />
+
+          <v-card width="85%" flat class="mx-auto">
+            <v-row>
+              <v-img
+                src="https://i.pinimg.com/474x/a5/2e/18/a52e1842e28dad903c1bb13813d5a50a.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/98/a0/bb/98a0bb76548cf09815a33342c3e4c3e5.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/09/b3/87/09b387cf43d21601afccb86996ff125c.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+
+              <v-img
+                src="https://i.pinimg.com/474x/36/f3/dd/36f3ddefc62288b9e1e91449629f9556.jpg"
+                alt="detailsJour"
+                width="25%"
+              ></v-img>
+            </v-row>
+          </v-card>
+          <br />
+          <br />
+
+          <v-card class="d-flex mb-6" color="teal lighten-4">
             <v-row justify="center">
               <h2 class="ps-4 ma-2 font-weight-thin headline">
                 Si malgré tout, tu n'as pas le moral, tu n'es pas seul(e).
                 <br />Voici, dans le doute, une liste de professionnels à contacter en cas de besoin.
                 <br />
-                <router-link to="/home" class="font-weight-black teal--text">Clique ici !</router-link>
+                <a
+                  href="https://sante.lefigaro.fr/tags/professionnels-sante"
+                  class="font-weight-black teal--text"
+                >Clique ici !</a>
               </h2>
             </v-row>
           </v-card>
@@ -638,24 +484,27 @@
 
       <!--Barre de fin de page-->
 
-      <v-app>
-        <v-bottom-navigation v-model="bottomNav" fixed>
-          <v-btn value="share">
-            <span>Partager</span>
-            <v-icon>mdi-share</v-icon>
-          </v-btn>
-
-          <v-btn value="favoris">
-            <span>Favoris</span>
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-
-          <v-btn value="aide">
-            <span>Aide</span>
-            <v-icon>mdi-comment-question-outline</v-icon>
-          </v-btn>
-        </v-bottom-navigation>
-      </v-app>
+      <v-card 
+        class=" mx-auto"
+        height="50px"
+        flat>
+                    <v-bottom-navigation v-model="bottomNav" fixed >
+                        <v-btn value="share">
+                            <span>Partager</span>
+                            <v-icon>mdi-share</v-icon>
+                        </v-btn>
+    
+                        <v-btn value="favoris">
+                            <span>Favoris</span>
+                            <v-icon>mdi-heart</v-icon>
+                        </v-btn>
+        
+                        <v-btn value="aide">
+                            <span>Aide</span>
+                            <v-icon>mdi-comment-question-outline</v-icon>
+                        </v-btn>
+                    </v-bottom-navigation>
+      </v-card>
     </div>
     <!--Fin de div pour les utilisateurs connectés-->
   </v-content>
@@ -670,15 +519,6 @@ import moment from 'moment';
 
 moment.locale('fr');
 
-//Pour afficher la date du jour, avec le jour de la semaine//
-/* var jours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
-var mois = new Array ("janvier", "févrirer", "mars", "avril", "mai", "juin", "juillet", "aout", 
-"septembre", "octobre", "novembre", "décembre");
-var date = new Date();
-var date_today = jours[date.getDay()] + " "; //Nom du jour de la semaine
-date_today += date.getDate() + " "; //Numéro du jour
-date_today += mois[date.getMonth()] + " "; //Mois
-date_today += date.getFullYear(); //Année */
 
 const exhale = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -686,11 +526,6 @@ const exhale = ms => new Promise(resolve => setTimeout(resolve, ms));
 var objectifPas = 10000;
 var nbPasCourant = 6012; //tant qu'on ne sait pas connecter les données avec une montre
 
-/*Pas utile car je ne sais pas mettre à jour, donc pour le moment les données sont en brutes
-//EAU 
-var valeurEau = 0; //par défaut 
-var objectifEau = 2000; //ml
-var nbVerres = 0; */
 
 export default {
     name:'DetailsJour',
