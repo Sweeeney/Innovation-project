@@ -350,7 +350,7 @@
 
         <v-tab>Sommeil</v-tab>
         <v-tab-item>
-          <v-card class="mt-4 mx-auto" max-width="600">
+          <v-card class="mt-4 mx-auto" max-width="800">
             <v-sheet
               class="v-sheet--offset mx-auto"
               color="cyan"
