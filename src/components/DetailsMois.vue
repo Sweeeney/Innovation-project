@@ -4,12 +4,13 @@
         <div v-if="user.loggedIn"> 
           <v-row> 
             <v-col class="text-left">
-                <v-row>
-                    <v-btn to="/historical" text=true> 
-                      <v-icon right>mdi-chevron-left</v-icon>
-                    </v-btn>
-                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
-                </v-row>
+                <h2
+                    class="ps-4 ma-2 font-weight-thin display-1"
+                    style="text-center"
+                >
+                    <router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
+                    MOIS DE {{date_du_mois}}
+                </h2>
             </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>

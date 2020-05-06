@@ -8,7 +8,7 @@
               <router-link class="back" to="/home">
                 <v-icon>mdi-chevron-left</v-icon>
               </router-link>
-              {{date}} (AUJOURD'HUI)
+              {{date}} (Aujourd'hui)
             </h2>
             <br />
           </v-col>
@@ -59,7 +59,7 @@
 
         <v-tab-item>
           <br />
-          <h2 class="headline font-weight-light pl-4 ma-2">Mon tableau de bord</h2>
+          <h2 class="ps-4 ma-2 font-weight-thin headline">MON TABLEAU DE BORD</h2>
           <br />
 
           <!--LIGNE 1 -->
@@ -164,7 +164,9 @@
                   max-height="200"
                 >
                   <div align="center" justify="center">
-                    <h3 class="ps-4 ma-2 font-weight-thin headline">{{usersData[0].calories}} calories consommées.</h3>
+                    <h3
+                      class="ps-4 ma-2 font-weight-thin headline"
+                    >{{usersData[0].calories}} calories consommées.</h3>
                     <h3 class="ps-4 ma-2 font-weight-thin headline">1000 calories restantes !</h3>
                     <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2100 calories / jour)</h4>
                   </div>
@@ -212,7 +214,7 @@
           <v-divider inset width="80%" class="mx-auto"></v-divider>
           <br />
 
-          <h2 class="headline font-weight-light pl-4 ma-2">A toi de nous dire...</h2>
+          <h2 class="ps-4 ma-2 font-weight-thin headline">À TOI DE NOUS DIRE...</h2>
 
           <!--Bouton pour modifier-->
           <v-card flat d-flex justify="center" class="mx-auto" xs12>
@@ -285,7 +287,7 @@
         <v-tab>Activité physique du jour</v-tab>
         <v-tab-item>
           <br />
-          <h2 class="headline font-weight-light pl-4 ma-2">Pour bien commencer !</h2>
+          <h2 class="ps-4 ma-2 font-weight-thin headline">POUR BIEN COMMENCER !</h2>
           <br />
           <!--Fréquence cardiaque actuelle-->
           <v-layout row wrap class="mx-auto align-center justify-center">
@@ -346,7 +348,7 @@
           <v-divider inset width="80%" class="mx-auto"></v-divider>
           <br />
 
-          <h2 class="headline font-weight-light pl-4 ma-2">Quel sport as-tu pratiqué ?</h2>
+          <h2 class="ps-4 ma-2 font-weight-thin headline">QUEL SPORT AS-TU PRATIQUÉ ?</h2>
 
           <v-layout row wrap class="mx-auto align-center justify-center">
             <v-spacer></v-spacer>
@@ -358,13 +360,13 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="football"
-                    label="Football" 
-                    hide-details 
-                    selected-color="red">
-                  </v-checkbox>
+                    label="Football"
+                    hide-details
+                    selected-color="red"
+                  ></v-checkbox>
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -415,11 +417,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="tennis"
-                    label="Tennis" 
-                    hide-details 
+                    label="Tennis"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -478,11 +480,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="baseball"
-                    label="Baseball" 
-                    hide-details 
+                    label="Baseball"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -516,11 +518,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="handball"
-                    label="Handball" 
-                    hide-details 
+                    label="Handball"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -535,13 +537,13 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="golf"
                     label="Golf"
-                    hide-details 
+                    hide-details
                     selected-color="red"
-                ></v-checkbox>
+                  ></v-checkbox>
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -560,11 +562,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="danse"
-                    label="Danse" 
-                    hide-details 
+                    label="Danse"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -579,11 +581,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="velo"
-                    label="Vélo" 
-                    hide-details 
+                    label="Vélo"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -598,11 +600,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="bowling"
-                    label="Bowling" 
-                    hide-details 
+                    label="Bowling"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -617,11 +619,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="judo"
-                    label="Judo" 
-                    hide-details 
+                    label="Judo"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -636,11 +638,11 @@
                   height="200"
                 />
                 <v-card-text>
-                  <v-checkbox 
-                    v-model="selected" 
+                  <v-checkbox
+                    v-model="selected"
                     value="course"
-                    label="Course" 
-                    hide-details 
+                    label="Course"
+                    hide-details
                     selected-color="red"
                   ></v-checkbox>
                 </v-card-text>
@@ -663,14 +665,8 @@
 
           <v-snackbar v-model="snackbar">
             Ta sélection de sport a été sauvegardée !
-            <v-btn
-                color="teal"
-                text
-                @click="snackbar = false"
-            >
-                Fermer
-            </v-btn>
-        </v-snackbar>
+            <v-btn color="teal" text @click="snackbar = false">Fermer</v-btn>
+          </v-snackbar>
 
           <br />
           <v-divider inset width="80%" class="mx-auto"></v-divider>
@@ -701,7 +697,7 @@
           <br />
           <v-layout wrap class="mx-auto align-center justify-center">
             <v-flex xs12 md7>
-              <v-card class="mt-4 mx-auto" max-width="800">
+              <v-card class="mt-4 mx-auto" xs12 max-width="800">
                 <v-sheet
                   class="v-sheet--offset mx-auto"
                   color="cyan"
@@ -735,83 +731,59 @@
               </v-card>
             </v-flex>
           </v-layout>
+
+          <br />
+          <v-divider inset width="80%"></v-divider>
+          <br />
+
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          <!-- RAJOUTER LA QUESTION SUR LA QUALITE DU SOMMEIL -->
+          <v-layout wrap class="mx-auto align-center justify-center">
+            <v-flex xs12 md7>
+              <v-card flat>
+                <v-list>
+                  <v-form>
+                  <v-container>
+                    <v-list-item>
+                      <v-list-item-icon>
+                        <v-img 
+                          src='https://image.flaticon.com/icons/svg/1584/1584848.svg'
+                          alt='information'
+                          width='50'
+                        > 
+                        </v-img>
+                      </v-list-item-icon>  
+                      <v-list-item-content>
+                          <v-row>
+                            <v-col
+                              cols="12"
+                              md="12"
+                            >
+                              <v-select
+                              :items="sommeil"
+                              label="As-tu bien dormi ?"
+                              solo
+                            ></v-select>
+                            </v-col>
+                          </v-row>
+                      </v-list-item-content>  
+                    </v-list-item> 
+                  </v-container>
+                  </v-form>
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-tab-item>
 
         <!-- HUMEUR -->
         <v-tab>Humeur</v-tab>
 
         <v-tab-item>
-          <h2
-            class="ps-4 ma-2 font-weight-thin headline"
-            align="center"
-          >Juste pour rire le temps d'un film.</h2>
+          <br />
+          <h2 class="ps-4 ma-2 font-weight-thin headline">COMMENT TE SENS-TU, AUJOURD'HUI ?</h2>
           <br />
 
-          <v-card width="85%" flat class="mx-auto">
-            <v-row>
-              <v-img
-                src="https://i.pinimg.com/474x/c6/ab/3c/c6ab3cd9cf0d73ebf6c9c855e3e185b9.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/e1/9f/2b/e19f2be057e5cfc7a65e6ecc4dc3f9e0.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/41/e8/ad/41e8addb16c011e8f893cf1cc781a63b.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/3d/20/ca/3d20ca14d9d00b323a445b9d357d68fd.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-            </v-row>
-          </v-card>
-
-          <br />
-          <v-divider width="80%" class="mx-auto"></v-divider>
-          <br />
-
-          <h2
-            class="ps-4 ma-2 font-weight-thin headline"
-            align="center"
-          >Pour se détendre quelques minutes.</h2>
-          <br />
-
-          <v-card width="85%" flat class="mx-auto">
-            <v-row>
-              <v-img
-                src="https://i.pinimg.com/474x/a5/2e/18/a52e1842e28dad903c1bb13813d5a50a.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/98/a0/bb/98a0bb76548cf09815a33342c3e4c3e5.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/09/b3/87/09b387cf43d21601afccb86996ff125c.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-
-              <v-img
-                src="https://i.pinimg.com/474x/36/f3/dd/36f3ddefc62288b9e1e91449629f9556.jpg"
-                alt="detailsJour"
-                width="25%"
-              ></v-img>
-            </v-row>
-          </v-card>
           <br />
           <br />
 
@@ -832,28 +804,25 @@
         </v-tab-item>
       </v-tabs>
 
-      <!--Barre de fin de page, à supprimer si vraiment vraiment inutile -->
-      <v-card 
-        class="overflow-hidden mx-auto"
-        height="50px">
-                    <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll>
-                        <v-btn value="share">
-                            <span>Partager</span>
-                            <v-icon>mdi-share</v-icon>
-                        </v-btn>
-    
-                        <v-btn value="favoris">
-                            <span>Favoris</span>
-                            <v-icon>mdi-heart</v-icon>
-                        </v-btn>
-        
-                        <v-btn value="aide">
-                            <span>Aide</span>
-                            <v-icon>mdi-comment-question-outline</v-icon>
-                        </v-btn>
-                    </v-bottom-navigation>
-      </v-card>
+      <!--Barre de fin de page -->
+      <v-card class="overflow-hidden mx-auto" height="50px" >
+        <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll scroll-threshold="10">
+          <v-btn value="share">
+            <span>Partager</span>
+            <v-icon>mdi-share</v-icon>
+          </v-btn>
 
+          <v-btn value="favoris">
+            <span>Favoris</span>
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
+
+          <v-btn value="aide">
+            <span>Aide</span>
+            <v-icon>mdi-comment-question-outline</v-icon>
+          </v-btn>
+        </v-bottom-navigation>
+      </v-card>
     </div>
     <!--Fin de div pour les utilisateurs connectés-->
   </v-content>
@@ -939,130 +908,132 @@ export default {
     },
 
     addSport: function() {
-        this.$firestore.usersData
-            .doc("Q8sEAKJCRyCKOvEiCKC3")
-            .update(
-                {
-                    sport: this.selected
-                }
-            )
-            .then(
-                this.snackbar = true
-            )
-      },
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          sport: this.selected
+        })
+        .then((this.snackbar = true));
+    }
   },
 
   computed: {
     // map `this.user` to `this.$store.getters.user`
     ...mapGetters({
-        user: "user"
+      user: "user"
     }),
     avg() {
-        const sum = this.bpm.reduce((acc, cur) => acc + cur, 0);
-        const length = this.bpm.length;
-        if (!sum && !length) return 0;
-        return Math.ceil(sum / length);
+      const sum = this.bpm.reduce((acc, cur) => acc + cur, 0);
+      const length = this.bpm.length;
+      if (!sum && !length) return 0;
+      return Math.ceil(sum / length);
     }
   },
 
   data() {
     return {
-        usersData: [],
+      usersData: [],
 
-        nbPasCourant,
-        nbPasRestant: objectifPas - nbPasCourant,
-        value: (nbPasCourant * 100) / objectifPas, // pas réalisés par rapport à l'objectif fixé par la personne
+      nbPasCourant,
+      nbPasRestant: objectifPas - nbPasCourant,
+      value: (nbPasCourant * 100) / objectifPas, // pas réalisés par rapport à l'objectif fixé par la personne
 
-        date: date_today.toUpperCase(),
-        checking: false,
-        bpm: [],
-        eau: 70, //eau consommé selon l'objectif de la personne, valeur fixe
-        food: (1100 * 100) / 2100, //calories consommées selon l'objectif de la personne, valeur fixe
-        time: (20 * 100) / 120, //temps à consacrer à soi-même selon l'objectif de la personne, valeur fixe
+      date: date_today.toUpperCase(),
+      checking: false,
+      bpm: [],
+      eau: 70, //eau consommé selon l'objectif de la personne, valeur fixe
+      food: (1100 * 100) / 2100, //calories consommées selon l'objectif de la personne, valeur fixe
+      time: (20 * 100) / 120, //temps à consacrer à soi-même selon l'objectif de la personne, valeur fixe
 
-        ajoutEau: false,
-        ajoutNourriture: false,
-        ajoutTemps: false,
+      ajoutEau: false,
+      ajoutNourriture: false,
+      ajoutTemps: false,
 
-        selected : [],
-        snackbar : false,
+      selected: [],
+      snackbar: false,
 
-        //Modification des quantités d'eau
-        itemsEau: [
-            { text: "200 ml" },
-            { text: "250 ml" },
-            { text: "300 ml" },
-            { text: "350 ml" },
-            { text: "400 ml" },
-            { text: "450 ml" },
-            { text: "500 ml" },
-            { text: "550 ml" },
-            { text: "600 ml" },
-            { text: "650 ml" },
-            { text: "700 ml" },
-            { text: "750 ml" },
-            { text: "800 ml" },
-            { text: "850 ml" },
-            { text: "900 ml" },
-            { text: "950 ml" },
-            { text: "1 l" },
-            { text: "1,5 l" },
-            { text: "2 l" },
-            { text: "2,5 l" },
-            { text: "3 l" }
+      //Modification des quantités d'eau
+      itemsEau: [
+        { text: "200 ml" },
+        { text: "250 ml" },
+        { text: "300 ml" },
+        { text: "350 ml" },
+        { text: "400 ml" },
+        { text: "450 ml" },
+        { text: "500 ml" },
+        { text: "550 ml" },
+        { text: "600 ml" },
+        { text: "650 ml" },
+        { text: "700 ml" },
+        { text: "750 ml" },
+        { text: "800 ml" },
+        { text: "850 ml" },
+        { text: "900 ml" },
+        { text: "950 ml" },
+        { text: "1 l" },
+        { text: "1,5 l" },
+        { text: "2 l" },
+        { text: "2,5 l" },
+        { text: "3 l" }
+      ],
+
+      //Modifications des calories
+      itemsNourriture: [
+        { text: "50 calories" },
+        { text: "100 calories" },
+        { text: "150 calories" },
+        { text: "200 calories" },
+        { text: "250 calories" },
+        { text: "300 calories" },
+        { text: "350 calories" },
+        { text: "400 calories" },
+        { text: "450 calories" },
+        { text: "500 calories" },
+        { text: "550 calories" },
+        { text: "600 calories" },
+        { text: "650 calories" },
+        { text: "700 calories" },
+        { text: "750 calories" },
+        { text: "800 calories" },
+        { text: "850 calories" },
+        { text: "900 calories" },
+        { text: "950 calories" },
+        { text: "1000 calories" }
+      ],
+
+      //Modifications du temps personnel
+      itemsTemps: [
+        { text: "5 minutes" },
+        { text: "10 minutes" },
+        { text: "15 minutes" },
+        { text: "20 minutes" },
+        { text: "25 minutes" },
+        { text: "30 minutes" },
+        { text: "35 minutes" },
+        { text: "40 minutes" },
+        { text: "45 minutes" },
+        { text: "50 minutes" },
+        { text: "55 minutes" },
+        { text: "1 heure" }
+      ],
+
+      labels: [
+        "21h00",
+        "00h00",
+        "03h00",
+        "04h00",
+        "05h00",
+        "06h00",
+        "07h00",
+        "08h00"
+      ],
+      heures: [200, 675, 310, 390, 610, 260, 250, 140],
+      sommeil: [
+          'Très bien',
+          'Bien',
+          'Mal',
+          'Très mal',
         ],
-
-        //Modifications des calories
-        itemsNourriture: [
-            { text: "50 calories" },
-            { text: "100 calories" },
-            { text: "150 calories" },
-            { text: "200 calories" },
-            { text: "250 calories" },
-            { text: "300 calories" },
-            { text: "350 calories" },
-            { text: "400 calories" },
-            { text: "450 calories" },
-            { text: "500 calories" },
-            { text: "550 calories" },
-            { text: "600 calories" },
-            { text: "650 calories" },
-            { text: "700 calories" },
-            { text: "750 calories" },
-            { text: "800 calories" },
-            { text: "850 calories" },
-            { text: "900 calories" },
-            { text: "950 calories" },
-            { text: "1000 calories" }
-        ],
-
-        //Modifications du temps personnel
-        itemsTemps: [
-            { text: "5 minutes" },
-            { text: "10 minutes" },
-            { text: "15 minutes" },
-            { text: "20 minutes" },
-            { text: "25 minutes" },
-            { text: "30 minutes" },
-            { text: "35 minutes" },
-            { text: "40 minutes" },
-            { text: "45 minutes" },
-            { text: "50 minutes" },
-            { text: "55 minutes" },
-            { text: "1 heure" }
-        ],
-
-        labels: [
-            "21h00",
-            "00h00",
-            "03h00",
-            "04h00",
-            "05h00",
-            "06h00",
-            "07h00",
-            "08h00"
-        ],
-        heures: [200, 675, 310, 390, 610, 260, 250, 140]
     };
   }
 };

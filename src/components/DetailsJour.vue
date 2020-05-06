@@ -5,10 +5,10 @@
         <v-row>
           <v-col class="text-left">
             <h2
-              class="ps-4 ma-2 font-weight-thin headline"
+              class="ps-4 ma-2 font-weight-thin display-1"
               style="text-center"
             ><router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
-            {{date_du_jour}} (AUJOURD'HUI)</h2>
+            {{date_du_jour}}</h2>
             <br />
           </v-col>
           <v-col class="text-right">
@@ -636,10 +636,9 @@
         </v-tab-item>
       </v-tabs>
 
-      <!--Barre de fin de page-->
-
-      <v-app>
-        <v-bottom-navigation v-model="bottomNav" fixed>
+      <!--Barre de fin de page -->
+      <v-card class="overflow-hidden mx-auto" height="50px" flat>
+        <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll>
           <v-btn value="share">
             <span>Partager</span>
             <v-icon>mdi-share</v-icon>
@@ -655,7 +654,7 @@
             <v-icon>mdi-comment-question-outline</v-icon>
           </v-btn>
         </v-bottom-navigation>
-      </v-app>
+      </v-card>
     </div>
     <!--Fin de div pour les utilisateurs connectés-->
   </v-content>
