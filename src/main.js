@@ -1,16 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import VueFirestore from 'vue-firestore';
+
 import vuetify from './plugins/vuetify';
 import router from './routes/index';
 import * as firebase from 'firebase';
 import store from './store';
 
-/*//autre façon d'importer firebase apparemment plus propre
-import firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/storage';*/
-
 Vue.config.productionTip = false;
+
+Vue.use(VueFirestore);
 
 //TEST//
 const firebaseConfig = {
@@ -23,18 +22,20 @@ const firebaseConfig = {
   appId: "1:667673205028:web:4d8b8f872ecbf83aedfbb1",
   measurementId: "G-EVFSNVFCG2"
 };
-firebase.initializeApp(firebaseConfig);
+
+const initialisation = firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(user => {
   store.dispatch("fetchUser", user);
 });
-//FIN TEST//
 
-//Vue.use(VueFirestore);
+export const firestore = initialisation.firestore();
+
+//FIN TEST//
 
 new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app');

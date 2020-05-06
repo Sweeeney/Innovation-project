@@ -1,8 +1,10 @@
 import Vue from 'vue';
+
 import Router from 'vue-router';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
+import Dashboard from '../components/Dashboard';
 import Master from '../components/Master';
 import DetailsMois from '../components/DetailsMois';
 import DetailsJour from '../components/DetailsJour';
@@ -36,6 +38,11 @@ const router = new Router({
             path: '/home',
             name: 'home',
             component: Home,
+        },
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: Dashboard,
         },
         {
             path: '/historical',

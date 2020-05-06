@@ -21,59 +21,63 @@
         </div>
       </header>
 
-    <v-card flat d-flex>
+    <!-- <v-card flat class="d-flex flex-wrap"> -->
       <h2 class="display-1 font-weight-thin pl-4 ma-2"> ACTUALITÉS </h2>
 
-      <v-container fluid align="center" >
-        <v-row dense >
-          <v-card d-flex width="80%">
-            <v-carousel
-              cycle
-              height="400"
-              hide-delimiter-background
-              show-arrows-on-hover
-            >
-              <v-carousel-item
-                v-for="(slide, i) in slides"
-                :key="i"
-                :src="slide.src"
-
+      <v-container fluid grid-list-xl text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs12 sm8 md10 lg10> 
+            <v-card height="400">
+              <v-carousel
+                cycle
+                height="400"
+                hide-delimiter-background
+                show-arrows-on-hover
               >
-              </v-carousel-item>
-            </v-carousel>
-          </v-card>
+                <v-carousel-item
+                  v-for="(slide, i) in slides"
+                  :key="i"
+                  :src="slide.src"
 
-          <v-card d-flex width="20%" height="400">
-            <v-list-item two-line>
-              <v-list-item-content>
-                <v-list-item-title class="display-1">Nancy</v-list-item-title>
-                <v-list-item-subtitle class="headline">Ensoleillé</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
+                >
+                </v-carousel-item>
+              </v-carousel>
+            </v-card>
+          </v-flex>
 
-            <v-card-text>
-              <v-row>
-                <v-col class="headline" cols="10" align="center">
-                  MIN - 9&deg;C
-                </v-col>
-                <v-col class="headline" cols="10" align="center">
-                  MAX - 23&deg;C
-                </v-col>
-                <v-col cols="10" align="center">
-                  <v-img
-                    src="https://image.flaticon.com/icons/svg/2698/2698194.svg"
-                    alt="Sunny image"
-                    width="150"
-                  ></v-img>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-row>
+          <v-flex xs12 sm5 md2 lg2>
+            <v-card height="400">
+                <v-list-item two-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="display-1">Nancy</v-list-item-title>
+                    <v-list-item-subtitle class="headline">Ensoleillé</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+
+              <v-card-text>
+                <v-row align="center" justify="center">
+                  <v-col class="headline" cols="10" align="center">
+                    MIN - 9&deg;C
+                  </v-col>
+                  <v-col class="headline" cols="10" align="center">
+                    MAX - 23&deg;C
+                  </v-col>
+                  <v-col cols="10" align="center">
+                    <v-img
+                      src="https://image.flaticon.com/icons/svg/2698/2698194.svg"
+                      alt="Sunny image"
+                      width="50%"
+                    ></v-img>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </v-layout>
       </v-container>
-    </v-card>  
+    <!-- </v-card>   -->
 
-    <br>
+    <!-- <br>
     <v-divider></v-divider>
     <br>
 
@@ -146,7 +150,7 @@
         </v-form>  
       </v-list>  
       </v-card>
-    </div>
+    </div> -->
   </v-content>
 </template>
 
@@ -160,19 +164,19 @@ import firebase from "firebase";
       return {
         slides: [
           {
-            src: 'https://www.hdwallpapers.net/previews/dew-drops-on-dandelion-seeds-705.jpg',
+            src: 'https://lh3.googleusercontent.com/proxy/5kTuJhtekBEF8mi-N9h9gs5xLyQ3VNmr6DBn6SFFdRvIXRgYa2tmrB4owhX-1_p84FJJWCyEyXCoeq_7r6VL68e8cPEIX42lHlDHgW4u1OErX6nQtYd7avqfaxrPV3bAGKVSMQ-y6l8U_5yVPHta',
           },
           {
-            src :'https://www.hdwallpapers.net/previews/reflection-polyscape-1085.jpg',
+            src :'https://www.journalexpress.ca/wp-content/uploads/sites/6/2019/08/Fruit-l%C3%A9gume-1600x1068.jpg',
           },
           {
-            src :'https://www.hdwallpapers.net/previews/peacock-1162.jpg',
+            src :'https://labellegang.s3.amazonaws.com/images/meditation-pleine-conscience_960_540.jpg',
           },
           {
-            src :'https://www.hdwallpapers.net/previews/lake-prags-italy-1053.jpg',
+            src :'https://resize-europe1.lanmedia.fr/r/622,311,forcex,center-middle/img/var/europe1/storage/images/europe1/developpement-personnel/sante-alimentation-bien-etre-cinq-livres-inspirants-pour-decouvrir-le-developpement-personnel-3613973/47451383-1-fre-FR/Sante-alimentation-bien-etre-cinq-livres-inspirants-pour-decouvrir-le-developpement-personnel.jpg',
           },
           {
-            src :'https://www.hdwallpapers.net/previews/starry-night-over-cape-cod-1126.jpg',
+            src :'https://static.vix.com/es/sites/default/files/styles/large/public/imj/otramedicina/P/Propiedades-del-masaje-con-piedras-calientes.jpg',
           },
         ],
         ressentis: [

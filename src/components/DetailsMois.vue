@@ -8,7 +8,7 @@
                     <v-btn to="/historical" text=true> 
                       <v-icon right>mdi-chevron-left</v-icon>
                     </v-btn>
-                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                    <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
                 </v-row>
             </v-col>
             <v-col class="text-right">
@@ -24,7 +24,7 @@
                         <v-btn to="/historical" text=true> 
                         <v-icon right>mdi-chevron-left</v-icon>
                         </v-btn>
-                        <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE ... </h2>
+                        <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
                     </v-row>
             </v-col>
             <v-col class="text-right">
@@ -41,6 +41,8 @@
             grow
             light
         >
+            <v-tabs-slider color="teal darken-2"></v-tabs-slider>
+
             <v-tab
                 v-for="item in items"
                 :key="item.tab"
@@ -342,7 +344,6 @@
                             </v-row>
                         </v-container>
                     </div>
-
 
                     <div v-if="item.content=='alimentation'" class="text-center">
                         <v-container fluid>
@@ -894,6 +895,9 @@
 <script>
 import { mapGetters } from "vuex";
 import firebase from "firebase";
+import moment from 'moment';
+
+moment.locale('fr');
 
 const gradients = [
     ['#222'],
@@ -906,6 +910,9 @@ const gradients = [
 
 export default {
     name:'DetailsMois',
+    props: {
+        date: Date
+    },
     methods: {
       signOut() {
       firebase
@@ -936,11 +943,13 @@ export default {
         return{
             tab: null,
             items: [
-          { tab: 'Général', content: 'general' },
-          { tab: 'Sommeil', content: 'sommeil' },
-          { tab: 'Alimentation', content: 'alimentation' },
-          { tab: 'Sport', content: 'sport' },
+                { tab: 'Général', content: 'general' },
+                { tab: 'Sommeil', content: 'sommeil' },
+                { tab: 'Alimentation', content: 'alimentation' },
+                { tab: 'Sport', content: 'sport' },
             ],
+
+            date_du_mois : (moment(this.date).format('MMMM YYYY')).toUpperCase(),
 
             width: 'auto',
             radius: 8,

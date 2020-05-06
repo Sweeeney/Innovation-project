@@ -8,7 +8,7 @@
               class="ps-4 ma-2 font-weight-thin headline"
               style="text-center"
             ><router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
-            {{date}} (AUJOURD'HUI)</h2>
+            {{date_du_jour}} (AUJOURD'HUI)</h2>
             <br />
           </v-col>
           <v-col class="text-right">
@@ -666,36 +666,19 @@
 import { mapGetters } from "vuex";
 import firebase from "firebase";
 //import Chart from "chart.js";
+import moment from 'moment';
+
+moment.locale('fr');
 
 //Pour afficher la date du jour, avec le jour de la semaine//
-var jours = new Array(
-  "Dimanche",
-  "Lundi",
-  "Mardi",
-  "Mercredi",
-  "Jeudi",
-  "Vendredi",
-  "Samedi"
-);
-var mois = new Array(
-  "janvier",
-  "févrirer",
-  "mars",
-  "avril",
-  "mai",
-  "juin",
-  "juillet",
-  "aout",
-  "septembre",
-  "octobre",
-  "novembre",
-  "décembre"
-);
+/* var jours = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+var mois = new Array ("janvier", "févrirer", "mars", "avril", "mai", "juin", "juillet", "aout", 
+"septembre", "octobre", "novembre", "décembre");
 var date = new Date();
 var date_today = jours[date.getDay()] + " "; //Nom du jour de la semaine
 date_today += date.getDate() + " "; //Numéro du jour
 date_today += mois[date.getMonth()] + " "; //Mois
-date_today += date.getFullYear(); //Année
+date_today += date.getFullYear(); //Année */
 
 const exhale = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -710,7 +693,10 @@ var objectifEau = 2000; //ml
 var nbVerres = 0; */
 
 export default {
-  name: "DetailsJour",
+    name:'DetailsJour',
+    props: {
+        date: Date
+    },
 
   methods: {
     signOut() {
@@ -759,7 +745,7 @@ export default {
       nbPasRestant: objectifPas - nbPasCourant,
       value: (nbPasCourant * 100) / objectifPas, // pas réalisés par rapport à l'objectif fixé par la personne
       //valeur fixe pour le moment
-      date: date_today,
+      date_du_jour : (moment(this.date).format('dddd DD MMMM YYYY')).toUpperCase(),
       checking: false,
       bpm: [],
       eau: 70, //eau consommé selon l'objectif de la personne, valeur fixe
