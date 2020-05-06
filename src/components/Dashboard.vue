@@ -833,8 +833,10 @@
       </v-tabs>
 
       <!--Barre de fin de page, à supprimer si vraiment vraiment inutile -->
-      <!--                 <v-app id="inspire">
-                    <v-bottom-navigation v-model="bottomNav" fixed>
+      <v-card 
+        class="overflow-hidden mx-auto"
+        height="50px">
+                    <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll>
                         <v-btn value="share">
                             <span>Partager</span>
                             <v-icon>mdi-share</v-icon>
@@ -850,7 +852,8 @@
                             <v-icon>mdi-comment-question-outline</v-icon>
                         </v-btn>
                     </v-bottom-navigation>
-      </v-app>-->
+      </v-card>
+
     </div>
     <!--Fin de div pour les utilisateurs connectés-->
   </v-content>
