@@ -657,7 +657,7 @@
             <v-btn
               color="success"
               dark
-              width="70%"
+              xs10 md6
               class="mx-auto align-center"
               @click="addSport"
             >Ajouter les sports sélectionnés</v-btn>
@@ -747,9 +747,9 @@
                     <v-list-item>
                       <v-list-item-icon>
                         <v-img 
-                          src='https://image.flaticon.com/icons/svg/1584/1584848.svg'
+                          src='https://image.flaticon.com/icons/svg/2372/2372731.svg'
                           alt='information'
-                          width='50'
+                          width='75'
                         > 
                         </v-img>
                       </v-list-item-icon>  
@@ -760,7 +760,8 @@
                               md="12"
                             >
                               <v-select
-                              :items="sommeil"
+                              v-model="selectedQualite"
+                              :items="sommeilQualite"
                               label="As-tu bien dormi ?"
                               solo
                             ></v-select>
@@ -768,12 +769,57 @@
                           </v-row>
                       </v-list-item-content>  
                     </v-list-item> 
+
+                    <br />
+
+                    <v-list-item>
+                      <v-list-item-icon>
+                        <v-img 
+                          src='https://image.flaticon.com/icons/png/512/148/148855.png'
+                          alt='information'
+                          width='75'
+                        > 
+                        </v-img>
+                      </v-list-item-icon>  
+                      <v-list-item-content>
+                          <v-row>
+                            <v-col
+                              cols="12"
+                              md="12"
+                            >
+                              <v-select
+                                v-model="selectedQuantite"
+                                :items="sommeilQuantite"
+                                label="As-tu suffisamment dormi ?"
+                                solo
+                               ></v-select>
+                            </v-col>
+                          </v-row>
+                      </v-list-item-content>  
+                    </v-list-item>
                   </v-container>
                   </v-form>
                 </v-list>
               </v-card>
             </v-flex>
           </v-layout>
+
+          <div class="text-center">
+            <v-btn
+              color="success"
+              dark
+              xs10 md6
+              class="mx-auto align-center"
+              @click="addSommeil"
+            >Ajouter ma sélection</v-btn>
+          </div>
+
+          <br />
+
+          <v-snackbar v-model="snackbar2">
+            La qualité de ton sommeil a été sauvegardée !
+            <v-btn color="teal" text @click="snackbar2 = false">Fermer</v-btn>
+          </v-snackbar>
         </v-tab-item>
 
         <!-- HUMEUR -->
@@ -784,7 +830,182 @@
           <h2 class="ps-4 ma-2 font-weight-thin headline">COMMENT TE SENS-TU, AUJOURD'HUI ?</h2>
           <br />
 
+          <v-layout row wrap class="mx-auto align-center justify-center">
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="heureux"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/blush_emoji_shy_icon_123388.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text class="mx-auto align-center justify-center">
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="heureux"
+                    label="Heureux/se"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="triste"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/crying_emoji_sad_icon_123390.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text>
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="triste"
+                    label="Triste"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="jovial"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/happy_smiley_icon_123391.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text>
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="jovial"
+                    label="Jovial(e)"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="deprime"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/emoji_think_thinking_icon_123403.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text>
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="deprime"
+                    label="Déprimé(e)"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="fatigue"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/emoji_sleep_sleeping_icon_123401.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text>
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="fatigue"
+                    label="Fatigué(e)"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-flex xs12 md1>
+              <v-card class="mx-auto" flat>
+                <v-img
+                  alt="dynamique"
+                  src="https://cdn.icon-icons.com/icons2/2000/PNG/128/cool_smiley_sunglasses_icon_123402.png"
+                  class="mx-auto align-center justify-center"
+                />
+                <v-card-text>
+                  <v-switch
+                    v-model="selectedHumeur"
+                    value="dynamique"
+                    label="Dynamique"
+                    hide-details
+                    inset 
+                  ></v-switch>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+          </v-layout>
           <br />
+          <br />
+
+          <div class="text-center">
+            <v-btn
+              color="success"
+              dark
+              xs10 md6
+              class="mx-auto align-center"
+              @click="addMood"
+            >Ajouter ma sélection</v-btn>
+          </div>
+
+          <br />
+
+          <v-snackbar v-model="snackbar3">
+            Ton humeur du jour a été sauvegardée !
+            <v-btn color="teal" text @click="snackbar3 = false">Fermer</v-btn>
+          </v-snackbar>
+
+          <v-divider width="80%" class="mx-auto"></v-divider>
+          <br />
+
+          <v-card width="85%" flat class="mx-auto" v-show="selectedHumeur=='heureux' || selectedHumeur=='jovial' || selectedHumeur=='dynamique'">
+            <h2
+              class="ps-4 ma-2 font-weight-thin headline"
+              align="center"
+            >En fonction de ton humeur, voici quelques films que tu pourrais regarder !</h2>
+            <br />
+
+            <v-row>
+              <v-img
+                v-for="(item, i) in films1"
+                :key="i"
+                :src="item.src"
+                alt="films"
+                width="25%"
+              ></v-img>
+            </v-row>
+          </v-card>
+          <v-card width="85%" flat class="mx-auto" v-show="selectedHumeur=='triste' || selectedHumeur=='deprime' || selectedHumeur=='fatigue'">
+            <h2
+              class="ps-4 ma-2 font-weight-thin headline"
+              align="center"
+            >En fonction de ton humeur, voici quelques films que tu pourrais regarder !</h2>
+            <br />
+
+            <v-row>
+              <v-img
+                v-for="(item, i) in films2"
+                :key="i"
+                :src="item.src"
+                alt="films"
+                width="25%"
+              ></v-img>
+            </v-row>
+          </v-card>
           <br />
 
           <v-card class="d-flex mb-6" color="teal lighten-4">
@@ -806,7 +1027,7 @@
 
       <!--Barre de fin de page -->
       <v-card class="overflow-hidden mx-auto" height="50px" >
-        <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll scroll-threshold="10">
+        <v-bottom-navigation v-model="bottomNav" fixed>
           <v-btn value="share">
             <span>Partager</span>
             <v-icon>mdi-share</v-icon>
@@ -914,6 +1135,25 @@ export default {
           sport: this.selected
         })
         .then((this.snackbar = true));
+    },
+
+    addSommeil: function() {
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          sommeilQualite: this.selectedQualite,
+          sommeilQuantite: this.selectedQuantite
+        })
+        .then((this.snackbar2 = true));
+    },
+
+    addMood: function() {
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          humeurJour: this.selectedHumeur,
+        })
+        .then((this.snackbar3 = true));
     }
   },
 
@@ -949,8 +1189,31 @@ export default {
       ajoutNourriture: false,
       ajoutTemps: false,
 
+      //Formulaire - Sport
       selected: [],
       snackbar: false,
+      //Formulaire - Sommeil
+      selectedQualite: [],
+      selectedQuantite: [],
+      snackbar2: false,
+      //Formulaire - Humeur
+      selectedHumeur: "",
+      snackbar3: false,
+
+      //Films en fonction de l'humeur
+      films1: [ //Lorsque la personne est joviale, heureuse ou dynamique
+        {src:"https://fr.web.img3.acsta.net/pictures/15/04/14/18/30/215297.jpg"},
+        {src:"https://fr.web.img6.acsta.net/medias/nmedia/18/88/95/51/20264212.jpg"},
+        {src:"https://fr.web.img4.acsta.net/pictures/15/01/08/15/02/290347.jpg"},
+        {src:"https://fr.web.img5.acsta.net/pictures/18/03/16/14/42/0611719.jpg"}
+      ],
+
+      films2: [ //Lorsque la personne est triste, déprimée ou fatiguée
+        {src:"https://i.pinimg.com/564x/b9/d0/4e/b9d04ecb6a3b8a9343f4f84095bf5185.jpg"},
+        {src:"https://img.over-blog-kiwi.com/0/99/46/17/20170717/ob_b1a566_zootopia.jpg"},
+        {src:"https://fr.web.img2.acsta.net/pictures/17/03/02/10/13/106609.jpg"},
+        {src:"https://fr.web.img2.acsta.net/pictures/19/05/03/14/30/1132544.jpg"}
+      ],
 
       //Modification des quantités d'eau
       itemsEau: [
@@ -1027,13 +1290,21 @@ export default {
         "07h00",
         "08h00"
       ],
+
       heures: [200, 675, 310, 390, 610, 260, 250, 140],
-      sommeil: [
+
+      sommeilQualite: [
           'Très bien',
           'Bien',
           'Mal',
           'Très mal',
         ],
+      
+      sommeilQuantite: [
+        'Beaucoup dormi',
+        'Suffisamment dormi',
+        'Pas assez dormi',
+      ]
     };
   }
 };
