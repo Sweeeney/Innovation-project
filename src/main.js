@@ -7,14 +7,9 @@ import router from './routes/index';
 import * as firebase from 'firebase';
 import store from './store';
 
-require ('firebase/firestore');
-Vue.use(VueFirestore);
-/*//autre façon d'importer firebase apparemment plus propre
-import firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/storage';*/
-
 Vue.config.productionTip = false;
+
+Vue.use(VueFirestore);
 
 //TEST//
 const firebaseConfig = {

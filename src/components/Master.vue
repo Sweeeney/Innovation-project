@@ -67,7 +67,6 @@
 <script>
 import { mapGetters } from "vuex";
 import firebase from "firebase";
-import {firestore} from '../main';
 
 export default {
     name:'Master',
@@ -82,13 +81,7 @@ export default {
         type:'month',
         types: ['month', 'date'],
         pickerDate: null,
-        collection: [],
         dateMax : new Date().toISOString().substr(0, 10),
-      }
-    },
-    firestore() {
-      return {
-        collection: firestore.collection('test'),
       }
     },
     methods: {
