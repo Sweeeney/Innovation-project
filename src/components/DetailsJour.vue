@@ -33,7 +33,7 @@
         <v-row justify="center">
           <h2
             class="ps-4 ma-2 font-weight-thin headline"
-          >POUR ACCEDER A CETTE FONCTIONNALITE, REJOINS-NOUS !</h2>
+          >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
         </v-row>
         <v-row align="center" justify="center">
           <v-card flat width="40%" class="mx-auto">
@@ -477,7 +477,7 @@
       <!--Barre de fin de page-->
 
       <v-card class="mx-auto" height="50px" flat>
-        <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll scroll-threshold="20">
+        <v-bottom-navigation v-model="bottomNav" fixed>
           <v-btn value="share">
             <span>Partager</span>
             <v-icon>mdi-share</v-icon>
