@@ -488,7 +488,7 @@
         class=" mx-auto"
         height="50px"
         flat>
-                    <v-bottom-navigation v-model="bottomNav" fixed hide-on-scroll scroll-threshold="20">
+                    <v-bottom-navigation v-model="bottomNav" fixed >
                         <v-btn value="share">
                             <span>Partager</span>
                             <v-icon>mdi-share</v-icon>
