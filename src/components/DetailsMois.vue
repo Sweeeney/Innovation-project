@@ -40,7 +40,6 @@
             background-color="teal lighten-5"
             grow
             light
-            
         >
             <v-tab
                 v-for="item in items"
@@ -293,7 +292,7 @@
                                         <v-card
                                         class="d-flex flex-wrap pa-2"
                                         elevation=0
-                                        width=350
+                                        width=40%
                                         >
                                             <v-col>
                                                 <v-sparkline
@@ -315,7 +314,7 @@
                                         <v-card
                                         class="d-flex flex-wrap pa-2"
                                         elevation=0
-                                        width=350
+                                        width=40%
                                         >
                                             <v-col>
                                                 <v-sparkline
