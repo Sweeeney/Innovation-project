@@ -4,7 +4,7 @@
       <div v-if="user.loggedIn">
         <v-row>
           <v-col class="text-left">
-            <h2 class="ps-4 ma-2 font-weight-thin headline">Bienvenue {{user.data.displayName}}</h2>
+            <h2 class="ps-4 ma-2 font-weight-thin headline">Bienvenue {{utilisateur.displayName}}</h2>
           </v-col>
           <v-col class="text-right">
             <v-btn
@@ -174,6 +174,8 @@ export default {
   name: "Home",
   data() {
     return {
+      utilisateur:firebase.auth().currentUser,
+
       slides: [
         {
           src:

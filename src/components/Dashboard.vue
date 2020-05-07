@@ -89,11 +89,14 @@
                   <div align="center" justify="center">
                     <h3
                       class="ps-4 ma-2 font-weight-thin headline"
-                    >{{usersData[0].nbPas}} pas effectués.</h3>
-                    <h3
-                      class="ps-4 ma-2 font-weight-thin headline"
-                    >Plus que {{nbPasRestant}} pas avant l'objectif !</h3>
-                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 10 000 pas / jour)</h4>
+                    >{{ownData.nbPas}} pas effectués.</h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-if="ownData.objectifPas - ownData.nbPas > 0">
+                      Plus que {{ownData.objectifPas - ownData.nbPas}} pas avant l'objectif !
+                    </h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
+                      Tu as atteint ton objectif (voir même plus) !
+                    </h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de {{ownData.objectifPas}} pas / jour)</h4>
                   </div>
                 </v-card>
               </v-card>
@@ -126,11 +129,16 @@
                   <div align="center" justify="center">
                     <h3
                       class="ps-4 ma-2 font-weight-thin headline"
-                    >7 verres d'eau ({{usersData[0].eau}} ml) consommés.</h3>
-                    <h3
-                      class="ps-4 ma-2 font-weight-thin headline"
-                    >Plus que 3 verres avant l'objectif !</h3>
-                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 litres / jour)</h4>
+                    >{{ownData.eau}} verre(s) d'eau consommé(s).</h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-if="ownData.objectifEau - ownData.eau > 0">
+                      Plus que {{ownData.objectifEau - ownData.eau}} verres avant l'objectif !
+                    </h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
+                      Tu as atteint ton objectif (voir même plus) !
+                    </h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">
+                      (Objectif de {{ownData.objectifEau}} verres / jour)
+                    </h4>
                   </div>
                 </v-card>
               </v-card>
@@ -166,9 +174,14 @@
                   <div align="center" justify="center">
                     <h3
                       class="ps-4 ma-2 font-weight-thin headline"
-                    >{{usersData[0].calories}} calories consommées.</h3>
-                    <h3 class="ps-4 ma-2 font-weight-thin headline">1000 calories restantes !</h3>
-                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2100 calories / jour)</h4>
+                    >{{ownData.calories}} calories consommées.</h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-if="ownData.objectifCalories - ownData.calories > 0">
+                      {{ownData.objectifCalories - ownData.calories}} calories restantes !
+                    </h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
+                      Tu as atteint ton objectif (voir même plus) !
+                    </h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de {{ownData.objectifCalories}} calories / jour)</h4>
                   </div>
                 </v-card>
               </v-card>
@@ -199,11 +212,14 @@
                   <div align="center" justify="center">
                     <h3
                       class="ps-4 ma-2 font-weight-thin headline"
-                    >20 minutes accordées à des activités personnelles.</h3>
-                    <h3
-                      class="ps-4 ma-2 font-weight-thin headline"
-                    >Prends du temps pour prendre soin de toi.</h3>
-                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de 2 heures / jour)</h4>
+                    >{{ownData.tempsPerso}} minutes accordées à des activités personnelles.</h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-if="ownData.objectifTempsPerso - ownData.tempsPerso > 0">
+                      Prends du temps pour prendre soin de toi.
+                    </h3>
+                    <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
+                      Félicitations, tu prends soin de toi !
+                    </h3>
+                    <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de {{ownData.objectifTempsPerso}} minutes / jour)</h4>
                   </div>
                 </v-card>
               </v-card>
@@ -290,7 +306,7 @@
                           <!-- Ajout du temps personnel -->
                           <v-col v-show="ajoutTemps">
                             <v-select v-model="tempsPersoAjout" :items="itemsTemps" label="Ce temps là est bon pour toi, bravo !"></v-select>
-                            <v-btn small color="success" dark @click="addPerso">OK</v-btn>
+                            <v-btn small color="success" dark @click="addTempsPerso">OK</v-btn>
                           </v-col>
                         </v-row>
                       </v-list-item>
@@ -1119,7 +1135,8 @@ export default {
 
   firestore() {
     return {
-      usersData: firestore.collection("users-data")
+      usersData: firestore.collection("users-data"),
+      ownData: firestore.collection("users-data").doc(this.user.data.displayName)
     };
   },
 
@@ -1152,34 +1169,34 @@ export default {
 
     addWater: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
-          eau: this.eauAjout
+          eau: this.eauAjout.match(/\d+/g).join('')
         })
         .then((this.snackbarEau = true));
     },
 
     addCalories: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
-          calories: this.caloriesAjout
+          calories: this.caloriesAjout.match(/\d+/g).join('')
         })
         .then((this.snackbarCalories = true));
     },
 
     addTempsPerso: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
-          tempsPerso: this.tempsPersoAjout
+          tempsPerso: this.tempsPersoAjout.match(/\d+/g).join('')
         })
         .then((this.snackbarPerso = true));
     },
 
     addSport: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
           sport: this.selected
         })
@@ -1188,7 +1205,7 @@ export default {
 
     addSommeil: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
           sommeilQualite: this.selectedQualite,
           sommeilQuantite: this.selectedQuantite
@@ -1198,12 +1215,12 @@ export default {
 
     addMood: function() {
       this.$firestore.usersData
-        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .doc(this.user.data.displayName)
         .update({
           humeurJour: this.selectedHumeur,
         })
         .then((this.snackbar3 = true));
-    }
+    },
   },
 
   computed: {
@@ -1222,6 +1239,7 @@ export default {
   data() {
     return {
       usersData: [],
+      ownData: [],
 
       nbPasCourant,
       nbPasRestant: objectifPas - nbPasCourant,

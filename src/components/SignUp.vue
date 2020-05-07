@@ -65,11 +65,16 @@
 
           <v-row align="center">
             <v-col class="text-center">
-              <v-btn class="mr-4" :disabled="!valid" color="success" type="submit">Valider</v-btn>
+              <v-btn class="mr-4" :disabled="!valid" color="success" type="submit" @click="ajoutBDDuser">Valider</v-btn>
               <v-btn class="mr-4" to="/home">Retour</v-btn>
             </v-col>
           </v-row>
         </v-form>
+
+        <v-snackbar v-model="snackbarConnexion">
+          Tu es maintenant inscrit, connecte-toi rapidement !
+          <v-btn color="teal" text @click="snackbarConnexion = false">Fermer</v-btn>
+        </v-snackbar>
 
             <br>
             <div align="center">
@@ -101,11 +106,21 @@
 
 <script>
 import firebase from "firebase";
+import { firestore } from "../main";
 
 export default {
   name: "SignUp",
+
+  firestore() {
+    return {
+      usersData: firestore.collection("users-data")
+    };
+  },
+
   data() {
     return {
+      usersDate:[],
+
       form: {
         name: "",
         email: "",
@@ -114,6 +129,11 @@ export default {
       },
       error: null,
       valid: true,
+
+      snackbarConnexion:false,
+
+      dateActuelle : new Date(),
+
       nameRules: [
         v => !!v || 'Un nom est obligatoire',
         //v => (v && v.length >= 5) || 'Ton nom doit faire plus de 5 caractères',
@@ -144,12 +164,26 @@ export default {
             .updateProfile({
               displayName: this.form.name
             })
-            .then(() => {});
         })
         .catch(err => {
           this.error = err.message;
         });
+    },
+
+    ajoutBDDuser() {
+      this.$refs.form.reset(),
+      this.$firestore.usersData
+        .doc(this.form.name)
+        .set({
+          objectifPas: 10000,
+          objectifEau: 10,
+          objectifCalories: 2000,
+          objectifTempsPerso: 90,
+          signUpDate: this.dateActuelle.getDate() + '/' + this.dateActuelle.getMonth() + '/' + this.dateActuelle.getYear()
+        })
+        .then((this.snackbarConnexion = true));
     }
+
   }
 };
 </script>

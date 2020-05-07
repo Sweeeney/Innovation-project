@@ -1,332 +1,504 @@
 <template>
-    <v-content>
-        <header>
-            <div v-if="user.loggedIn"> 
-            <v-row> 
-                <v-col class="text-left">
-                    <v-row>
-                        <h2 class="ps-4 ma-2 font-weight-thin display-1"> 
-                        <router-link to="/home"><v-icon>mdi-chevron-left</v-icon></router-link>
-                        PARAMETRES </h2>
-                    </v-row>
-                </v-col>
-                <v-col class="text-right">
-                <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
-                </v-col>
-            </v-row>
-            </div>
-            <div v-else>
+  <v-content>
+    <header>
+      <div v-if="user.loggedIn">
+        <v-row>
+          <v-col class="text-left">
             <v-row>
-                <v-col class="text-right">
-                <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
-                <v-btn tile large class="ma-2" color="teal lighten-4" to="/signup">Inscription</v-btn>
-                </v-col>
+              <h2 class="ps-4 ma-2 font-weight-thin display-1">
+                <router-link to="/home">
+                  <v-icon>mdi-chevron-left</v-icon>
+                </router-link>PARAMÈTRES
+              </h2>
             </v-row>
-            <v-row justify="center">
-                <h2
-                    class="ps-4 ma-2 font-weight-thin headline"
-                >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
-                </v-row>
-                <v-row align="center" justify="center">
-                <v-card flat width="40%" class="mx-auto">
-                    <v-card d-flex flat width="35%" class="mx-auto">
-                    <v-img
-                        src="https://i.pinimg.com/564x/74/46/62/74466206a9604abb18e5a07ab7be6cce.jpg"
-                        alt="detailsJour"
-                        width="75%"
-                    ></v-img>
-                    </v-card>
-                </v-card>
-                </v-row>
-            </div>
-        </header>
-
-        <div v-if="user.loggedIn">
-
-            <v-tabs
-                background-color="teal lighten-5"
-                grow
-                light
-            >
-                <v-tab
-                    v-for="item in items"
-                    :key="item.tab"
-                    :href="'#' + item.content"
-                >
-                    {{ item.tab }}
-                </v-tab>
-                <v-tabs-slider color="teal darken-2"></v-tabs-slider>
-                <v-tab-item
-                    v-for="item in items"
-                    :key="item.content"
-                    :value="'' + item.content"
-                >
-                    <v-content>
-                        <div v-if="item.content=='profil'" class="text-center">
-                            <v-container fluid>
-                                <v-row>
-                                    <v-col class="text-left">
-                                        <h2 class="display-0 font-weight-thin"> MES OBJECTIFS QUOTIDIENS </h2>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col>
-                                        <div v-if="modifObjectifs==false">
-                                            <v-row justify='space-around'>
-                                            
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <h3 class="display-0 font-weight-thin"> Nombre de pas : 10 000 pas</h3>
-                                                        <h3 class="display-0 font-weight-thin"> Volume d'eau consommé : 2 litres </h3>
-                                                        <h3 class="display-0 font-weight-thin"> Calories consommées : 2100 calories </h3>
-                                                        <h3 class="display-0 font-weight-thin"> Temps d'activités personnelles : 2 heures </h3>
-                                                    </v-col>
-                                                </v-card>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifObjectifs = !modifObjectifs">
-                                                        Modifier
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </v-row>
-                                        </div>
-                                        <div v-else>
-                                            <v-row justify='space-around'>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Nombre de pas : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                            <h3 class="display-0 font-weight-thin">pas</h3>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Volume d'eau consommé : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                            <h3 class="display-0 font-weight-thin"> litres </h3>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Calories consommées : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                            <h3 class="display-0 font-weight-thin"> calories </h3>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Temps d'activités personnelles : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                            <h3 class="display-0 font-weight-thin"> heures </h3>
-                                                        </v-row>
-                                                    </v-col>
-                                                </v-card>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifObjectifs = !modifObjectifs">
-                                                        Valider
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </v-row>
-                                        </div>
-                                    </v-col>
-                                </v-row>
-                            </v-container>
-                            <v-container fluid>
-                                <v-row>
-                                    <v-col class="text-left">
-                                        <h2 class="display-0 font-weight-thin"> MES APPAREILS </h2>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col>
-                                        <div v-if="modifAppareils==false">
-                                            <v-row justify='space-around'>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-row>
-                                                            <v-col>
-                                                                <h3 class="display-0 font-weight-thin"> Appareils connectés : </h3>
-                                                                <v-img
-                                                                width="20%"
-                                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThpJfKF6-PbO7a1ldNnqzaIswqLROTqJ-YRnV95LCKnCE9LNhr&usqp=CAU"
-                                                                ></v-img>
-                                                            </v-col>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <v-icon class="mr-2" small>mdi-clock</v-icon>
-                                                            <h3 class="display-0 font-weight-thin"> Dernière mise à jour il y a 3 heures </h3>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Mise à jour automatique toutes les 6 heures </h3>
-                                                        </v-row>
-                                                    </v-col>
-                                                </v-card>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifAppareils = !modifAppareils">
-                                                        Modifier
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </v-row>
-                                        </div>
-                                        <div v-else>
-                                            <v-row justify='space-around'>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-row>
-                                                            <v-col>
-                                                                <h3 class="display-0 font-weight-thin"> Appareils connectés : </h3>
-                                                                <v-img
-                                                                width="20%"
-                                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThpJfKF6-PbO7a1ldNnqzaIswqLROTqJ-YRnV95LCKnCE9LNhr&usqp=CAU"
-                                                                ></v-img>
-                                                            </v-col>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <v-icon class="mr-2" small>mdi-clock</v-icon>
-                                                            <h3 class="display-0 font-weight-thin"> Dernière mise à jour il y a 3 heures </h3>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Mise à jour automatique toutes les </h3>
-                                                            <v-autocomplete dense
-                                                            :items=heureMAJ
-                                                            ></v-autocomplete>
-                                                        </v-row>
-                                                    </v-col>
-                                                </v-card>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifAppareils = !modifAppareils">
-                                                        Valider
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </v-row>
-                                        </div>
-                                    </v-col>
-                                </v-row>
-                            </v-container>
-                        </div>
-                        <div v-if="item.content=='infos'" class="text-center">
-                            <v-container fluid>
-                                <v-row>
-                                    <v-col>
-                                        <v-row justify='space-around'>
-                                            <v-card
-                                            class="d-flex flex-wrap pa-2"
-                                            elevation=0
-                                            >
-                                                <v-col>
-                                                    <v-img
-                                                        height="150"
-                                                        width="150"
-                                                        src="https://i.pinimg.com/564x/d1/e6/23/d1e623f28a9b55d08f8c0bf91dd92092.jpg"
-                                                        aspect-ratio="1"
-                                                    ></v-img> 
-                                                </v-col>
-                                            </v-card>
-
-                                            <div v-if="modifInfos==false">
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <h3 class="display-0 font-weight-thin"> Nom :  {{user.data.displayName}}</h3>
-                                                        <h3 class="display-0 font-weight-thin"> Mot de passe :  ********</h3>
-                                                        <h3 class="display-0 font-weight-thin"> Adresse mail :  {{user.data.email}}</h3>
-                                                        <br>
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifInfos = !modifInfos">
-                                                        Modifier
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </div>
-                                            <div v-else>
-                                                <v-card
-                                                class="d-flex flex-wrap pa-2"
-                                                elevation=0
-                                                >
-                                                    <v-col class="text-left">
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Nom : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                        </v-row>
-                                                        <v-row>
-                                                            <h3 class="display-0 font-weight-thin"> Mot de passe : </h3>
-                                                            <v-text-field dense></v-text-field>
-                                                        </v-row>
-                                                        <h3 class="display-0 font-weight-thin"> Adresse mail :  {{user.data.email}}</h3>
-                                                        <br>
-                                                        <v-btn tile large class="ma-2" color="teal lighten-4" @click="modifInfos = !modifInfos">
-                                                        Valider
-                                                        </v-btn>
-                                                    </v-col>
-                                                </v-card>
-                                            </div>
-                                            
-                                        </v-row>
-                                    </v-col>
-                                </v-row>
-                            </v-container>
-                        </div>
-                    </v-content>
-                </v-tab-item>
-            </v-tabs>
-            <v-card 
-            class=" mx-auto"
-            height="50px"
-            flat>
-                <v-bottom-navigation v-model="bottomNav" fixed >
-                    <v-btn value="share">
-                        <span>Partager</span>
-                        <v-icon>mdi-share</v-icon>
-                    </v-btn>
-                    <v-btn value="favoris">
-                        <span>Favoris</span>
-                        <v-icon>mdi-heart</v-icon>
-                    </v-btn>
-                    <v-btn value="aide">
-                        <span>Aide</span>
-                        <v-icon>mdi-comment-question-outline</v-icon>
-                    </v-btn>
-                </v-bottom-navigation>
+          </v-col>
+          <v-col class="text-right">
+            <v-btn
+              tile
+              large
+              class="ma-2"
+              color="teal lighten-4"
+              @click.prevent="signOut"
+            >Déconnexion</v-btn>
+          </v-col>
+        </v-row>
+      </div>
+      <div v-else>
+        <v-row>
+          <v-col class="text-right">
+            <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
+            <v-btn tile large class="ma-2" color="teal lighten-4" to="/signup">Inscription</v-btn>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <h2
+            class="ps-4 ma-2 font-weight-thin headline"
+          >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
+        </v-row>
+        <v-row align="center" justify="center">
+          <v-card flat width="40%" class="mx-auto">
+            <v-card d-flex flat width="35%" class="mx-auto">
+              <v-img
+                src="https://i.pinimg.com/564x/74/46/62/74466206a9604abb18e5a07ab7be6cce.jpg"
+                alt="detailsJour"
+                width="75%"
+              ></v-img>
             </v-card>
-        </div>   
-    </v-content>
+          </v-card>
+        </v-row>
+      </div>
+    </header>
+
+    <div v-if="user.loggedIn">
+      <v-tabs background-color="teal lighten-5" grow light>
+        <v-tab v-for="item in items" :key="item.tab" :href="'#' + item.content">{{ item.tab }}</v-tab>
+        <v-tabs-slider color="teal darken-2"></v-tabs-slider>
+        <v-tab-item v-for="item in items" :key="item.content" :value="'' + item.content">
+          <v-content>
+            <div v-if="item.content=='profil'" class="text-center">
+              <v-container fluid>
+                <v-row>
+                  <v-col class="text-left">
+                    <h2 class="ps-4 ma-2 headline font-weight-thin">MES OBJECTIFS QUOTIDIENS</h2>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <div v-if="modifObjectifs==false">
+                      <v-layout row wrap class="mx-auto align-center justify-center">
+                        <v-flex xs12 md7>
+                          <v-card class="d-flex flex-wrap pa-2">
+                              <v-row justify="center" align="center">
+                                <v-col justify="center" align="center" xs10>
+                                    <v-img
+                                        src="https://www.bang-marketing.com/wp-content/uploads/1999/08/bhag-lobjectif-audacieux-qui-vous-propulse-283.png"
+                                        alt="objectif"
+                                        max-height="200px"
+                                        max-width="200px"
+                                    ></v-img>
+                                </v-col>
+
+                                <br class="d-flex d-sm-none" />
+
+                                <v-col class="text-left" justify="center" align="center" xs12>
+                                    <h3 class="display-0 font-weight-thin">
+                                        <strong>Nombre de pas</strong>
+                                        : {{ownData.objectifPas}} pas
+                                    </h3>
+                                    <h3 class="display-0 font-weight-thin">
+                                        <strong>Volume d'eau à consommer</strong>
+                                        : {{ownData.objectifEau}} verre(s)
+                                    </h3>
+                                    <h3 class="display-0 font-weight-thin">
+                                        <strong>Calories à consommer</strong>
+                                        : {{ownData.objectifCalories}} calories
+                                    </h3>
+                                    <h3 class="display-0 font-weight-thin">
+                                        <strong>Temps d'activités personnelles</strong>
+                                        : {{ownData.objectifTempsPerso}} minutes
+                                    </h3>
+                                </v-col>
+                              </v-row>
+                          </v-card>
+                        </v-flex>
+                        <v-flex xs12 md2>
+                          <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                            <v-col class="text-left">
+                              <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifObjectifs = !modifObjectifs"
+                              >Modifier</v-btn>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                    <div v-else>
+                      <v-layout row wrap class="mx-auto align-center justify-center">
+                        <v-flex xs12 md7>
+                          <v-card class="flex-wrap pa-2">
+                            <v-col class="text-left">
+                              <!-- Modification objectif pas -->
+                              <v-row pl4>
+                                <h3 class="display-0 font-weight-thin">Nombre de pas effectués :</h3>
+                                <v-text-field dense v-model="pasObjectif"></v-text-field>
+                                <h3 class="display-0 font-weight-thin">pas</h3>
+
+                                <v-spacer></v-spacer>
+                                <v-btn small color="success" dark @click="modifierPas">OK</v-btn>
+                              </v-row>
+
+                              <v-snackbar v-model="snackbarPas">
+                                Ton objectif de pas a été modifié !
+                                <v-btn color="teal" text @click="snackbarPas = false">Fermer</v-btn>
+                              </v-snackbar>
+
+                              <!-- Modification objectif eau -->
+                              <v-row>
+                                <h3 class="display-0 font-weight-thin">Volume d'eau à consommer :</h3>
+                                <v-text-field dense v-model="eauObjectif"></v-text-field>
+                                <h3 class="display-0 font-weight-thin">verres</h3>
+
+                                <v-spacer></v-spacer>
+                                <v-btn small color="success" dark @click="modifierEau">OK</v-btn>
+                              </v-row>
+
+                              <v-snackbar v-model="snackbarEau">
+                                Ton objectif de pas a été modifié !
+                                <v-btn color="teal" text @click="snackbarEau = false">Fermer</v-btn>
+                              </v-snackbar>
+
+                              <!-- Modification objectif calories -->
+                              <v-row>
+                                <h3 class="display-0 font-weight-thin">Calories à consommer :</h3>
+                                <v-text-field dense v-model="caloriesObjectif"></v-text-field>
+                                <h3 class="display-0 font-weight-thin">calories</h3>
+
+                                <v-spacer></v-spacer>
+                                <v-btn small color="success" dark @click="modifierCalories">OK</v-btn>
+                              </v-row>
+
+                              <v-snackbar v-model="snackbarCalories">
+                                Ton objectif de pas a été modifié !
+                                <v-btn color="teal" text @click="snackbarCalories = false">Fermer</v-btn>
+                              </v-snackbar>
+
+                              <!-- Modification objectif temps perso -->
+                              <v-row>
+                                <h3
+                                  class="display-0 font-weight-thin"
+                                >Temps d'activités personnelles :</h3>
+                                <v-text-field dense v-model="tempsPersoObjectif"></v-text-field>
+                                <h3 class="display-0 font-weight-thin">minutes</h3>
+
+                                <v-spacer></v-spacer>
+                                <v-btn small color="success" dark @click="modifierTempsPerso">OK</v-btn>
+                              </v-row>
+
+                              <v-snackbar v-model="snackbarTempsPerso">
+                                Ton objectif de pas a été modifié !
+                                <v-btn color="teal" text @click="snackbarTempsPerso = false">Fermer</v-btn>
+                              </v-snackbar>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                        <v-flex xs12 md2>
+                          <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                            <v-col class="text-left">
+                              <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifObjectifs = !modifObjectifs"
+                              >Terminer</v-btn>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+
+              <!-- Affichage des appareils connectés de l'utilisateur -->
+              <v-container fluid>
+                <v-row>
+                  <v-col class="text-left">
+                    <h2 class="ps-4 ma-2 headline font-weight-thin">MES APPAREILS</h2>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                    <div v-if="modifAppareils==false">
+                      <v-layout row wrap class="mx-auto align-center justify-center">
+                        <v-flex xs12 md7>
+                          <v-card class="d-flex flex-wrap pa-2">
+                            <v-col cols="7">
+                              <h3 class="display-0 font-weight-thin text-left">Appareil connecté 1 :</h3>
+                              <br />
+                              <v-card flat class="mx-auto text-center align-center justify-center">
+                                <v-img
+                                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FlgA40KlLz-c%2Fmaxresdefault.jpg&f=1&nofb=1"
+                                  alt="objectif"
+                                  aspect-ratio="2"
+                                  position="center"
+                                ></v-img>
+                              </v-card>
+                            </v-col>
+                            <v-col class="text-center align-center mx-xs-auto">
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <h3 class="display-0 font-weight-thin">
+                                <strong>Samsung Gear Fit 2</strong>
+                              </h3>
+                              <span class="display-0 font-weight-thin">Actuellement connectée</span>
+                              <br />
+                              <br />
+                              <v-row class="text-center justify-center">
+                                <v-icon class="mr-2" small>mdi-clock</v-icon>
+                                <h3
+                                  class="caption font-weight-thin"
+                                >Dernière mise à jour il y a 3 heures</h3>
+                              </v-row>
+                              <v-row class="text-center justify-center">
+                                <h3
+                                  class="caption font-weight-thin"
+                                >Mise à jour automatique toutes les {{ownData.majAutoAppareil}} heures</h3>
+                              </v-row>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                        <v-flex sx12 md2>
+                          <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                            <v-col class="text-left">
+                              <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifAppareils = !modifAppareils"
+                              >Modifier</v-btn>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+
+                    <!-- L'utilisateur souhaite modifier les informations sur son appareil -->
+                    <div v-else>
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                        <v-flex xs12 md7>
+                          <v-card class="d-flex flex-wrap pa-2">
+                            <v-col cols="7">
+                              <h3 class="display-0 font-weight-thin text-left">Appareil connecté 1 :</h3>
+                              <br />
+                              <v-card flat class="mx-auto text-center align-center justify-center">
+                                <v-img
+                                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FlgA40KlLz-c%2Fmaxresdefault.jpg&f=1&nofb=1"
+                                  alt="objectif"
+                                  aspect-ratio="2"
+                                  position="center"
+                                ></v-img>
+                              </v-card>
+                            </v-col>
+                            <v-col class="text-center align-center mx-xs-auto">
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <h3 class="display-0 font-weight-thin">
+                                <strong>Samsung Gear Fit 2</strong>
+                              </h3>
+                              <span class="display-0 font-weight-thin">Actuellement connectée</span>
+                              <br />
+                              <br />
+                              <v-row class="text-center justify-center">
+                                <v-icon class="mr-2" small>mdi-clock</v-icon>
+                                <h3
+                                  class="caption font-weight-thin"
+                                >Dernière mise à jour il y a 3 heures</h3>
+                              </v-row>
+                              <v-row class="text-center justify-center">
+                                <h3 class="caption font-weight-thin">
+                                    Mise à jour automatique toutes les 
+                                    <v-autocomplete dense v-model="majAppareil" :items="heureMAJ" text-align="center"/>
+                                </h3>                                
+                              </v-row>
+                            </v-col>
+                          </v-card>
+                        </v-flex>
+                        <v-flex sx12 md2>
+                          <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                            <v-col class="text-left">
+                              <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifiermajAppareil"
+                              >Terminer</v-btn>
+                            </v-col>
+
+                            <v-snackbar v-model="snackbarAppareil">
+                                La mise à jour automatique de ton appareil à été modifiée !
+                                <v-btn color="teal" text @click="snackbarAppareil = false">Fermer</v-btn>
+                            </v-snackbar>
+                          </v-card>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </div>
+
+            <div v-if="item.content=='infos'" class="text-center">
+
+              <v-container fluid>
+                <v-row>
+                  <v-col>
+                      <div v-if="modifInfos==false">
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                            <v-flex xs12 md7>
+                                <v-card class="d-flex flex-wrap pa-2">
+                                    <v-row align="center" justify="center">
+                                        <v-col align="center" justify="center" xs10>
+                                            <v-img
+                                                max-height="250px"
+                                                max-width="250px"
+                                                src="https://i.pinimg.com/564x/6b/07/89/6b0789daf8c2b86fac1072205486d20e.jpg"
+                                            ></v-img>
+                                        </v-col>
+                                        <v-col class="text-left" align="center" justify="center" xs12>
+                                            <h3 class="display-0 font-weight-thin"> <strong>Nom </strong> : {{utilisateur.displayName}}</h3>
+                                            <h3 class="display-0 font-weight-thin"> <strong>Mot de passe </strong> : ********</h3>
+                                            <h3 class="display-0 font-weight-thin"> <strong> Adresse mail </strong> : {{utilisateur.email}}</h3>
+                                            <br />
+                                            <h3 class="caption font-weight-thin"> Inscrit(e) depuis le {{ownData.signUpDate}} </h3>
+                                        </v-col>
+                                    </v-row>
+                                </v-card>
+                            </v-flex>
+                            <v-flex xs12 md2>
+                            <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                                <v-col class="text-left">
+                                <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifInfos = !modifInfos"
+                                >Modifier</v-btn>
+                                </v-col>
+                            </v-card>
+                            </v-flex>
+                        </v-layout>
+                      </div>
+
+                      <!-- L'utilisateur souhaite modifier ses informations personnelles -->
+                      <div v-else>
+                        <v-layout row wrap class="mx-auto align-center justify-center">
+                            <v-flex xs12 md7>
+                                <v-card class="d-flex flex-wrap pa-2">
+                                    <v-row align="center" justify="center">
+                                        <v-col align="center" justify="center" xs10 md3>
+                                            <v-img
+                                                max-height="250px"
+                                                max-width="250px"
+                                                src="https://i.pinimg.com/564x/6b/07/89/6b0789daf8c2b86fac1072205486d20e.jpg"
+                                            ></v-img>
+                                        </v-col>
+                                        <v-col class="text-left" align="center" justify="center" xs12 md4>
+                                            <!-- Modification nom utilisateur -->
+                                            <v-row>
+                                                <h3 class="display-0 font-weight-thin"> 
+                                                    <strong>Nom</strong> : 
+                                                    <v-text-field dense v-model="newName"></v-text-field>
+                                                </h3>
+                                                <v-btn small color="success" dark @click="modifierNom">OK</v-btn>
+                                            </v-row>
+
+                                            <v-snackbar v-model="snackbarNom">
+                                                La mise à jour de ton nom à été effectuée !
+                                                <v-btn color="teal" text @click="snackbarNom = false">Fermer</v-btn>
+                                            </v-snackbar>
+
+                                            <!-- Modification mot de passe -->
+                                            <v-row>
+                                                <h3 class="display-0 font-weight-thin"> 
+                                                    <strong>Mot de passe</strong> : 
+                                                    <v-text-field dense v-model="mdp" :rules="passwordOKRules" type="password"></v-text-field>
+                                                </h3>
+                                                <v-btn small color="success" dark @click="modifierMDP">OK</v-btn>
+                                            </v-row>
+
+                                            <v-snackbar v-model="snackbarMDP">
+                                                La mise à jour de ton mot de passe à été effectuée !
+                                                <v-btn color="teal" text @click="snackbarMDP = false">Fermer</v-btn>
+                                            </v-snackbar>
+
+                                            <!-- Modification email -->
+                                            <v-row>
+                                                <h3 class="display-0 font-weight-thin"> 
+                                                    <strong>Adresse mail</strong> : 
+                                                    <v-text-field dense v-model="mail" type="email" :rules="emailRules"></v-text-field>
+                                                </h3>
+                                                <v-btn small color="success" dark @click="modifierMail">OK</v-btn>
+                                            </v-row>
+
+                                            <v-snackbar v-model="snackbarMail">
+                                                La mise à jour de ton adresse mail à été effectuée !
+                                                <v-btn color="teal" text @click="snackbarMail = false">Fermer</v-btn>
+                                            </v-snackbar>
+                                        </v-col>
+                                    </v-row>
+                                </v-card>
+                            </v-flex>
+                            <v-flex xs12 md2>
+                            <v-card class="d-flex flex-wrap pa-2" elevation="0">
+                                <v-col class="text-left">
+                                <v-btn
+                                tile
+                                large
+                                class="ma-2"
+                                color="teal lighten-4"
+                                @click="modifInfos = !modifInfos"
+                                >Terminer</v-btn>
+                                </v-col>
+                            </v-card>
+                            </v-flex>
+                        </v-layout>
+                      </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </div>
+          </v-content>
+        </v-tab-item>
+      </v-tabs>
+      <v-card class="mx-auto" height="50px" flat>
+        <v-bottom-navigation v-model="bottomNav" fixed>
+          <v-btn value="share">
+            <span>Partager</span>
+            <v-icon>mdi-share</v-icon>
+          </v-btn>
+          <v-btn value="favoris">
+            <span>Favoris</span>
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
+          <v-btn value="aide">
+            <span>Aide</span>
+            <v-icon>mdi-comment-question-outline</v-icon>
+          </v-btn>
+        </v-bottom-navigation>
+      </v-card>
+    </div>
+  </v-content>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import firebase from "firebase";
+import { firestore } from "../main";
 
 export default {
-    name:'Parameters',
-    methods: {
-      signOut() {
+  name: "Parameters",
+
+  firestore() {
+    return {
+      usersData: firestore.collection("users-data"),
+      ownData: firestore.collection("users-data").doc(this.user.data.displayName)
+    };
+  },
+
+  methods: {
+    signOut() {
       firebase
         .auth()
         .signOut()
@@ -335,32 +507,136 @@ export default {
             name: "home"
           });
         });
-      }
     },
-    computed: {
+
+    modifierPas: function() {
+      this.$firestore.usersData
+        .doc(this.user.data.displayName)
+        .update({
+          objectifPas: this.pasObjectif
+        })
+        .then((this.snackbarPas = true));
+    },
+
+    modifierEau: function() {
+      this.$firestore.usersData
+        .doc(this.user.data.displayName)
+        .update({
+          objectifEau: this.eauObjectif
+        })
+        .then((this.snackbarEau = true));
+    },
+
+    modifierCalories: function() {
+      this.$firestore.usersData
+        .doc(this.user.data.displayName)
+        .update({
+          objectifCalories: this.caloriesObjectif
+        })
+        .then((this.snackbarCalories = true));
+    },
+
+    modifierTempsPerso: function() {
+      this.$firestore.usersData
+        .doc(this.user.data.displayName)
+        .update({
+          objectifTempsPerso: this.tempsPersoObjectif
+        })
+        .then((this.snackbarTempsPerso = true));
+    },
+
+    modifiermajAppareil: function() {
+      this.$firestore.usersData
+        .doc(this.user.data.displayName)
+        .update({
+          majAutoAppareil: this.majAppareil
+        })
+        .then(
+            this.snackbarAppareil = true,
+            this.modifAppareils = !this.modifAppareils
+        );
+    },
+
+    modifierNom: function(){
+        this.utilisateur.updateProfile({
+          displayName: this.newName
+        })
+        .then((this.snackbarNom = true))        
+    },
+
+    modifierMDP: function(){
+        this.utilisateur.updatePassword(this.mdp)
+        .then((this.snackbarMDP = true));
+    },
+
+    modifierMail: function(){
+        this.utilisateur.updateEmail(this.mail)
+        .then((this.snackbarMail = true));
+    }
+
+  },
+
+  computed: {
     // map `this.user` to `this.$store.getters.user`
     ...mapGetters({
       user: "user"
     })
-    },
-    data(){
-        return{
-            modifInfos:false,
-            modifAppareils:false,
-            modifObjectifs:false,
-            tab: null,
-            items: [
-                { tab: 'MON PROFIL', content: 'profil' },
-                { tab: 'MES INFORMATIONS PERSONNELLES', content: 'infos' },
-            ],
-            heureMAJ:[
-                {text:"1 heure",value:1},
-                {text:"3 heures",value:3},
-                {text:"5 heures",value:5},
-                {text:"10 heures",value:10},
+  },
+  data() {
+    return {
+      usersData: [],
+      ownData: [],
 
-            ],
-        }
-    }
-}
+      utilisateur:firebase.auth().currentUser,
+
+      //Modification de l'objectif pas
+      pasObjectif: "",
+      snackbarPas: false,
+      //Modification de l'objectif eau
+      eauObjectif: "",
+      snackbarEau: false,
+      //Modification de l'objectif calories
+      caloriesObjectif: "",
+      snackbarCalories: false,
+      //Modification de l'objectif temps perso
+      tempsPersoObjectif: "",
+      snackbarTempsPerso: false,
+      //Modification de la maj auto de l'appareil connecté
+      majAppareil: "",
+      snackbarAppareil: false,
+
+      //Modification du nom
+      newName: "",
+      snackbarNom: false,
+      //Modification du nom
+      mdp: "",
+      snackbarMDP: false,
+      passwordRules: [
+        v => (v && v.length >= 8) || 'Ton mot de passe doit faire plus de 8 caractères',
+        v => (v && v.length <= 25) || 'Ton mot de passe ne doit pas dépasser 25 caractères',
+      ],
+      //Modification du nom
+      mail: "",
+      snackbarMail: false,
+      emailRules: [
+        v => /.+@.+\..+/.test(v) || 'Ton adresse e-mail doit être valide',
+      ],
+
+      modifInfos: false,
+      modifAppareils: false,
+      modifObjectifs: false,
+      tab: null,
+      items: [
+        { tab: "MON PROFIL", content: "profil" },
+        { tab: "MES INFORMATIONS PERSONNELLES", content: "infos" }
+      ],
+      heureMAJ: [
+        { text: "1 heure", value: 1 },
+        { text: "3 heures", value: 3 },
+        { text: "5 heures", value: 5 },
+        { text: "10 heures", value: 10 }
+      ]
+    };
+  }
+};
 </script>
