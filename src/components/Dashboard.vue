@@ -33,7 +33,7 @@
         <v-row justify="center">
           <h2
             class="ps-4 ma-2 font-weight-thin headline"
-          >POUR ACCEDER A CETTE FONCTIONNALITE, REJOINS-NOUS !</h2>
+          >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
         </v-row>
         <v-row align="center" justify="center">
           <v-card flat width="40%" class="mx-auto">
@@ -217,70 +217,94 @@
           <h2 class="ps-4 ma-2 font-weight-thin headline">À TOI DE NOUS DIRE...</h2>
 
           <!--Bouton pour modifier-->
-          <v-card flat d-flex justify="center" class="mx-auto" xs12>
-            <v-list>
-              <v-form>
-                <v-container>
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn @click="ajoutEau ^= true" fab dark small color="blue">
-                        <v-icon>mdi-water</v-icon>
-                      </v-btn>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="headline font-weight-thin ma-2">Eau</v-list-item-title>
-                    </v-list-item-content>
+          <v-layout row wrap class="mx-auto align-center justify-center">
+            <v-flex xs12 md9>
+              <v-card flat justify="center" class="mx-auto">
+                <v-list>
+                  <v-form>
+                    <v-container>
+                      <v-list-item>
+                        <v-list-item-action>
+                          <v-btn @click="ajoutEau ^= true" fab dark small color="blue">
+                            <v-icon>mdi-water</v-icon>
+                          </v-btn>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline font-weight-thin ma-2">Eau</v-list-item-title>
+                        </v-list-item-content>
+                        <v-row align="center" justify="end" xs12 sm6 md8>
+                          <!--Ajout de l'eau-->
+                          <v-col v-show="ajoutEau">
+                            <v-select v-model="eauAjout" :items="itemsEau" label="Quelle quantité d'eau as-tu bu ?" ></v-select>
+                            <v-btn small color="success" dark @click="addWater">OK</v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-list-item>
 
-                    <v-row align="center" justify="end" xs12 sm6 md8>
-                      <!--Ajout de l'eau-->
-                      <v-col v-show="ajoutEau">
-                        <v-select :items="itemsEau" label="Quelle quantité d'eau as-tu bu ?"></v-select>
-                      </v-col>
-                    </v-row>
-                  </v-list-item>
+                      <v-snackbar v-model="snackbarEau">
+                        La quantité d'eau que tu as bu a été sauvegardée !
+                        <v-btn color="teal" text @click="snackbarEau = false">Fermer</v-btn>
+                      </v-snackbar>
 
-                  <v-divider inset></v-divider>
+                      <v-divider inset></v-divider>
 
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn @click="ajoutNourriture ^= true" fab dark small color="pink">
-                        <v-icon>mdi-food</v-icon>
-                      </v-btn>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="headline font-weight-thin ma-2">Calories</v-list-item-title>
-                    </v-list-item-content>
-                    <v-row align="center" justify="end">
-                      <v-col xs8 sm6 md8 v-show="ajoutNourriture">
-                        <v-select
-                          :items="itemsNourriture"
-                          label="Combien de calories estimes-tu avoir consommé environ ? "
-                        ></v-select>
-                      </v-col>
-                    </v-row>
-                  </v-list-item>
+                      <v-list-item>
+                        <v-list-item-action>
+                          <v-btn @click="ajoutNourriture ^= true" fab dark small color="pink">
+                            <v-icon>mdi-food</v-icon>
+                          </v-btn>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline font-weight-thin ma-2">Calories</v-list-item-title>
+                        </v-list-item-content>
+                        <v-row align="center" justify="end" xs12 sm6 md8>
+                          <!-- Ajout de la nourriture -->
+                          <v-col v-show="ajoutNourriture">
+                            <v-select
+                              v-model="caloriesAjout"
+                              :items="itemsNourriture"
+                              label="Combien de calories estimes-tu avoir consommé environ ? "
+                            ></v-select>
+                            <v-btn small color="success" dark @click="addCalories">OK</v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-list-item>
 
-                  <v-divider inset></v-divider>
+                      <v-snackbar v-model="snackbarCalories">
+                        Les calories que tu as consommé ont été sauvegardées !
+                        <v-btn color="teal" text @click="snackbarCalories = false">Fermer</v-btn>
+                      </v-snackbar>
 
-                  <v-list-item>
-                    <v-list-item-action>
-                      <v-btn @click="ajoutTemps^=true" fab dark small color="deep-purple accent-2">
-                        <v-icon>mdi-emoticon-excited-outline</v-icon>
-                      </v-btn>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="headline font-weight-thin ma-2">Temps personnel</v-list-item-title>
-                    </v-list-item-content>
-                    <v-row align="center" justify="end">
-                      <v-col xs8 sm6 md8 v-show="ajoutTemps">
-                        <v-select :items="itemsTemps" label="Ce temps là est bon pour toi, bravo !"></v-select>
-                      </v-col>
-                    </v-row>
-                  </v-list-item>
-                </v-container>
-              </v-form>
-            </v-list>
-          </v-card>
+                      <v-divider inset></v-divider>
+
+                      <v-list-item>
+                        <v-list-item-action>
+                          <v-btn @click="ajoutTemps^=true" fab dark small color="deep-purple accent-2">
+                            <v-icon>mdi-emoticon-excited-outline</v-icon>
+                          </v-btn>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline font-weight-thin ma-2">Temps personnel</v-list-item-title>
+                        </v-list-item-content>
+                        <v-row align="center" justify="end" xs12 sm6 md8>
+                          <!-- Ajout du temps personnel -->
+                          <v-col v-show="ajoutTemps">
+                            <v-select v-model="tempsPersoAjout" :items="itemsTemps" label="Ce temps là est bon pour toi, bravo !"></v-select>
+                            <v-btn small color="success" dark @click="addPerso">OK</v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-list-item>
+
+                      <v-snackbar v-model="snackbarPerso">
+                        Ton temps personnel a été sauvegardé !
+                        <v-btn color="teal" text @click="snackbarPerso = false">Fermer</v-btn>
+                      </v-snackbar>
+                    </v-container>
+                  </v-form>
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-tab-item>
 
         <!-- ACTIVITE PHYSIQUE -->
@@ -736,8 +760,6 @@
           <v-divider inset width="80%"></v-divider>
           <br />
 
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <!-- RAJOUTER LA QUESTION SUR LA QUALITE DU SOMMEIL -->
           <v-layout wrap class="mx-auto align-center justify-center">
             <v-flex xs12 md7>
               <v-card flat>
@@ -831,9 +853,9 @@
           <br />
 
           <v-layout row wrap class="mx-auto align-center justify-center">
+            <v-spacer class="d-none d-sm-flex"></v-spacer>
             <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="heureux"
@@ -852,7 +874,7 @@
               </v-card>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="triste"
@@ -871,7 +893,7 @@
               </v-card>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="jovial"
@@ -890,7 +912,7 @@
               </v-card>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="deprime"
@@ -909,7 +931,7 @@
               </v-card>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="fatigue"
@@ -928,7 +950,7 @@
               </v-card>
             </v-flex>
             <v-spacer></v-spacer>
-            <v-flex xs12 md1>
+            <v-flex xs5 md1>
               <v-card class="mx-auto" flat>
                 <v-img
                   alt="dynamique"
@@ -946,7 +968,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-spacer></v-spacer>
+            <v-spacer class="d-none d-sm-flex"></v-spacer>
             <v-spacer></v-spacer>
           </v-layout>
           <br />
@@ -1128,6 +1150,33 @@ export default {
       this.takePulse(false);
     },
 
+    addWater: function() {
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          eau: this.eauAjout
+        })
+        .then((this.snackbarEau = true));
+    },
+
+    addCalories: function() {
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          calories: this.caloriesAjout
+        })
+        .then((this.snackbarCalories = true));
+    },
+
+    addTempsPerso: function() {
+      this.$firestore.usersData
+        .doc("Q8sEAKJCRyCKOvEiCKC3")
+        .update({
+          tempsPerso: this.tempsPersoAjout
+        })
+        .then((this.snackbarPerso = true));
+    },
+
     addSport: function() {
       this.$firestore.usersData
         .doc("Q8sEAKJCRyCKOvEiCKC3")
@@ -1189,6 +1238,16 @@ export default {
       ajoutNourriture: false,
       ajoutTemps: false,
 
+      //Formulaire - Eau
+      eauAjout: '',
+      snackbarEau: false,
+      //Formulaire - Calories
+      caloriesAjout: '',
+      snackbarCalories: false,
+      //Formulaire - Temps personnel
+      tempsPersoAjout: '',
+      snackbarPerso: false,
+
       //Formulaire - Sport
       selected: [],
       snackbar: false,
@@ -1217,27 +1276,21 @@ export default {
 
       //Modification des quantités d'eau
       itemsEau: [
-        { text: "200 ml" },
-        { text: "250 ml" },
-        { text: "300 ml" },
-        { text: "350 ml" },
-        { text: "400 ml" },
-        { text: "450 ml" },
-        { text: "500 ml" },
-        { text: "550 ml" },
-        { text: "600 ml" },
-        { text: "650 ml" },
-        { text: "700 ml" },
-        { text: "750 ml" },
-        { text: "800 ml" },
-        { text: "850 ml" },
-        { text: "900 ml" },
-        { text: "950 ml" },
-        { text: "1 l" },
-        { text: "1,5 l" },
-        { text: "2 l" },
-        { text: "2,5 l" },
-        { text: "3 l" }
+        { text: "1 verre" },
+        { text: "2 verres" },
+        { text: "3 verres" },
+        { text: "4 verres" },
+        { text: "5 verres" },
+        { text: "6 verres" },
+        { text: "7 verres" },
+        { text: "8 verres" },
+        { text: "9 verres" },
+        { text: "10 verres" },
+        { text: "11 verres" },
+        { text: "12 verres" },
+        { text: "13 verres" },
+        { text: "14 verres" },
+        { text: "15 verres" },
       ],
 
       //Modifications des calories
