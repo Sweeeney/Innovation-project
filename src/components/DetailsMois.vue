@@ -4,13 +4,11 @@
         <div v-if="user.loggedIn"> 
           <v-row> 
             <v-col class="text-left">
-                <h2
-                    class="ps-4 ma-2 font-weight-thin display-1"
-                    style="text-center"
-                >
+                <v-row>
+                    <h2 class="ps-4 ma-2 font-weight-thin display-1"> 
                     <router-link to="/historical"><v-icon>mdi-chevron-left</v-icon></router-link>
-                    MOIS DE {{date_du_mois}}
-                </h2>
+                    MOIS DE {{date_du_mois}} </h2>
+                </v-row>
             </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
@@ -19,31 +17,37 @@
         </div>
         <div v-else>
           <v-row>
-            <v-icon right>mdi-chevron-right</v-icon> 
-            <v-col class="text-left">
-                    <v-row>
-                        <v-btn to="/historical" text=true> 
-                        <v-icon right>mdi-chevron-left</v-icon>
-                        </v-btn>
-                        <h2 class="ps-4 ma-2 font-weight-thin headline"> MOIS DE {{date_du_mois}} </h2>
-                    </v-row>
-            </v-col>
             <v-col class="text-right">
               <v-btn tile large class="ma-2" color="teal lighten-4" to="/signin">Connexion</v-btn>
               <v-btn tile large class="ma-2" color="teal lighten-4" to="/signup">Inscription</v-btn>
             </v-col>
           </v-row>
+          <v-row justify="center">
+            <h2
+                class="ps-4 ma-2 font-weight-thin headline"
+            >POUR ACCEDER A CETTE FONCTIONNALITE, CONNECTE-TOI OU REJOINS-NOUS !</h2>
+            </v-row>
+            <v-row align="center" justify="center">
+            <v-card flat width="40%" class="mx-auto">
+                <v-card d-flex flat width="35%" class="mx-auto">
+                <v-img
+                    src="https://i.pinimg.com/564x/74/46/62/74466206a9604abb18e5a07ab7be6cce.jpg"
+                    alt="detailsJour"
+                    width="75%"
+                ></v-img>
+                </v-card>
+            </v-card>
+            </v-row>
         </div>
       </header>
 
-      <v-toolbar d-flex>
+      <div v-if="user.loggedIn">
+      
         <v-tabs
             background-color="teal lighten-5"
             grow
-            light           
+            light
         >
-            <v-tabs-slider color="teal darken-2"></v-tabs-slider>
-
             <v-tab
                 v-for="item in items"
                 :key="item.tab"
@@ -295,7 +299,7 @@
                                         <v-card
                                         class="d-flex flex-wrap pa-2"
                                         elevation=0
-                                        width=350
+                                        width=400
                                         >
                                             <v-col>
                                                 <v-sparkline
@@ -317,7 +321,7 @@
                                         <v-card
                                         class="d-flex flex-wrap pa-2"
                                         elevation=0
-                                        width=350
+                                        width=400
                                         >
                                             <v-col>
                                                 <v-sparkline
@@ -805,6 +809,7 @@
                             <v-row>
                                 <v-col>
                                     <v-row justify='space-around'>
+                                        
                                         <v-card
                                         class="d-flex flex-wrap pa-2"
                                         elevation=0
@@ -821,6 +826,19 @@
                                                 </v-progress-circular>
                                             </v-col>
                                         </v-card>
+                                        <v-card
+                                        class="d-flex flex-wrap pa-2"
+                                        elevation=0
+                                        >
+                                            <v-col>
+                                                <v-img width=150
+                                                src="https://i.pinimg.com/474x/94/5e/1d/945e1d84fc4be29a114ab3bd1dc67e8f.jpg"
+                                                >
+                                                </v-img>
+                                                <h3 class="display-0 font-weight-thin">Bravo ! Tu as atteint les 90% ! </h3>
+                                                <h3 class="display-0 font-weight-thin">Continue comme ça !</h3>
+                                            </v-col>
+                                        </v-card>                                        
                                     </v-row>
                                 </v-col>
                             </v-row>
@@ -887,8 +905,28 @@
                 </v-content>
             </v-tab-item>
         </v-tabs>
-      </v-toolbar>
-      <v-container style="height: 2500px;"></v-container>
+        <v-card 
+        class=" mx-auto"
+        height="50px"
+        flat>
+                    <v-bottom-navigation v-model="bottomNav" fixed >
+                        <v-btn value="share">
+                            <span>Partager</span>
+                            <v-icon>mdi-share</v-icon>
+                        </v-btn>
+    
+                        <v-btn value="favoris">
+                            <span>Favoris</span>
+                            <v-icon>mdi-heart</v-icon>
+                        </v-btn>
+        
+                        <v-btn value="aide">
+                            <span>Aide</span>
+                            <v-icon>mdi-comment-question-outline</v-icon>
+                        </v-btn>
+                    </v-bottom-navigation>
+        </v-card>
+      </div>
   </v-content>
 </template>
 
