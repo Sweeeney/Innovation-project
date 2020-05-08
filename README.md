@@ -34,7 +34,7 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Petits mots sur notre sujet
-Cette application regroupe des informations données par l'utilisateur et des informations recueillies par des objets connectés. Nous voulions nous axer sur l'aspect psychologique de la personne. Pour cela, nous avons mixé l'aspect "e-santé", avec des objectifs physiques et alimentaires, et l'aspect plutôt "psychologique/bien-être", en proposant à l'utilisateur de se demander comment il se sentait et en lui donnant accès à des ressources en ligne, ou en lui faisant simplement des recommandations, afin d'améliorer son bien-être.
+Cette application regroupe des informations données par l'utilisateur et des informations recueillies par des objets connectés. Nous voulions nous axer sur l'aspect psychologique de la personne. Pour cela, nous avons mixé l'aspect "e-santé", avec des objectifs physiques et alimentaires, et l'aspect plutôt "psychologique/bien-être". Nous proposons à l'utilisateur de se demander comment il se sentait et en lui donnant accès à des ressources en ligne, ou en lui faisant simplement des recommandations, afin d'améliorer son bien-être.
 
 ## Petits mots sur chacune des pages du site
 ### Accueil (Home.vue)
@@ -51,7 +51,7 @@ Lorsque l'utilisateur a terminé son inscription et qu'il a validé, un message 
 Cette page correspond au tableau de bord de l'utilisateur (pour les utilisateurs ayant un compte uniquement) et concerne la journée en cours. 
 L'utilisateur peut entrer des données le concernant et ainsi suivre ses objectifs quotidiens, entre autres.
 
-- Dans l'onglet <strong>"Objectifs quotidiens"</strong>, l'utilisateur peut saisir sa progression quant aux objectifs qu'il s'est fixé. L'utilisateur peut les modifier dans les paramètres, ce qui va mettre à jour le tableau de bord. En ce qui concerne les pas effectués, comme c'est une donnée retransmise par la montre normalement, actuellement la donnée affichée dans le tableau de bord est une valeur aléatoire. Pour les trois autres objectifs, l'utilisateur peut entrer les valeurs qui correspondent à sa consommation d'eau, de calories et à son temps personnel, ce qui met à jour dynamiquement la page. De cette manière, l'utilisateur peut visualiser ce qu'il lui reste à faire pour atteindre ses objectifs.
+- Dans l'onglet <strong>"Objectifs quotidiens"</strong>, l'utilisateur peut saisir sa progression quant aux objectifs qu'il s'est fixé. L'utilisateur peut les modifier dans les paramètres, ce qui va mettre à jour le tableau de bord. En ce qui concerne les pas effectués, il s'agit d'une donnée retransmise par la montre normalement, donc actuellement la donnée affichée dans le tableau de bord est une valeur aléatoire. Pour les trois autres objectifs, l'utilisateur peut entrer les valeurs qui correspondent à sa consommation d'eau, de calories et à son temps personnel, ce qui met à jour dynamiquement la page. De cette manière, l'utilisateur peut visualiser ce qu'il lui reste à faire pour atteindre ses objectifs.
 - Dans l'onglet <strong>"Activité physique du jour"</strong>, l'utilisateur peut mesurer son rythme cardiaque, en supposant que sa montre soit connectée pour qu'elle puisse le mesurer. A chaque fois qu'il appuie sur le coeur, ça reprend son rythme cardiaque. Dans le cadre de ce projet, comme nous n'avons pas réellement connecté la montre de l'utilisateur, il s'agit bien évidemment de valeurs fictives et cette carte du rythme cardiaque fait office de simulation. Il peut ensuite choisir un sport qu'il aurait pratiqué dans la journée et l'enregistrer. Cette donnée apparaitra ensuite dans la base de données, une fois qu'il aura validé.
 - Dans l'onglet <strong>"Sommeil"</strong>, l'utilisateur accède aux données enregistrées par sa montre sur l'état de son sommeil pour la nuit qu'il vient de passer. Il peut également renseigner la qualité et la quantité de celui-ci, données qui seront enregistrées dans la base de données, afin de nous aiguiller sur son état de fatigue et lui donner un historique sur le mois de son sommeil.
 - Dans l'onglet <strong>"Humeur"</strong>, l'utilisateur peut saisir son humeur et ainsi avoir une recommandation de film à regarder, en fonction de comment il se sent.
@@ -75,8 +75,8 @@ En ce qui concerne la page des <strong>détails des mois</strong>, il y a quatre
 Correspond à la page des paramètres du compte et des objectifs de l'utilisateur (il peut y modifier ses données). 
 Ainsi, lorsque l'utilisateur modifie ses objectifs (premier onglet), cela met à jour les objectifs dans le tableau de bord.
 
-Ensuite, lorsqu'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
-Celui-ci n'est pas immédiatement effectif et nécessite un certain temps d'adaptation.
+Ensuite, lorsque l'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
+Celui-ci n'est pas immédiatement effectif et nécessite un temps de mise à jour.
 
 
 #### Amélie DELAIN, Cynthia LAURENT et Clara SCHOTT
