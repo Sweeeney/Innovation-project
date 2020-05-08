@@ -132,6 +132,7 @@ Pour la page des détails du mois sélectionné :
 - Vérifiez, dans l'onglet "Alimentation", que les barres de progression dans la section "Ma nourriture" s'affichent correctement. Ne pas cliquer sur ces barres car elles sont modifiables et ce n'était pas l'objectif.
 - Vérifiez dans ce même onglet, que les articles s'affichent correctement. 
 - Vérifiez, dans l'onglet "Sport", que les images et le graphique s'affichent correctement.
+
 Pour la page des détails d'une journée sélectionnée : 
 - Vérifiez que le jour affiché correspond au jour sélectionné. 
 - Vérifiez, dans l'onglet "Objectifs quotidiens", que des valeurs correspondant aux objectifs, aux valeurs de ce qui a été atteint et aux valeurs de ce qui reste pour atteindre l'objectif, s'affichent. 
@@ -141,12 +142,12 @@ Pour la page des détails d'une journée sélectionnée :
 
 ### Paramètres
 Pour l'onglet "Mon profil" :
-- Dans la catégorie "Mes objectifs quotidiens", les objectifs sont représentés. Par défaut, des valeurs ont  été attribués à l'inscription (10 000 pas, 10 verres d'eau, 2 000 calories et 90 minutes de temps personnel). Vérifier que ce sont ces valeurs qui sont affichées.
+- Dans la catégorie "Mes objectifs quotidiens", les objectifs sont représentés. Par défaut, des valeurs ont  été attribuées à l'inscription (10 000 pas, 10 verres d'eau, 2 000 calories et 90 minutes de temps personnel). Vérifier que ce sont ces valeurs qui sont affichées.
 - Vous pouvez ensuite les modifier. Inscrire un nouvel objectif de pas à effectuer et cliquer sur le bouton "Ok" au bout de sa ligne. Faites la même chose avec les autres objectifs. A chaque fois, un message de type "snack-bar" s'affiche pour valider la modification.
 Une fois terminé, cliquer sur "Terminer" et vérifier que les valeurs affichées correspondent à celles qui ont été saisies.
-- Dans la catégorie "Mes appareils", il ne sert à rien de cliquer sur "Ajouter un appareil" ou "Supprimer un appareil", ces liens sont inactifs. Pour ce qui est de l'appareil connecté, l'utilisateur voit que son appareil est mis à jour toutes les heures, par défaut. En cliquant sur le bouton "Modifier", il peut changer ce paramètre. Faites un changement sur 3 heures et vérifier, après avoir cliquer sur le bouton "Terminer" que le changement est effectif.
+- Dans la catégorie "Mes appareils", il ne sert à rien de cliquer sur "Ajouter un appareil" ou "Supprimer un appareil", ces liens sont inactifs. Pour ce qui est de l'appareil connecté, l'utilisateur voit que son appareil est mis à jour toutes les heures, par défaut. En cliquant sur le bouton "Modifier", il peut changer ce paramètre. Faire un changement sur 3 heures et vérifier, après avoir cliqué sur le bouton "Terminer" que le changement est effectif.
 Pour l'onglet "Mes informations personnelles" :
-- L'utilisateur peut voir ces informations, comme son pseudo, son adresse mail et la date à laquelle il s'est inscrit. Il peut également modifier des informations telles que le mot de passe. Pour cela, cliquer sur le bouton "Modifier" et saisir un nouveau mot de passe. Le changement n'étant pas effectif, il n'est pas possible de vérifier directement. Cliquer sur "Terminer".
+- L'utilisateur peut voir ses informations, comme son pseudo, son adresse mail et la date à laquelle il s'est inscrit. Il peut également modifier des informations telles que le mot de passe. Pour cela, cliquer sur le bouton "Modifier" et saisir un nouveau mot de passe. Le changement n'étant pas effectif, il n'est pas possible de vérifier directement. Cliquer sur "Terminer".
 
 ### De manière générale 
 - Le nom de la page "Healthink" est un lien permanent vers la page d'accueil.
