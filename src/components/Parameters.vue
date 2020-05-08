@@ -475,7 +475,7 @@ export default {
   firestore() {
     return {
       usersData: firestore.collection("users-data"),
-      ownData: firestore.collection("users-data").doc(this.user.data.displayName)
+      ownData: firestore.collection("users-data").doc(this.utilisateur.displayName)
     };
   },
 
@@ -502,7 +502,7 @@ export default {
 
     modifierEau: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           objectifEau: this.eauObjectif
         })
@@ -511,7 +511,7 @@ export default {
 
     modifierCalories: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           objectifCalories: this.caloriesObjectif
         })
@@ -520,7 +520,7 @@ export default {
 
     modifierTempsPerso: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           objectifTempsPerso: this.tempsPersoObjectif
         })
@@ -529,7 +529,7 @@ export default {
 
     modifiermajAppareil: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           majAutoAppareil: this.majAppareil
         })

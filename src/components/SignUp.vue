@@ -76,6 +76,11 @@
           <v-btn color="teal" text @click="snackbarConnexion = false">Fermer</v-btn>
         </v-snackbar>
 
+        <v-snackbar v-model="snackbarTest">
+          TEST ! {{this.form.name}}
+          <v-btn color="teal" text @click="snackbarTest = false">Fermer</v-btn>
+        </v-snackbar>
+
             <br>
             <div align="center">
               <h3> Tu as déjà un compte chez nous ? </h3>
@@ -107,6 +112,25 @@
 <script>
 import firebase from "firebase";
 import { firestore } from "../main";
+
+var mois = new Array(
+  "janvier",
+  "févrirer",
+  "mars",
+  "avril",
+  "mai",
+  "juin",
+  "juillet",
+  "aout",
+  "septembre",
+  "octobre",
+  "novembre",
+  "décembre"
+);
+var date = new Date();
+var date_today = date.getDate() + " "; //Numéro du jour
+date_today += mois[date.getMonth()] + " "; //Mois
+date_today += date.getFullYear(); //Année
 
 export default {
   name: "SignUp",
@@ -165,6 +189,7 @@ export default {
             .updateProfile({
               displayName: this.form.name
             })
+            .then(this.snackbarTest = true)
         })
         .catch(err => {
           this.error = err.message;
@@ -176,10 +201,10 @@ export default {
           objectifEau: 10,
           objectifCalories: 2000,
           objectifTempsPerso: 90,
-          signUpDate: this.dateActuelle.getDate() + '/' + this.dateActuelle.getMonth() + '/' + this.dateActuelle.getFullYear()
+          signUpDate: date_today
         })
-        .then((this.snackbarConnexion = true)),
-      this.$refs.form.reset()
+        .then((this.snackbarConnexion = true))
+      //this.$refs.form.reset()
     }
 
   }

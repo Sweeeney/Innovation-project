@@ -4,7 +4,7 @@
       <div v-if="user.loggedIn">
         <v-row>
           <v-col class="text-left">
-            <h2 class="ps-4 ma-2 font-weight-thin headline">Bienvenue {{this.user.data.displayName}} - {{this.utilisateur.displayName}}</h2>
+            <h2 class="ps-4 ma-2 font-weight-thin headline">Bienvenue {{this.utilisateur.displayName}}</h2>
           </v-col>
           <v-col class="text-right">
             <v-btn

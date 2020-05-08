@@ -1136,7 +1136,7 @@ export default {
   firestore() {
     return {
       usersData: firestore.collection("users-data"),
-      ownData: firestore.collection("users-data").doc(this.user.data.displayName)
+      ownData: firestore.collection("users-data").doc(this.utilisateur.displayName)
     };
   },
 
@@ -1169,7 +1169,7 @@ export default {
 
     addWater: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           eau: this.eauAjout.match(/\d+/g).join('')
         })
@@ -1178,7 +1178,7 @@ export default {
 
     addCalories: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           calories: this.caloriesAjout.match(/\d+/g).join('')
         })
@@ -1187,7 +1187,7 @@ export default {
 
     addTempsPerso: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           tempsPerso: this.tempsPersoAjout.match(/\d+/g).join('')
         })
@@ -1196,7 +1196,7 @@ export default {
 
     addSport: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           sport: this.selected
         })
@@ -1205,7 +1205,7 @@ export default {
 
     addSommeil: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           sommeilQualite: this.selectedQualite,
           sommeilQuantite: this.selectedQuantite
@@ -1215,7 +1215,7 @@ export default {
 
     addMood: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           humeurJour: this.selectedHumeur,
         })
@@ -1240,6 +1240,8 @@ export default {
     return {
       usersData: [],
       ownData: [],
+
+      utilisateur:firebase.auth().currentUser,
 
       nbPasCourant,
       nbPasRestant: objectifPas - nbPasCourant,

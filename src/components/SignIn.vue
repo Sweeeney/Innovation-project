@@ -57,6 +57,7 @@
               <h3> Tu n'as pas encore de compte chez nous ? </h3>
               <span> Alors <router-link to="/signup" class="font-weight-black teal--text">inscris-toi</router-link> dés maintenant ! </span>
             </div>
+
           </v-card>
 
           <v-card 
@@ -90,7 +91,7 @@ export default {
         email: "",
         password: ""
       },
-      error: null
+      error: null,
     };
   },
   methods: {
