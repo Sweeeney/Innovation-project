@@ -79,14 +79,17 @@ Ces deux pages sont également accessibles de manière "public" et permettent à
 Cette page correspond au tableau de bord de l'utilisateur (pour les utilisateurs ayant un compte uniquement) et concerne la journée en cours. 
 L'utilisateur peut entrer des données le concernant et ainsi suivre ses objectifs quotidiens, entre autres.
 
+Dans l'onglet "Humeur", l'utilisateur peut saisir son humeur et ainsi avoir une recommandation de film à regarder, en fonction de comment il se sent.
+
 ### Historique (Master.vue)
-La page Historique amène à un calendrier visible par mois ou par jour. L'utilisateur peut choisir d'afficher des détails concernant un mois entier ou un jour en particulier, et ce, en choisisant la date, puis en cliquant sur le bouton "Accéder".
+La page Historique amène à un calendrier visible par mois ou par jour. L'utilisateur peut choisir d'afficher des détails concernant un mois entier ou un jour en particulier, et ce, en choisissant la date, puis en cliquant sur le bouton "Accéder".
 
 ### Pages des détails (DetailsMois.vue / DetailsJour.vue)
 Ces pages, comme leurs noms l'indiquent, donnent les détails concernant l'utilsateur par mois ou par jour. Comme il s'agit d'historiques, ces pages ne sont pas modifiables, contrairement au tableau de bord. Elles ne sont également accessibles que si l'utilisateur a un compte et qu'il est connecté.  
 
 ### Paramètres (Parameters.vue)
 Correspond à la page des paramètres du compte et des objectifs de l'utilisateur (il peut y modifier ses données). 
+Lorsqu'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
 
 
 

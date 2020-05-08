@@ -209,6 +209,9 @@
                 <v-row>
                   <v-col class="text-left">
                     <h2 class="ps-4 ma-2 headline font-weight-thin">MES APPAREILS</h2>
+                    <span class="ps-8"> 
+                      <a class="caption font-weight-black teal--text">Ajouter un appareil </a> | <a to="" class="caption font-weight-black teal--text"> Supprimer un appareil</a>
+                    </span>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -539,13 +542,6 @@ export default {
         );
     },
 
-    /* modifierNom: function(){
-        this.utilisateur.updateProfile({
-          displayName: this.newName
-        })
-        .then((this.snackbarNom = true))        
-    }, */
-
     modifierMDP: function(){
         this.utilisateur.updatePassword(this.mdp)
         .then((this.snackbarMDP = true));
@@ -564,6 +560,7 @@ export default {
       usersData: [],
       ownData: [],
 
+      //Initialisation de l'utilisateur courant
       utilisateur:firebase.auth().currentUser,
 
       //Modification de l'objectif pas

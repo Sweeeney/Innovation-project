@@ -111,7 +111,7 @@
                   :rotate="-90"
                   :size="155"
                   :width="20"
-                  :value="eau"
+                  :value="(ownData.eau * 100) / ownData.objectifEau"
                   color="blue"
                 >
                   <v-icon size="55">mdi-water</v-icon>
@@ -156,7 +156,7 @@
                   :rotate="-90"
                   :size="155"
                   :width="20"
-                  :value="food"
+                  :value="(ownData.calories * 100) / ownData.objectifCalories"
                   color="pink"
                 >
                   <v-icon size="55">mdi-food</v-icon>
@@ -194,7 +194,7 @@
                   :rotate="-90"
                   :size="155"
                   :width="20"
-                  :value="time"
+                  :value="(ownData.tempsPerso * 100) / ownData.objectifTempsPerso"
                   color="deep-purple accent-2"
                 >
                   <v-icon size="55">mdi-emoticon-excited-outline</v-icon>
@@ -1251,8 +1251,6 @@ export default {
       checking: false,
       bpm: [],
       eau: 70, //eau consommé selon l'objectif de la personne, valeur fixe
-      food: (1100 * 100) / 2100, //calories consommées selon l'objectif de la personne, valeur fixe
-      time: (20 * 100) / 120, //temps à consacrer à soi-même selon l'objectif de la personne, valeur fixe
 
       ajoutEau: false,
       ajoutNourriture: false,

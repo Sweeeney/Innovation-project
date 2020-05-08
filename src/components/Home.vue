@@ -76,10 +76,6 @@
 
     <!-- A propos -->
     <v-container fluid grid-list-xl text-xs-center>
-      <!-- A propos du site -->
-      <!-- <v-layout row wrap>
-        <v-flex xs12 sm8 md10 lg10></v-flex>
-      </v-layout>-->
       <!-- A propos de nous -->
       <v-row class="mx-auto">
         <!-- Cynthia -->
