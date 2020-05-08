@@ -86,7 +86,7 @@ La page Historique amène à un calendrier visible par mois ou par jour. L'utili
 Ces pages, comme leurs noms l'indiquent, donnent les détails concernant l'utilsateur par mois ou par jour. Comme il s'agit d'historiques, ces pages ne sont pas modifiables, contrairement au tableau de bord. Elles ne sont également accessibles que si l'utilisateur a un compte et qu'il est connecté.  
 
 ### Paramètres (Parameters.vue)
-Correspond à la page des paramètres du compte et des objectifs de l'utilsateur. 
+Correspond à la page des paramètres du compte et des objectifs de l'utilisateur (il peut y modifier ses données). 
 
 
 
