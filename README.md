@@ -67,7 +67,7 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Petits mots sur notre sujet
-...
+Cette application regroupe des informations données par l'utilisateur et des informations recueillies par des objets connectés. Nous voulions nous axer sur l'aspect psychologique de la personne. Pour cela, nous avons mixé l'aspect "e-santé", avec des objectifs physiques et alimentaires, et l'aspect plutôt "psychologique/bien-être", en proposant à l'utilisateur de se demander comment il se sentait et en lui donnant accès à des ressources en ligne, ou en lui faisant simplement des recommandations, afin d'améliorer son bien-être.
 
 ## Petits mots sur chacune des pages du site
 ### Accueil (Home.vue)
