@@ -94,7 +94,7 @@
                       Plus que {{ownData.objectifPas - ownData.nbPas}} pas avant l'objectif !
                     </h3>
                     <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
-                      Tu as atteint ton objectif (voir même plus) !
+                      Tu as atteint ton objectif (voire même plus) !
                     </h3>
                     <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de {{ownData.objectifPas}} pas / jour)</h4>
                   </div>
@@ -134,7 +134,7 @@
                       Plus que {{ownData.objectifEau - ownData.eau}} verres avant l'objectif !
                     </h3>
                     <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
-                      Tu as atteint ton objectif (voir même plus) !
+                      Tu as atteint ton objectif (voire même plus) !
                     </h3>
                     <h4 class="ps-3 ma-3 font-weight-thin">
                       (Objectif de {{ownData.objectifEau}} verres / jour)
@@ -179,7 +179,7 @@
                       {{ownData.objectifCalories - ownData.calories}} calories restantes !
                     </h3>
                     <h3 class="ps-4 ma-2 font-weight-thin headline" v-else>
-                      Tu as atteint ton objectif (voir même plus) !
+                      Tu as atteint ton objectif (voire même plus) !
                     </h3>
                     <h4 class="ps-3 ma-3 font-weight-thin">(Objectif de {{ownData.objectifCalories}} calories / jour)</h4>
                   </div>

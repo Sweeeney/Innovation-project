@@ -171,7 +171,18 @@ export default {
     },
 
     ajoutBDDuser() {
-      this.$refs.form.reset(),
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.form.email, this.form.password)
+        .then(data => {
+          data.user
+            .updateProfile({
+              displayName: this.form.name
+            })
+        })
+        .catch(err => {
+          this.error = err.message;
+        }),
       this.$firestore.usersData
         .doc(this.form.name)
         .set({
@@ -181,7 +192,8 @@ export default {
           objectifTempsPerso: 90,
           signUpDate: this.dateActuelle.getDate() + '/' + this.dateActuelle.getMonth() + '/' + this.dateActuelle.getYear()
         })
-        .then((this.snackbarConnexion = true));
+        .then((this.snackbarConnexion = true)),
+      this.$refs.form.reset()
     }
 
   }
