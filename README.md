@@ -14,39 +14,6 @@ ou
 yarn install
 ```
 
-### Installation du plugin Router de Vue.js
-
-`npm install vue-router`
-
-ou
-
-`yarn add vue-router`
-
-### Installation du plugin Vuex de Vue.js
-
-`npm install vuex`
-
-ou
-
-`yarn add vuex`
-
-### Installation du plugin firebase (https://www.npmjs.com/package/firebase)
-
-`npm install firebase`
-
-ou
-
-`yarn add firebase`
-
-### Installation du plugin vue-firestore (https://www.npmjs.com/package/vue-firestore)
-
-`npm install vue-firestore`
-
-ou
-
-`yarn add vue-firestore`
-
-
 ## Paramètres du lancement du projet
 ### Compilations et recharges à chaud pour le développement
 ```
@@ -58,7 +25,7 @@ yarn serve
 yarn build
 ```
 
-### Lentilles et corrections de fichiers
+### Analyse statique du code
 ```
 yarn lint
 ```
@@ -111,8 +78,10 @@ Ainsi, lorsque l'utilisateur modifie ses objectifs (premier onglet), cela met à
 Ensuite, lorsqu'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
 Celui-ci n'est pas immédiatement effectif et nécessite un certain temps d'adaptation.
 
+
 #### Amélie DELAIN, Cynthia LAURENT et Clara SCHOTT
 Etudiantes en M1 Sciences Cognitives
+
 Institut des Sciences du Digital, Management et Cognition (IDMC)
 
 
