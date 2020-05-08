@@ -86,7 +86,7 @@ L'utilisateur peut entrer des données le concernant et ainsi suivre ses objecti
 - Dans l'onglet "Activité physique du jour", l'utilisateur peut mesurer son rythme cardiaque, en supposant que sa montre soit connectée pour qu'elle puisse le mesurer. A chaque fois qu'il appuie sur le coeur, ça reprend son rythme cardiaque. Dans le cadre de ce projet, comme nous n'avons pas réellement connecté la montre de l'utilisateur, il s'agit bien évidemment de valeurs fictives et cette carte du rythme cardiaque fait office de simulation. Il peut ensuite choisir un sport qu'il aurait pratiqué dans la journée et l'enregistrer. Cette donnée apparaitra ensuite dans la base de données, une fois qu'il aura validé.
 - Dans l'onglet "Sommeil", l'utilisateur accède aux données enregistrées par sa montre sur l'état de son sommeil pour la nuit qu'il vient de passer. Il peut également renseigner la qualité et la quantité de celui-ci, données qui seront enregistrées dans la base de données, afin de nous aiguiller sur son état de fatigue et lui donner un historique sur le mois de son sommeil.
 - Dans l'onglet "Humeur", l'utilisateur peut saisir son humeur et ainsi avoir une recommandation de film à regarder, en fonction de comment il se sent.
-![40% center](humeur.png)
+![Smileys humeur](src/assets/humeur.png)
 
 ### Historique (Master.vue)
 La page Historique amène à un calendrier visible par mois ou par jour. L'utilisateur peut choisir d'afficher des détails concernant un mois entier ou un jour en particulier, et ce, en choisissant la date, puis en cliquant sur le bouton "Accéder".
