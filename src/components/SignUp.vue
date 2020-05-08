@@ -65,14 +65,14 @@
 
           <v-row align="center">
             <v-col class="text-center">
-              <v-btn class="mr-4" :disabled="!valid" color="success" type="submit" @click="ajoutBDDuser">Valider</v-btn>
+              <v-btn class="mr-4" :disabled="!valid" color="success" type="submit">Valider</v-btn>
               <v-btn class="mr-4" to="/home">Retour</v-btn>
             </v-col>
           </v-row>
         </v-form>
 
         <v-snackbar v-model="snackbarConnexion">
-          Tu es maintenant inscrit, connecte-toi rapidement !
+          Tu es maintenant inscrit(e), bienvenue !
           <v-btn color="teal" text @click="snackbarConnexion = false">Fermer</v-btn>
         </v-snackbar>
 
