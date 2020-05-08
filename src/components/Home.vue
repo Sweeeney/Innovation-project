@@ -175,7 +175,7 @@ export default {
       slides: [
         {
           src:
-            "https://lh3.googleusercontent.com/proxy/5kTuJhtekBEF8mi-N9h9gs5xLyQ3VNmr6DBn6SFFdRvIXRgYa2tmrB4owhX-1_p84FJJWCyEyXCoeq_7r6VL68e8cPEIX42lHlDHgW4u1OErX6nQtYd7avqfaxrPV3bAGKVSMQ-y6l8U_5yVPHta"
+            "https://media.lesechos.com/api/v1/images/view/5cc85d0fd286c25e0572b628/1280x720/2095725-le-bien-etre-au-travail-incite-les-salaries-a-sengager-web-tete-030393079423.jpg"
         },
         {
           src:
