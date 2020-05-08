@@ -78,6 +78,80 @@ Ainsi, lorsque l'utilisateur modifie ses objectifs (premier onglet), cela met à
 Ensuite, lorsque l'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
 Celui-ci n'est pas immédiatement effectif et nécessite un temps de mise à jour.
 
+## Test de l'application 
+### Connexion / Inscription
+Au moment de l'inscription : 
+- Vérifiez que le nom d'utilisateur rentré respecte des règles de base (comme détaillé ci-dessus).
+- Vérifiez que, dans le cas où l'adresse mail n'est pas dans un format correct, un message d'erreur s'affiche.
+- Vérifiez que le mot de passe soit analysé par le site, et donc qu'il soit d'un minimum de huit caractères, et que sa confirmation soit identique.
+- Vérifiez, lorsque tous les champs sont remplis, que le bouton "Valider" devienne cliquable. 
+- Vérifiez qu'un message de type "snack-bar" s'affiche lorsque vous cliquez que le bouton "Valider". 
+
+Pour la connexion : 
+- Si l'adresse mail et/ou le mot de passe est/sont invalide(s), la connexion aura échoué. Mais vérifiez que la connexion a été faite (ou non) en essayant d'accéder à une page "privée". Si l'accès à l'une de ces pages est possible alors que l'accueil n'affichait pas que vous étiez connecté, revenez sur la page Accueil pour constater que la connexion a réussi. Si l'accès à ces pages est impossible, alors la connexion n'a pas pu se faire, à cause d'une erreur dans le mail et/ou le mot de passe.
+
+### Accueil
+Pour la section "Actualités" : 
+- Vérifiez que les cinq images s'affichent et défilent. 
+
+Pour la section "A propos de nous" : 
+- Vérifiez que des messages de type "pop-up" s'affichent lorsque vous cliquez sur les boutons "En savoir plus sur ...".
+
+### Tableau de bord
+- S'assurer que la date affichée est bien celle du jour même.
+
+Pour l'onglet "Objectifs Quotidiens" :
+- Vérifier, pour chaque carte, si "Objectif de ..." est bien renseigné.
+- Vérifier qu'un nombre aléatoire entre 0 et 4000 apparaît pour le nombre de pas effectués (c'est une donnée fictive et aléatoire).
+- Vérifier que le nombre de pas restant correspondant bien à la différence entre l'objectif et le nombre de pas effectués.
+- Dans la section "A toi de nous dire...", cliquer sur l'icône bleue de l'eau et ajouter un nombre de verres ayant été bu dans la journée. Ce nombre doit s'ajouter à la carte de l'eau et la différence entre l'objectif et ce nombre doit également apparaître. Si le nombre choisit est supérieur à l'objectif, la deuxième phrase change pour féliciter l'utilisateur.
+- Cliquer sur l'icône rose des calories. Ajouter un nombre de calories consommées et vérifier que la carte des calories s'est actualisée comme les précédentes (nombre + différence).  A nouveau, si le nombre choisit est supérieur à l'objectif, des félicitations apparaissent.
+- Cliquer ensuite sur l'icône violette du temps personnel et ajouter, à nouveau, un temps personnel. La carte reliée doit s'actualiser (nombre choisit + différence). De même, si l'objectif est atteint, l'utilisateur est félicité.
+
+Pour l'onglet "Activité physique du jour" :
+- Cliquer sur le petit cœur dans la carte de la fréquence cardiaque. De manière aléatoire, celui-ci affiche un nombre de battements par minute (BPM).
+- Dans la catégorie suivante, choisissez des sports et cliquer sur le bouton "Ajouter les sports sélectionnés". Une snackbar s'affiche, en bas de l'écran pour signaler la validation de l'action.
+
+Pour l'onglet "Sommeil" :
+- Un graphique s'affiche pour montrer les phases du sommeil, pendant la nuit qui vient de passer.
+- En dessous du graphique, deux questions sont posées à l'utilisateur. La première lui demande quelle était la qualité de son sommeil. Tandis que la seconde lui demande quelle était la quantité de celui-ci. Il a le choix entre plusieurs réponses possibles. Après avoir rempli ces deux questions, cliquer sur le bouton "Ajouter ma sélection" et vérifier qu'une snackbar s'affiche pour valider la modification.
+
+Pour l'onglet "Humeur" :
+- Si l'utilisateur sélectionne les humeurs "heureux", "jovial" ou "dynamique", une liste de quatre films apparaît. S'il a sélectionné les humeurs "triste", "déprimé ou "fatigué", une liste de quatre autres films apparaît. Ce sont des recommandations. Elles n'impactent pas les données. L'utilisateur peut donc valider sa sélection en cliquant sur le bouton "Ajouter ma sélection". Vérifier qu'une snackbar apparaît pour valider l'envoi des données.
+
+### Historique / Pages des détails
+Pour la page des calendriers : 
+- Vérifiez que les deux calendriers s'affichent, en version "mois" lorsque vous êtes sur l'onglet "Vue annuelle" (vue sur tous les mois), et en version "jours" (vue sur un mois complet) lorsque vous êtes sur l'onglet "vue mensuelle".
+- Vérifiez que le bouton "Accéder" amène à la bonne page des détails, selon le calendrier affiché. 
+
+Pour la page des détails du mois sélectionné : 
+- Vérifiez que le mois affiché correspond au mois sélectionné.
+- Vérifiez, dans l'onglet "Général", que les images des livres de la section "Liens" et des citations dans la section "Citations" apparaissent.
+- Vérifiez, dans l'onglet "Sommeil", que les graphiques s'affichent. 
+- Vérifiez, dans l'onglet "Alimentation", que les barres de progression dans la section "Ma nourriture" s'affichent correctement. Ne pas cliquer sur ces barres car elles sont modifiables et ce n'était pas l'objectif.
+- Vérifiez dans ce même onglet, que les articles s'affichent correctement. 
+- Vérifiez, dans l'onglet "Sport", que les images et le graphique s'affichent correctement.
+Pour la page des détails d'une journée sélectionnée : 
+- Vérifiez que le jour affiché correspond au jour sélectionné. 
+- Vérifiez, dans l'onglet "Objectifs quotidiens", que des valeurs correspondant aux objectifs, aux valeurs de ce qui a été atteint et aux valeurs de ce qui reste pour atteindre l'objectif, s'affichent. 
+- Vérifiez, dans l'onglet "Activité physique du jour", que des valeurs pour le tour en vélo soient renseignées et que rien ne soit renseigné aux autres activités, et que l'image en bas de page s'affiche également.
+- Vérifiez, dans l'onglet "Sommeil", que le graphique sur le sommeil de la nuit précédente s'affiche, avec le GIF correspondant. 
+- Vérifiez, dans l'onglet "Humeur", que les affiches de films s'affichent et que le lien pour accéder à une liste de professionnel amène bien à un site externe (source : https://sante.lefigaro.fr/tags/professionnels-sante).
+
+### Paramètres
+Pour l'onglet "Mon profil" :
+- Dans la catégorie "Mes objectifs quotidiens", les objectifs sont représentés. Par défaut, des valeurs ont  été attribués à l'inscription (10 000 pas, 10 verres d'eau, 2 000 calories et 90 minutes de temps personnel). Vérifier que ce sont ces valeurs qui sont affichées.
+- Vous pouvez ensuite les modifier. Inscrire un nouvel objectif de pas à effectuer et cliquer sur le bouton "Ok" au bout de sa ligne. Faites la même chose avec les autres objectifs. A chaque fois, une snackbar s'affiche pour valider la modification.
+Une fois terminé, cliquer sur "Terminer" et vérifier que les valeurs affichées correspondent à celles qui ont été saisies.
+- Dans la catégorie "Mes appareils", il ne sert à rien de cliquer sur "Ajouter un appareil" ou "Supprimer un appareil", ces liens sont inactifs. Pour ce qui est de l'appareil connecté, l'utilisateur voit que son appareil est mis à jour toutes les heures, par défaut. En cliquant sur le bouton "Modifier", il peut changer ce paramètre. Faites un changement sur 3 heures et vérifier, après avoir cliquer sur le bouton "Terminer" que le changement est effectif.
+Pour l'onglet "Mes informations personnelles" :
+- L'utilisateur peut voir ces informations, comme son pseudo, son adresse mail et la date à laquelle il s'est inscrit. Il peut également modifier des informations telles que le mot de passe. Pour cela, cliquer sur le bouton "Modifier" et saisir un nouveau mot de passe. Le changement n'étant pas effectif, il n'est pas possible de vérifier directement. Cliquer sur "Terminer".
+
+### De manière générale 
+- Le nom de la page "Healthink" est un lien permanent vers la page d'accueil.
+- Toutes les flèches " < " à côté des titres permettent de revenir à la page précédente (l'accueil pour la plupart et l'historique pour DetailsJour et DetailsMois).
+- Le bouton "Déconnexion" permet de se déconnecter. Si l'utilisateur le fait alors qu'il est sur une page "privée", un nouveau contenu s'affiche pour lui dire de s'inscrire. Il n'a donc plus accès aux contenus "privés".
+
 
 #### Amélie DELAIN, Cynthia LAURENT et Clara SCHOTT
 Etudiantes en M1 Sciences Cognitives

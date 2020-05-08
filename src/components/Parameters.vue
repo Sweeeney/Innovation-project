@@ -4,22 +4,15 @@
       <div v-if="user.loggedIn">
         <v-row>
           <v-col class="text-left">
-            <v-row>
-              <h2 class="ps-4 ma-2 font-weight-thin display-1">
-                <router-link to="/home">
-                  <v-icon>mdi-chevron-left</v-icon>
-                </router-link>PARAMÈTRES
-              </h2>
-            </v-row>
+            <h2 class="display-1 font-weight-thin pl-4 ma-2" style="text-center">
+              <router-link class="back" to="/home">
+                <v-icon>mdi-chevron-left</v-icon>
+              </router-link>
+              PARAMÈTRES
+            </h2>
           </v-col>
           <v-col class="text-right">
-            <v-btn
-              tile
-              large
-              class="ma-2"
-              color="teal lighten-4"
-              @click.prevent="signOut"
-            >Déconnexion</v-btn>
+            <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
           </v-col>
         </v-row>
       </div>

@@ -1,10 +1,15 @@
 <template>
   <v-content>
     <header>
-      <div class="pl-4 ma-2" v-if="user.loggedIn">
+      <div v-if="user.loggedIn">
         <v-row>
           <v-col class="text-left">
-            <h2 class="display-1 font-weight-thin">MON CALENDRIER</h2>
+            <h2 class="display-1 font-weight-thin pl-4 ma-2" style="text-center">
+              <router-link class="back" to="/home">
+                <v-icon>mdi-chevron-left</v-icon>
+              </router-link>
+              MON CALENDRIER
+            </h2>
           </v-col>
           <v-col class="text-right">
             <v-btn tile large class="ma-2" color="teal lighten-4" @click.prevent="signOut">Déconnexion</v-btn>
@@ -71,9 +76,6 @@
             Accéder
             <v-icon right>mdi-chevron-right</v-icon>
           </router-link>
-        </v-btn>
-        <v-btn class="ma-2">
-          <router-link class="back" to="/home">Retour</router-link>
         </v-btn>
       </div>
     </div>
