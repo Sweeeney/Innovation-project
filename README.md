@@ -107,17 +107,18 @@ Pour l'onglet "Objectifs Quotidiens" :
 - Dans la section "A toi de nous dire...", cliquer sur l'icône bleue de l'eau et ajouter un nombre de verres ayant été bu dans la journée. Ce nombre doit s'ajouter à la carte de l'eau et la différence entre l'objectif et ce nombre doit également apparaître. Si le nombre choisit est supérieur à l'objectif, la deuxième phrase change pour féliciter l'utilisateur.
 - Cliquer sur l'icône rose des calories. Ajouter un nombre de calories consommées et vérifier que la carte des calories s'est actualisée comme les précédentes (nombre + différence).  A nouveau, si le nombre choisit est supérieur à l'objectif, des félicitations apparaissent.
 - Cliquer ensuite sur l'icône violette du temps personnel et ajouter, à nouveau, un temps personnel. La carte reliée doit s'actualiser (nombre choisit + différence). De même, si l'objectif est atteint, l'utilisateur est félicité.
+- Chacune de ces modifications fait apparaître un message de type "snack-bar" pour informer l'utilisateur du succès de son action.
 
 Pour l'onglet "Activité physique du jour" :
 - Cliquer sur le petit cœur dans la carte de la fréquence cardiaque. De manière aléatoire, celui-ci affiche un nombre de battements par minute (BPM).
-- Dans la catégorie suivante, choisissez des sports et cliquer sur le bouton "Ajouter les sports sélectionnés". Une snackbar s'affiche, en bas de l'écran pour signaler la validation de l'action.
+- Dans la catégorie suivante, choisissez des sports et cliquer sur le bouton "Ajouter les sports sélectionnés". Un message de type "snack-bar" s'affiche, en bas de l'écran pour signaler la validation de l'action.
 
 Pour l'onglet "Sommeil" :
 - Un graphique s'affiche pour montrer les phases du sommeil, pendant la nuit qui vient de passer.
-- En dessous du graphique, deux questions sont posées à l'utilisateur. La première lui demande quelle était la qualité de son sommeil. Tandis que la seconde lui demande quelle était la quantité de celui-ci. Il a le choix entre plusieurs réponses possibles. Après avoir rempli ces deux questions, cliquer sur le bouton "Ajouter ma sélection" et vérifier qu'une snackbar s'affiche pour valider la modification.
+- En dessous du graphique, deux questions sont posées à l'utilisateur. La première lui demande quelle était la qualité de son sommeil. Tandis que la seconde lui demande quelle était la quantité de celui-ci. Il a le choix entre plusieurs réponses possibles. Après avoir rempli ces deux questions, cliquer sur le bouton "Ajouter ma sélection" et vérifier qu'un message de type "snack-bar" s'affiche pour valider la modification.
 
 Pour l'onglet "Humeur" :
-- Si l'utilisateur sélectionne les humeurs "heureux", "jovial" ou "dynamique", une liste de quatre films apparaît. S'il a sélectionné les humeurs "triste", "déprimé ou "fatigué", une liste de quatre autres films apparaît. Ce sont des recommandations. Elles n'impactent pas les données. L'utilisateur peut donc valider sa sélection en cliquant sur le bouton "Ajouter ma sélection". Vérifier qu'une snackbar apparaît pour valider l'envoi des données.
+- Si l'utilisateur sélectionne les humeurs "heureux", "jovial" ou "dynamique", une liste de quatre films apparaît. S'il a sélectionné les humeurs "triste", "déprimé ou "fatigué", une liste de quatre autres films apparaît. Ce sont des recommandations. Elles n'impactent pas les données. L'utilisateur peut donc valider sa sélection en cliquant sur le bouton "Ajouter ma sélection". Vérifier qu'un message de type "snack-bar" apparaît pour valider l'envoi des données.
 
 ### Historique / Pages des détails
 Pour la page des calendriers : 
@@ -141,7 +142,7 @@ Pour la page des détails d'une journée sélectionnée :
 ### Paramètres
 Pour l'onglet "Mon profil" :
 - Dans la catégorie "Mes objectifs quotidiens", les objectifs sont représentés. Par défaut, des valeurs ont  été attribués à l'inscription (10 000 pas, 10 verres d'eau, 2 000 calories et 90 minutes de temps personnel). Vérifier que ce sont ces valeurs qui sont affichées.
-- Vous pouvez ensuite les modifier. Inscrire un nouvel objectif de pas à effectuer et cliquer sur le bouton "Ok" au bout de sa ligne. Faites la même chose avec les autres objectifs. A chaque fois, une snackbar s'affiche pour valider la modification.
+- Vous pouvez ensuite les modifier. Inscrire un nouvel objectif de pas à effectuer et cliquer sur le bouton "Ok" au bout de sa ligne. Faites la même chose avec les autres objectifs. A chaque fois, un message de type "snack-bar" s'affiche pour valider la modification.
 Une fois terminé, cliquer sur "Terminer" et vérifier que les valeurs affichées correspondent à celles qui ont été saisies.
 - Dans la catégorie "Mes appareils", il ne sert à rien de cliquer sur "Ajouter un appareil" ou "Supprimer un appareil", ces liens sont inactifs. Pour ce qui est de l'appareil connecté, l'utilisateur voit que son appareil est mis à jour toutes les heures, par défaut. En cliquant sur le bouton "Modifier", il peut changer ce paramètre. Faites un changement sur 3 heures et vérifier, après avoir cliquer sur le bouton "Terminer" que le changement est effectif.
 Pour l'onglet "Mes informations personnelles" :
