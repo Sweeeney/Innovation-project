@@ -82,7 +82,7 @@
 
                                 <v-col class="text-left" justify="center" align="center" xs12>
                                     <h3 class="display-0 font-weight-thin">
-                                        <strong>Nombre de pas</strong>
+                                        <strong>Nombre de pas à effectuer</strong>
                                         : {{ownData.objectifPas}} pas
                                     </h3>
                                     <h3 class="display-0 font-weight-thin">
@@ -123,7 +123,7 @@
                             <v-col class="text-left">
                               <!-- Modification objectif pas -->
                               <v-row pl4>
-                                <h3 class="display-0 font-weight-thin">Nombre de pas effectués :</h3>
+                                <h3 class="display-0 font-weight-thin">Nombre de pas à effectuer :</h3>
                                 <v-text-field dense v-model="pasObjectif"></v-text-field>
                                 <h3 class="display-0 font-weight-thin">pas</h3>
 
@@ -147,7 +147,7 @@
                               </v-row>
 
                               <v-snackbar v-model="snackbarEau">
-                                Ton objectif de pas a été modifié !
+                                Ton volume d'eau à consommer a été modifié !
                                 <v-btn color="teal" text @click="snackbarEau = false">Fermer</v-btn>
                               </v-snackbar>
 
@@ -162,7 +162,7 @@
                               </v-row>
 
                               <v-snackbar v-model="snackbarCalories">
-                                Ton objectif de pas a été modifié !
+                                Ton nombre de calories à consommer a été modifié !
                                 <v-btn color="teal" text @click="snackbarCalories = false">Fermer</v-btn>
                               </v-snackbar>
 
@@ -179,7 +179,7 @@
                               </v-row>
 
                               <v-snackbar v-model="snackbarTempsPerso">
-                                Ton objectif de pas a été modifié !
+                                Ton temps d'activités personnelles a été modifié !
                                 <v-btn color="teal" text @click="snackbarTempsPerso = false">Fermer</v-btn>
                               </v-snackbar>
                             </v-col>
@@ -394,20 +394,11 @@
                                                 src="https://i.pinimg.com/564x/6b/07/89/6b0789daf8c2b86fac1072205486d20e.jpg"
                                             ></v-img>
                                         </v-col>
-                                        <v-col class="text-left" align="center" justify="center" xs12 md4>
+                                        <v-col class="text-left" align="center" justify="center" xs12 md5>
                                             <!-- Modification nom utilisateur -->
                                             <v-row>
-                                                <h3 class="display-0 font-weight-thin"> 
-                                                    <strong>Nom</strong> : 
-                                                    <v-text-field dense v-model="newName"></v-text-field>
-                                                </h3>
-                                                <v-btn small color="success" dark @click="modifierNom">OK</v-btn>
+                                                <h3 class="display-0 font-weight-thin"> <strong>Nom </strong> : {{utilisateur.displayName}}</h3>
                                             </v-row>
-
-                                            <v-snackbar v-model="snackbarNom">
-                                                La mise à jour de ton nom à été effectuée !
-                                                <v-btn color="teal" text @click="snackbarNom = false">Fermer</v-btn>
-                                            </v-snackbar>
 
                                             <!-- Modification mot de passe -->
                                             <v-row>
@@ -425,17 +416,8 @@
 
                                             <!-- Modification email -->
                                             <v-row>
-                                                <h3 class="display-0 font-weight-thin"> 
-                                                    <strong>Adresse mail</strong> : 
-                                                    <v-text-field dense v-model="mail" type="email" :rules="emailRules"></v-text-field>
-                                                </h3>
-                                                <v-btn small color="success" dark @click="modifierMail">OK</v-btn>
+                                                <h3 class="display-0 font-weight-thin"> <strong> Adresse mail </strong> : {{utilisateur.email}}</h3>
                                             </v-row>
-
-                                            <v-snackbar v-model="snackbarMail">
-                                                La mise à jour de ton adresse mail à été effectuée !
-                                                <v-btn color="teal" text @click="snackbarMail = false">Fermer</v-btn>
-                                            </v-snackbar>
                                         </v-col>
                                     </v-row>
                                 </v-card>
@@ -511,7 +493,7 @@ export default {
 
     modifierPas: function() {
       this.$firestore.usersData
-        .doc(this.user.data.displayName)
+        .doc(this.utilisateur.displayName)
         .update({
           objectifPas: this.pasObjectif
         })
@@ -557,22 +539,17 @@ export default {
         );
     },
 
-    modifierNom: function(){
+    /* modifierNom: function(){
         this.utilisateur.updateProfile({
           displayName: this.newName
         })
         .then((this.snackbarNom = true))        
-    },
+    }, */
 
     modifierMDP: function(){
         this.utilisateur.updatePassword(this.mdp)
         .then((this.snackbarMDP = true));
     },
-
-    modifierMail: function(){
-        this.utilisateur.updateEmail(this.mail)
-        .then((this.snackbarMail = true));
-    }
 
   },
 
@@ -605,21 +582,12 @@ export default {
       majAppareil: "",
       snackbarAppareil: false,
 
-      //Modification du nom
-      newName: "",
-      snackbarNom: false,
-      //Modification du nom
+      //Modification du mot de passe
       mdp: "",
       snackbarMDP: false,
       passwordRules: [
         v => (v && v.length >= 8) || 'Ton mot de passe doit faire plus de 8 caractères',
         v => (v && v.length <= 25) || 'Ton mot de passe ne doit pas dépasser 25 caractères',
-      ],
-      //Modification du nom
-      mail: "",
-      snackbarMail: false,
-      emailRules: [
-        v => /.+@.+\..+/.test(v) || 'Ton adresse e-mail doit être valide',
       ],
 
       modifInfos: false,

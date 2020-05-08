@@ -71,7 +71,7 @@
                   :rotate="-90"
                   :size="155"
                   :width="20"
-                  :value="value"
+                  :value="(ownData.nbPas * 100) / ownData.objectifPas"
                   color="green"
                 >
                   <v-icon size="55">mdi-walk</v-icon>

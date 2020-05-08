@@ -21,11 +21,11 @@
             width="70%"
           >
             <v-form
-          ref="form"
-          v-model="valid"
-          @submit.prevent="submit"
-          action="#"
-        >
+              ref="form"
+              v-model="valid"
+              @submit.prevent="ajoutBDDuser"
+              action="#"
+            >
           <v-text-field
             v-model="form.name"
             type="name"
@@ -119,7 +119,7 @@ export default {
 
   data() {
     return {
-      usersDate:[],
+      usersData:[],
 
       form: {
         name: "",
@@ -127,6 +127,7 @@ export default {
         password: "",
         confirmation: "",
       },
+
       error: null,
       valid: true,
 
@@ -155,21 +156,6 @@ export default {
     };
   },
   methods: {
-    submit() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.form.email, this.form.password)
-        .then(data => {
-          data.user
-            .updateProfile({
-              displayName: this.form.name
-            })
-        })
-        .catch(err => {
-          this.error = err.message;
-        });
-    },
-
     ajoutBDDuser() {
       firebase
         .auth()
@@ -190,7 +176,7 @@ export default {
           objectifEau: 10,
           objectifCalories: 2000,
           objectifTempsPerso: 90,
-          signUpDate: this.dateActuelle.getDate() + '/' + this.dateActuelle.getMonth() + '/' + this.dateActuelle.getYear()
+          signUpDate: this.dateActuelle.getDate() + '/' + this.dateActuelle.getMonth() + '/' + this.dateActuelle.getFullYear()
         })
         .then((this.snackbarConnexion = true)),
       this.$refs.form.reset()
