@@ -76,11 +76,6 @@
           <v-btn color="teal" text @click="snackbarConnexion = false">Fermer</v-btn>
         </v-snackbar>
 
-        <v-snackbar v-model="snackbarTest">
-          TEST ! {{this.form.name}}
-          <v-btn color="teal" text @click="snackbarTest = false">Fermer</v-btn>
-        </v-snackbar>
-
             <br>
             <div align="center">
               <h3> Tu as déjà un compte chez nous ? </h3>
@@ -189,7 +184,6 @@ export default {
             .updateProfile({
               displayName: this.form.name
             })
-            .then(this.snackbarTest = true)
         })
         .catch(err => {
           this.error = err.message;
@@ -201,7 +195,8 @@ export default {
           objectifEau: 10,
           objectifCalories: 2000,
           objectifTempsPerso: 90,
-          signUpDate: date_today
+          signUpDate: date_today,
+          nbPas: Math.floor(Math.random() * 4000)
         })
         .then((this.snackbarConnexion = true))
       //this.$refs.form.reset()
