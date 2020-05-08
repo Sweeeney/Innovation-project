@@ -111,5 +111,8 @@ Ainsi, lorsque l'utilisateur modifie ses objectifs (premier onglet), cela met à
 Ensuite, lorsqu'utilisateur souhaite modifier ses informations personnelles, il peut uniquement modifier son mot de passe. Ce changement ne le déconnecte pas, mais la prochaine fois qu'il souhaitera se connecter, il devra utiliser le nouveau mot de passe.
 Celui-ci n'est pas immédiatement effectif et nécessite un certain temps d'adaptation.
 
+#### Amélie DELAIN, Cynthia LAURENT et Clara SCHOTT
+Etudiantes en M1 Sciences Cognitives
+Institut des Sciences du Digital, Management et Cognition (IDMC)
 
 
