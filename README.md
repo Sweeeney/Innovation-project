@@ -73,7 +73,7 @@ La page Accueil est accessible à tous, sans obligatoirement être inscrit sur n
 Les autres pages sont plutôt "privées", il faut donc s'inscrire pour y accéder.   
 
 ### Connexion / Inscription (SignIn.vue / SignUp.vue)
-Ces deux pages sont également accessibles de manière "public" et permette à l'utilisateur de s'inscrire ou de se connecter s'il possède déjà un compte. 
+Ces deux pages sont également accessibles de manière "public" et permettent à l'utilisateur de s'inscrire ou de se connecter s'il possède déjà un compte. 
 
 ### Tableau de bord (Dashboard.vue)
 Cette page correspond au tableau de bord de l'utilisateur (pour les utilisateurs ayant un compte uniquement) et concerne la journée en cours. 
